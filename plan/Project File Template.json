@@ -1,6 +1,7 @@
 {
 	"id": "(project id)",
 	"name": "(project name)",
+	"start_slide_id": "(project's starting slide's id)",
 	"slides": [
 		{
 			"id": "(slide's id)",
