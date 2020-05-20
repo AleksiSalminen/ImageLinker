@@ -1,0 +1,26 @@
+{
+	"id": "(project id)",
+	"name": "(project name)",
+	"slides": [
+		{
+			"id": "(slide's id)",
+			"heading": "(slide's heading)",
+			"reverting": "(true/false)",
+			"description": "(slide's description)",
+			"image": {
+				"loc": "(slide's image's file location)",
+				"horiz_pos": "(image's horizontal position)",
+				"vert_pos": "(image's vertical position)",
+				"size": "(image's size (percents))",
+				"angle": "(image's rotation angle)"
+			},
+			"options": [
+				{
+					"id": "(option's id)",
+					"title": "(option's title)",
+					"endpoint_id": "(endpoint slide's id)"
+				}
+			]
+		}
+	]
+}
