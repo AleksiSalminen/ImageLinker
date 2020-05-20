@@ -1,0 +1,21 @@
+-------------
+URL endpoints
+-------------
+
+/projects
+	GET (get all projects' ids and names)
+	POST (add a new project)
+
+/projects/:id
+	GET (get a certain project)
+	PUT (update a certain project)
+	DELETE (delete a certain project)
+
+/projects/:id/slides
+	GET (get slides according to the specified settings)
+	POST (add a new slide)
+
+/projects/:id/slides/:id
+	GET (get a certain slide of a certain project)
+	PUT (update a certain slide of a certain project)
+	DELETE (delete a certain slide of a certain project)
