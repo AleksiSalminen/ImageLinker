@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SlideLinker from './SlideLinker';
-import store from './state/main';
+import store from './state/reducers/main';
 import { Provider } from 'react-redux';
 
 ReactDOM.render(
