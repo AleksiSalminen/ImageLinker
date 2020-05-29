@@ -2,53 +2,187 @@
 REDUX PLAN
 ----------
 
-Actions:
+This is the overview of the reducers:
 
+rootReducer: {
+	projectList: {},
+	addedProject: {},
+	selectedProject: {
+		selectedProjectInfo: {},
+		slideList: {},
+		addedSlide: {},
+		selectedSlide: {},
+		updatedSlide: {},
+		deletedSlide: {}
+	},
+	updatedProject: {},
+	deletedProject: {}	
+}
+
+----------
+
+Next, the actions, the reducers related to these actions, and the reducers' states' 
+are described in the form:
+
+(reducer):
+	(request_action)
+	(receive_action)
+	(error_action)
+
+	(state): {
+    		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described),
+		... ,
+		...
+	}
+
+----------
+
+projectList:
 	REQUEST_GET_PROJECTS
 	RECEIVE_GET_PROJECTS
 	ERROR_GET_PROJECTS
 
+	state: {
+		projects: { (projects listed) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
+
+---
+
+addedProject:
 	REQUEST_ADD_PROJECT
 	RECEIVE_ADD_PROJECT
 	ERROR_ADD_PROJECT
 
+	state: {
+		added: { (added project info) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
+
+---
+
+selectedProjectInfo:
 	REQUEST_GET_PROJECT
 	RECEIVE_GET_PROJECT
 	ERROR_GET_PROJECT
 
+	state: {
+		selected: { (selected project info) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
+
+---
+
+updatedProject:
 	REQUEST_UPDATE_PROJECT
 	RECEIVE_UPDATE_PROJECT
 	ERROR_UPDATE_PROJECT
 
+	state: {
+		updated: { (updated project info) },
+		original: { (updated project original info) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
+
+---
+
+deletedProject:
 	REQUEST_DELETE_PROJECT
 	RECEIVE_DELETE_PROJECT
 	ERROR_DELETE_PROJECT
 
+	state: {
+		deleted: { (deleted project info) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
+
+---
+
+slideList:
 	REQUEST_GET_SLIDES
 	RECEIVE_GET_SLIDES
 	ERROR_GET_SLIDES
 
+	state: {
+		slides: { (slides listed) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
+
+---
+
+addedSlide:
 	REQUEST_ADD_SLIDE
 	RECEIVE_ADD_SLIDE
 	ERROR_ADD_SLIDE
 
+	state: {
+		added: { (added slide info) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
+
+---
+
+selectedSlide:
 	REQUEST_GET_SLIDE
 	RECEIVE_GET_SLIDE
 	ERROR_GET_SLIDE
 
+	state: {
+		selected: { (selected slide info) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
+
+---
+
+updatedSlide:
 	REQUEST_UPDATE_SLIDE
 	RECEIVE_UPDATE_SLIDE
 	ERROR_UPDATE_SLIDE
 
+	state: {
+		updated: { (updated slide info) },
+		original: { (updated slide original info) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
+
+---
+
+deletedSlide:
 	REQUEST_DELETE_SLIDE
 	RECEIVE_DELETE_SLIDE
 	ERROR_DELETE_SLIDE
 
-----------
+	state: {
+		deleted: { (deleted slide info) },
+		isFetching: (true/false),
+    		receivedAt: (time when received),
+    		error: (possible error described)
+	}
 
-Reducers:
+---
 
-	
+In addition to these, there is the rootReducer, which combines all of the reducers, and
+the selectedProject, which combines all the reducers related to the selected project
 
 ----------
 
