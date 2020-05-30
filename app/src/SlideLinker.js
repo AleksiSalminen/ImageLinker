@@ -1,9 +1,11 @@
 import React from 'react';
 
-function SlideLinker() {
+function SlideLinker(props) {
+  const state = JSON.stringify(props)
+  
   return (
     <div>
-      <h2>Slide Linker</h2>
+      <p>{state}</p>
     </div>
   );
 }
