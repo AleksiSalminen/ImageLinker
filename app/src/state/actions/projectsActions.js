@@ -47,15 +47,15 @@ export function receiveAddProject(addedProject) {
 
 /* GET_PROJECT */
 
-export function requestGetProject() {
+export function requestProject() {
     return { type: types.REQUEST_GET_PROJECT };
 }
 
-export function errorGetProject(error) {
+export function errorProject(error) {
     return { type: types.ERROR_GET_PROJECT, error };
 }
 
-export function receiveGetProject(selectedProject) {
+export function receiveProject(selectedProject) {
     return {
         type: types.RECEIVE_GET_PROJECT,
         selected: selectedProject,
@@ -104,4 +104,95 @@ export function receiveDeleteProject(deletedProject) {
 /*
 * Slide actions
 */
+
+/* GET_SLIDES */
+
+export function requestSlides() {
+    return { type: types.REQUEST_GET_SLIDES };
+}
+
+export function errorSlides(error) {
+    return { type: types.ERROR_GET_SLIDES, error };
+}
+
+export function receiveSlides(slides) {
+    return {
+        type: types.RECEIVE_GET_SLIDES,
+        slides: slides,
+        receivedAt: Date.now()
+    };
+}
+
+/* ADD_SLIDE */
+
+export function requestAddSlide() {
+    return { type: types.REQUEST_ADD_SLIDE };
+}
+
+export function errorAddSlide(error) {
+    return { type: types.ERROR_ADD_SLIDE, error };
+}
+
+export function receiveAddSlide(addedSlide) {
+    return {
+        type: types.RECEIVE_ADD_SLIDE,
+        added: addedSlide,
+        receivedAt: Date.now()
+    };
+}
+
+/* GET_SLIDE */
+
+export function requestSlide() {
+    return { type: types.REQUEST_GET_SLIDE };
+}
+
+export function errorSlide(error) {
+    return { type: types.ERROR_GET_SLIDE, error };
+}
+
+export function receiveSlide(slide) {
+    return {
+        type: types.RECEIVE_GET_SLIDE,
+        selected: slide,
+        receivedAt: Date.now()
+    };
+}
+
+/* UPDATE_SLIDE */
+
+export function requestUpdateSlide() {
+    return { type: types.REQUEST_UPDATE_SLIDE };
+}
+
+export function errorUpdateSlide(error) {
+    return { type: types.ERROR_UPDATE_SLIDE, error };
+}
+
+export function receiveUpdateSlide(updated, original) {
+    return {
+        type: types.RECEIVE_UPDATE_SLIDE,
+        updated: updated,
+        original: original,
+        receivedAt: Date.now()
+    };
+}
+
+/* DELETE_SLIDE */
+
+export function requestDeleteSlide() {
+    return { type: types.REQUEST_DELETE_SLIDE };
+}
+
+export function errorDeleteSlide(error) {
+    return { type: types.ERROR_DELETE_SLIDE, error };
+}
+
+export function receiveDeleteSlide(deletedSlide) {
+    return {
+        type: types.RECEIVE_DELETE_SLIDE,
+        deleted: deletedSlide,
+        receivedAt: Date.now()
+    };
+}
 
