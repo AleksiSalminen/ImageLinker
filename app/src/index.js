@@ -4,6 +4,7 @@ import SlideLinker from './SlideLinker.js';
 import store from './state/reducers/mainReducers.js';
 import { connect, Provider } from 'react-redux';
 
+console.log(store.getState());
 
 /*
 * Redux store mapping to React components
@@ -12,7 +13,8 @@ import { connect, Provider } from 'react-redux';
 // Map Redux state to component props
 function mapStateToProps(state) {
   return {
-    projects: state.projectList.projects
+    projects: state.projectList.projects,
+    selectedProjectInfo: state.selectedProject.selectedProjectInfo
   };
 }
 
