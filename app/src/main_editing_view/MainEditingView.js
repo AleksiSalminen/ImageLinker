@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+import OpenProjectDialog from './OpenProjectDialog.js';
 import SlidesTable from './SlidesTable.js';
 
 
@@ -16,10 +17,7 @@ function MainEditingView(props) {
     const selectedProject = props.selectedProjectInfo.selected
     const projectName = (selectedProject ? selectedProject.name : "(Create or open a project)");
 
-    const selectProject = () => {
-        
-    }
-
+    
     return (
         <div>
 
@@ -27,7 +25,7 @@ function MainEditingView(props) {
         <Toolbar>
             <Box>
             <Button variant="contained" color="primary">New</Button>
-            <Button variant="contained" color="primary" onClick={selectProject}>Open</Button>
+            <OpenProjectDialog />
             <Button variant="contained" color="primary">Play</Button>
             <Button variant="contained" color="primary">Settings</Button>
             </Box>
