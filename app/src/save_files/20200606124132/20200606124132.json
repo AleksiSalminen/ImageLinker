@@ -1,0 +1,27 @@
+{
+	"id": "20200606124132",
+	"name": "An awesome project",
+	"start_slide_id": "1",
+	"slides": [
+		{
+			"id": "1",
+			"heading": "How do you feel?",
+			"reverting": "true",
+			"description": "Choose the option that best describes your feelings",
+			"image": {
+				"loc": "./save_files/20200606124132/20200606124132.jpg",
+				"horiz_pos": "0",
+				"vert_pos": "0",
+				"size": "100",
+				"angle": "0"
+			},
+			"options": [
+				{
+					"id": "1",
+					"title": "I'm happy",
+					"endpoint_id": "2"
+				}
+			]
+		}
+	]
+}
