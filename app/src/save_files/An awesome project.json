@@ -9,7 +9,7 @@
 			"reverting": "true",
 			"description": "Choose the option that best describes your feelings",
 			"image": {
-				"loc": "./save_files/images/20200606124132-1.jpg",
+				"loc": "./save_files/images/20200606124132/1.jpg",
 				"horiz_pos": "0",
 				"vert_pos": "0",
 				"size": "100",
@@ -39,7 +39,7 @@
 			"reverting": "true",
 			"description": "Choose the option that describes your happiness level",
 			"image": {
-				"loc": "./save_files/images/20200606124132-2.jpg",
+				"loc": "./save_files/images/20200606124132/2.jpg",
 				"horiz_pos": "0",
 				"vert_pos": "0",
 				"size": "100",
@@ -55,7 +55,7 @@
 			"reverting": "true",
 			"description": "Choose one of the options",
 			"image": {
-				"loc": "./save_files/images/20200606124132-3.jpg",
+				"loc": "./save_files/images/20200606124132/3.jpg",
 				"horiz_pos": "0",
 				"vert_pos": "0",
 				"size": "110",
@@ -71,7 +71,7 @@
 			"reverting": "true",
 			"description": "",
 			"image": {
-				"loc": "./save_files/images/20200606124132-4.jpg",
+				"loc": "./save_files/images/20200606124132/4.jpg",
 				"horiz_pos": "10",
 				"vert_pos": "20",
 				"size": "100",
