@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 
+import LightModeSelector from './LightModeSelector.js';
+import LanguageSelector from './LanguageSelector.js';
+import FontSizeSelector from './FontSizeSelector.js';
 
 /**
  * Function that returns the view for settings menu
@@ -32,9 +34,9 @@ function SettingsMenu(props) {
                 open={Boolean(settingsAnchor)}
                 onClose={handleSettingsClose}
             >
-                <MenuItem onClick={handleSettingsClose}>Light/Dark</MenuItem>
-                <MenuItem onClick={handleSettingsClose}>Language</MenuItem>
-                <MenuItem onClick={handleSettingsClose}>Font size</MenuItem>
+                <LightModeSelector/>
+                <LanguageSelector/>
+                <FontSizeSelector/>
             </Menu>
         </>
     );
