@@ -1,9 +1,9 @@
 import React from 'react';
 
-import TopBar from './TopBar.js';
-import WelcomeView from './WelcomeView.js';
-import ProjectTitleArea from './ProjectTitleArea.js';
-import SlidesTable from './SlidesTable.js';
+import TopBar from './top_bar/TopBar.js';
+import WelcomeView from './welcome_view/WelcomeView.js';
+import ProjectTitleArea from './project_title_area/ProjectTitleArea.js';
+import SlidesTable from './slides_table/SlidesTable.js';
 
 
 /**

@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 
 import OpenProjectButton from './OpenProjectButton.js';
-import SettingsMenu from './SettingsMenu.js';
+import SettingsMenu from './settings_menu/SettingsMenu.js';
 
 
 /**
