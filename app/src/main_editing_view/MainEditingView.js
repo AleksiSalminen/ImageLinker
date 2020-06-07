@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TopBar from './TopBar.js';
+import WelcomeView from './WelcomeView.js';
 import ProjectTitleArea from './ProjectTitleArea.js';
 import SlidesTable from './SlidesTable.js';
 
@@ -11,24 +12,38 @@ import SlidesTable from './SlidesTable.js';
  */
 function MainEditingView(props) {
     const selectedProject = props.selectedProjectInfo.selected;
-    const projectName = (selectedProject ? selectedProject.name : "(Create or open a project)");
 
+    if(selectedProject) {
 
-    return (
-        <div>
+        return (
+            <div>
+    
+                <TopBar changeSelectedProject={props.changeSelectedProject}/>
+    
+                <br/>
+                
+                <ProjectTitleArea projectName={selectedProject.name}/>
+    
+                <br/><br/>
+    
+                <SlidesTable slides={selectedProject.slides} />
+    
+            </div>
+        );
+    }
+    else {
 
-            <TopBar changeSelectedProject={props.changeSelectedProject}/>
+        return(
+            <div>
+                <TopBar changeSelectedProject={props.changeSelectedProject}/>
+    
+                <br/><br/>
 
-            <br/>
-            
-            <ProjectTitleArea projectName={projectName}/>
+                <WelcomeView/>
+            </div>
+        );
+    }
 
-            <br/><br/>
-
-            <SlidesTable slides={(selectedProject ? selectedProject.slides : [])} />
-
-        </div>
-    );
 }
 
 export default MainEditingView;
