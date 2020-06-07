@@ -1,9 +1,7 @@
 import React from 'react';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 import TopBar from './TopBar.js';
+import ProjectTitleArea from './ProjectTitleArea.js';
 import SlidesTable from './SlidesTable.js';
 
 
@@ -22,12 +20,9 @@ function MainEditingView(props) {
             <TopBar changeSelectedProject={props.changeSelectedProject}/>
 
             <br/>
-            <Box>
-                <Typography variant="h4" align="center">
-                    {projectName}&nbsp;
-                    <Button variant="contained">Change</Button>
-                </Typography>
-            </Box>
+            
+            <ProjectTitleArea projectName={projectName}/>
+
             <br/><br/>
 
             <SlidesTable slides={(selectedProject ? selectedProject.slides : [])} />
