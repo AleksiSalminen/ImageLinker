@@ -10,6 +10,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 
+import SlidesTableSortButton from './SlidesTableSortButton.js';
+import SlidesTableFilterButton from './SlidesTableFilterButton';
+
 
 /**
  * Function that returns the view containing the table of slides
@@ -36,8 +39,8 @@ function SlidesTable(props) {
     <div>
 
       <Box>
-        <Button variant="outlined">Sort</Button>&nbsp;
-        <Button variant="outlined">Filter</Button>
+        <SlidesTableSortButton/>
+        <SlidesTableFilterButton/>
       </Box>
 
       <Box>
