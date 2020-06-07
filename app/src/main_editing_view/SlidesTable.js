@@ -46,7 +46,9 @@ function SlidesTable(props) {
             <Table stickyHeader aria-label="slides table">
               <TableHead>
                 <TableRow>
-                  <TableCell>Add</TableCell>
+                  <TableCell>
+                    <Button variant="outlined">+</Button>
+                  </TableCell>
                   <TableCell>Heading</TableCell>
                   <TableCell>Description</TableCell>
                 </TableRow>

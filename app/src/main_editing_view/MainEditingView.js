@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+import SettingsMenu from './SettingsMenu.js';
 import SlidesTable from './SlidesTable.js';
 
 
@@ -13,10 +14,10 @@ import SlidesTable from './SlidesTable.js';
  * @param {Object} props received parameters
  */
 function MainEditingView(props) {
-    const selectedProject = props.selectedProjectInfo.selected
+    const selectedProject = props.selectedProjectInfo.selected;
     const projectName = (selectedProject ? selectedProject.name : "(Create or open a project)");
-
-
+    
+    
     const changeProject = (file) => {
         if(file) {
             let reader = new FileReader();
@@ -35,12 +36,15 @@ function MainEditingView(props) {
             <Toolbar>
                 <Box>
                     <Button variant="contained" color="primary">New</Button>
+                    
                     <Button variant="contained" component="label" color="primary">
                         Open
                         <input type="file" style={{ display: "none" }} onChange={(event) => {changeProject(event.target.files[0])}}/>
                     </Button>
+                    
                     <Button variant="contained" color="primary">Play</Button>
-                    <Button variant="contained" color="primary">Settings</Button>
+                    
+                    <SettingsMenu/>
                 </Box>
             </Toolbar>
         </AppBar>
@@ -53,6 +57,7 @@ function MainEditingView(props) {
             </Typography>
         </Box>
         <br/><br/>
+
         <SlidesTable slides={(selectedProject ? selectedProject.slides : [])} />
 
         </div>
