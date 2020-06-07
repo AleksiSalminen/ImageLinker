@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SlideLinker from './SlideLinker.js';
 import store from './state/reducers/mainReducers.js';
+import * as actions from './state/actions/projectsActions.js';
 import { connect, Provider } from 'react-redux';
 
-console.log(store.getState());
 
 /*
 * Redux store mapping to React components
@@ -20,7 +20,7 @@ function mapStateToProps(state) {
 
 // Map Redux actions to component props
 const mapDispatchToProps = {
-
+  changeSelectedProject: (project) => store.dispatch(actions.receiveProject(project)),
 };
 
 // Connected Component

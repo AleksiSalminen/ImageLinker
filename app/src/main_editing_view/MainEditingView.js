@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -17,12 +17,12 @@ function MainEditingView(props) {
     const projectName = (selectedProject ? selectedProject.name : "(Create or open a project)");
 
 
-    const changeSelectedProject = (file) => {
+    const changeProject = (file) => {
         if(file) {
             let reader = new FileReader();
             reader.onload = function() {
-                let fileContent = JSON.parse(this.result);
-                
+                const project = JSON.parse(this.result);
+                props.changeSelectedProject(project);
             };
             reader.readAsText(file);
         }
@@ -37,7 +37,7 @@ function MainEditingView(props) {
                     <Button variant="contained" color="primary">New</Button>
                     <Button variant="contained" component="label" color="primary">
                         Open
-                        <input type="file" style={{ display: "none" }} onChange={(event) => {changeSelectedProject(event.target.files[0])}}/>
+                        <input type="file" style={{ display: "none" }} onChange={(event) => {changeProject(event.target.files[0])}}/>
                     </Button>
                     <Button variant="contained" color="primary">Play</Button>
                     <Button variant="contained" color="primary">Settings</Button>
@@ -53,7 +53,7 @@ function MainEditingView(props) {
             </Typography>
         </Box>
         <br/><br/>
-        <SlidesTable/>
+        <SlidesTable slides={(selectedProject ? selectedProject.slides : [])} />
 
         </div>
     );

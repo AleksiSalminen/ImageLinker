@@ -16,43 +16,30 @@ import TableRow from '@material-ui/core/TableRow';
  * @param {Object} props received parameters
  */
 function SlidesTable(props) {
+  const [page, setPage] = React.useState(0);
+  const [slidesPerPage, setSlidesPerPage] = React.useState(5);
 
-    const [page, setPage] = React.useState(0);
-    const [slidesPerPage, setSlidesPerPage] = React.useState(5);
-  
-    let slides = [
-      {"id": "1", "image": "(image)", "heading": "(heading1)", "description": "(description)"},
-      {"id": "2", "image": "(image)", "heading": "(heading2)", "description": "(description)"},
-      {"id": "3", "image": "(image)", "heading": "(heading3)", "description": "(description)"},
-      {"id": "4", "image": "(image)", "heading": "(heading4)", "description": "(description)"},
-      {"id": "5", "image": "(image)", "heading": "(heading5)", "description": "(description)"},
-      {"id": "6", "image": "(image)", "heading": "(heading6)", "description": "(description)"},
-      {"id": "7", "image": "(image)", "heading": "(heading7)", "description": "(description)"},
-      {"id": "8", "image": "(image)", "heading": "(heading8)", "description": "(description)"},
-      {"id": "9", "image": "(image)", "heading": "(heading9)", "description": "(description)"},
-    ];
-  
-    const handleChangePage = (event, newPage) => {
-      setPage(newPage);
-    };
-  
-    const handleChangeRowsPerPage = (event) => {
-      setSlidesPerPage(+event.target.value);
-      setPage(0);
-    };
-  
-    const selectSlide = (id) => {
-      alert(id);
-    }
-  
-    return (
-      <div>
-  
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setSlidesPerPage(+event.target.value);
+    setPage(0);
+  };
+
+  const selectSlide = (id) => {
+    alert(id);
+  }
+
+  return (
+    <div>
+
       <Box>
         <Button variant="outlined">Sort</Button>&nbsp;
         <Button variant="outlined">Filter</Button>
       </Box>
-      
+
       <Box>
         <Paper>
           <TableContainer>
@@ -65,10 +52,10 @@ function SlidesTable(props) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {slides.slice(page * slidesPerPage, page * slidesPerPage + slidesPerPage).map((row, index) => (
-                  <TableRow hover onClick={() => {selectSlide(row.id)}} key={row.name + "-" + index}>
+                {props.slides.slice(page * slidesPerPage, page * slidesPerPage + slidesPerPage).map((row, index) => (
+                  <TableRow hover onClick={() => { selectSlide(row.id) }} key={row.name + "-" + index}>
                     <TableCell component="th" scope="row">
-                      {row.image} 
+                      (image)
                     </TableCell>
                     <TableCell>
                       {row.heading}
@@ -84,7 +71,7 @@ function SlidesTable(props) {
           <TablePagination
             rowsPerPageOptions={[2, 3, 4, 5, 6, 7, 8, 9, 10]}
             component="div"
-            count={slides.length}
+            count={props.slides.length}
             rowsPerPage={slidesPerPage}
             page={page}
             onChangePage={handleChangePage}
@@ -92,9 +79,9 @@ function SlidesTable(props) {
           />
         </Paper>
       </Box>
-  
-      </div>
-    );
+
+    </div>
+  );
 }
 
 export default SlidesTable;

@@ -7,11 +7,13 @@ import MainEditingView from './main_editing_view/MainEditingView.js';
  * @param {Object} props received parameters
  */
 function SlideLinker(props) {
+  console.log(props.selectedProjectInfo);
   
   return (
     <div>
       <MainEditingView
         selectedProjectInfo = {props.selectedProjectInfo}
+        changeSelectedProject = {props.changeSelectedProject}
       />
     </div>
   );
