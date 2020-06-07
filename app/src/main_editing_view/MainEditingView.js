@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+import OpenProjectButton from './OpenProjectButton.js';
 import SettingsMenu from './SettingsMenu.js';
 import SlidesTable from './SlidesTable.js';
 
@@ -16,18 +17,7 @@ import SlidesTable from './SlidesTable.js';
 function MainEditingView(props) {
     const selectedProject = props.selectedProjectInfo.selected;
     const projectName = (selectedProject ? selectedProject.name : "(Create or open a project)");
-    
-    
-    const changeProject = (file) => {
-        if(file) {
-            let reader = new FileReader();
-            reader.onload = function() {
-                const project = JSON.parse(this.result);
-                props.changeSelectedProject(project);
-            };
-            reader.readAsText(file);
-        }
-    }
+
 
     return (
         <div>
@@ -37,10 +27,7 @@ function MainEditingView(props) {
                 <Box>
                     <Button variant="contained" color="primary">New</Button>
                     
-                    <Button variant="contained" component="label" color="primary">
-                        Open
-                        <input type="file" style={{ display: "none" }} onChange={(event) => {changeProject(event.target.files[0])}}/>
-                    </Button>
+                    <OpenProjectButton changeSelectedProject={props.changeSelectedProject}/>
                     
                     <Button variant="contained" color="primary">Play</Button>
                     
