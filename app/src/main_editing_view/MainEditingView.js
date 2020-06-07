@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@material-ui/core/Box';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-import OpenProjectButton from './OpenProjectButton.js';
-import SettingsMenu from './SettingsMenu.js';
+import TopBar from './TopBar.js';
 import SlidesTable from './SlidesTable.js';
 
 
@@ -22,30 +19,18 @@ function MainEditingView(props) {
     return (
         <div>
 
-        <AppBar position="static">
-            <Toolbar>
-                <Box>
-                    <Button variant="contained" color="primary">New</Button>
-                    
-                    <OpenProjectButton changeSelectedProject={props.changeSelectedProject}/>
-                    
-                    <Button variant="contained" color="primary">Play</Button>
-                    
-                    <SettingsMenu/>
-                </Box>
-            </Toolbar>
-        </AppBar>
+            <TopBar changeSelectedProject={props.changeSelectedProject}/>
 
-        <br/>
-        <Box>
-            <Typography variant="h4" align="center">
-                {projectName}&nbsp;
-                <Button variant="contained">Change</Button>
-            </Typography>
-        </Box>
-        <br/><br/>
+            <br/>
+            <Box>
+                <Typography variant="h4" align="center">
+                    {projectName}&nbsp;
+                    <Button variant="contained">Change</Button>
+                </Typography>
+            </Box>
+            <br/><br/>
 
-        <SlidesTable slides={(selectedProject ? selectedProject.slides : [])} />
+            <SlidesTable slides={(selectedProject ? selectedProject.slides : [])} />
 
         </div>
     );
