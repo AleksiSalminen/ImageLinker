@@ -5,7 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-import OpenProjectDialog from './OpenProjectDialog.js';
 import SlidesTable from './SlidesTable.js';
 
 
@@ -16,20 +15,17 @@ import SlidesTable from './SlidesTable.js';
 function MainEditingView(props) {
     const selectedProject = props.selectedProjectInfo.selected
     const projectName = (selectedProject ? selectedProject.name : "(Create or open a project)");
-    const [projectDialogOpen, setProjectDialogOpen] = useState(false);
-    const [projects, setProjects] = useState([]);
 
-    const openProjectDialog = () => {
-        setProjects([{"id":"1", "name":"First"}, {"id":"2", "name":"Second"}]);
-        setProjectDialogOpen(true);
-    }
 
-    const changeSelectedProject = (id) => {
-        if(id) {
-            alert(id);
+    const changeSelectedProject = (file) => {
+        if(file) {
+            let reader = new FileReader();
+            reader.onload = function() {
+                let fileContent = JSON.parse(this.result);
+                
+            };
+            reader.readAsText(file);
         }
-
-        setProjectDialogOpen(false);
     }
 
     return (
@@ -39,14 +35,15 @@ function MainEditingView(props) {
             <Toolbar>
                 <Box>
                     <Button variant="contained" color="primary">New</Button>
-                    <Button variant="contained" color="primary" onClick={openProjectDialog}>Open</Button>
+                    <Button variant="contained" component="label" color="primary">
+                        Open
+                        <input type="file" style={{ display: "none" }} onChange={(event) => {changeSelectedProject(event.target.files[0])}}/>
+                    </Button>
                     <Button variant="contained" color="primary">Play</Button>
                     <Button variant="contained" color="primary">Settings</Button>
                 </Box>
             </Toolbar>
         </AppBar>
-
-        <OpenProjectDialog open={projectDialogOpen} projects={projects} changeSelectedProject={changeSelectedProject}/>
 
         <br/>
         <Box>
