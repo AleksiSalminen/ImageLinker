@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
+import { useTranslation } from 'react-i18next';
+
 
 /**
  * Function that returns the font size selector
  * @param {Object} props received parameters
  */
 function FontSizeSelector(props) {
-    const [fontSize, setFontSize] = useState("Medium");
+    const { t } = useTranslation();
+    const small = "Small";
+    const medium = "Medium";
+    const large = "Large";
+    const [fontSize, setFontSize] = useState(medium);
 
     return (
         <MenuItem>
-            Font:
+            {t("TopBar.Settings.FontSize.Font")}:
             &nbsp;&nbsp;
-            <Button variant="contained" color={fontSize === "Small" ? "primary" : ""}>Small</Button>
+            <Button variant="contained" color={fontSize === small ? "primary" : ""}>{t("TopBar.Settings.FontSize.Small")}</Button>
             &nbsp;&nbsp;
-            <Button variant="contained" color={fontSize === "Medium" ? "primary" : ""}>Medium</Button>
+            <Button variant="contained" color={fontSize === medium ? "primary" : ""}>{t("TopBar.Settings.FontSize.Medium")}</Button>
             &nbsp;&nbsp;
-            <Button variant="contained" color={fontSize === "Large" ? "primary" : ""}>Large</Button>
+            <Button variant="contained" color={fontSize === large ? "primary" : ""}>{t("TopBar.Settings.FontSize.Large")}</Button>
         </MenuItem>
     );
 }

@@ -21,7 +21,7 @@ function LanguageSelector(props) {
 
     return (
         <MenuItem>
-            {t("Language")}:
+            {t("TopBar.Settings.Language")}:
             &nbsp;&nbsp;
             <Button onClick={() => {changeLanguage(english)}} variant="contained" color={language === english ? "primary" : ""}>English</Button>
             &nbsp;&nbsp;

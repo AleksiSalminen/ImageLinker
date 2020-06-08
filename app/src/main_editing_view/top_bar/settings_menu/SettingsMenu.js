@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
+import { useTranslation } from 'react-i18next';
 
 import LightModeSelector from './LightModeSelector.js';
 import LanguageSelector from './LanguageSelector.js';
@@ -11,6 +12,7 @@ import FontSizeSelector from './FontSizeSelector.js';
  * @param {Object} props received parameters
  */
 function SettingsMenu(props) {
+    const { t } = useTranslation();
     const [settingsAnchor, setSettingsAnchor] = useState(null);
 
     const handleSettingsClick = (event) => {
@@ -24,7 +26,7 @@ function SettingsMenu(props) {
     return (
         <>
             <Button variant="contained" color="primary" aria-controls="settings-menu" aria-haspopup="true" onClick={handleSettingsClick}>
-                Settings
+                {t("TopBar.Settings.SettingsButton")}
             </Button>
 
             <Menu

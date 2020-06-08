@@ -6,5 +6,23 @@
         "SelectPlay": "Select \"Play\" to play presentations",
         "SelectSettings": "Select \"Settings\" to adjust the settings in the interface"
     },
-    "Language": "Language"
+    "TopBar": {
+        "NewButton": "New",
+        "OpenButton": "Open",
+        "PlayButton": "Play",
+        "Settings": {
+            "SettingsButton": "Settings",
+            "Mode": {
+                "DarkMode": "Dark",
+                "LightMode": "Light"
+            },
+            "Language": "Language",
+            "FontSize": {
+                "Font": "Font",
+                "Small": "Small",
+                "Medium": "Medium",
+                "Large": "Large"
+            }
+        }
+    }
 }

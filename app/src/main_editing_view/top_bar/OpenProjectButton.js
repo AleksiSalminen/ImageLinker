@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import { useTranslation } from 'react-i18next';
 
 
 /**
@@ -7,6 +8,7 @@ import Button from '@material-ui/core/Button';
  * @param {Object} props received parameters
  */
 function OpenProjectButton(props) {
+    const { t } = useTranslation();
 
     const changeProject = (file) => {
         if(file) {
@@ -21,7 +23,7 @@ function OpenProjectButton(props) {
 
     return (
         <Button variant="contained" component="label" color="primary">
-            Open
+            {t("TopBar.OpenButton")}
             <input type="file" style={{ display: "none" }} onChange={(event) => {changeProject(event.target.files[0])}}/>
         </Button>
     );

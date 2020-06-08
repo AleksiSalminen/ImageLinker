@@ -6,5 +6,23 @@
         "SelectPlay": "Valitse \"Pelaa\" pelataksesi diaesityksiä",
         "SelectSettings": "Valitse \"Asetukset\" muuttaaksesi käyttöliittymän asetuksia"
     },
-    "Language": "Kieli"
+    "TopBar": {
+        "NewButton": "Uusi",
+        "OpenButton": "Avaa",
+        "PlayButton": "Pelaa",
+        "Settings": {
+            "SettingsButton": "Asetukset",
+            "Mode": {
+                "DarkMode": "Pimeä",
+                "LightMode": "Valoisa"
+            },
+            "Language": "Kieli",
+            "FontSize": {
+                "Font": "Fontti",
+                "Small": "Pieni",
+                "Medium": "Keskisuuri",
+                "Large": "Suuri"
+            }
+        }
+    }
 }
