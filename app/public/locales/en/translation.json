@@ -1,0 +1,10 @@
+{
+    "Welcome": {
+        "WelcomeTo": "Welcome to Slide Linker",
+        "SelectNew": "Select \"New\" to create a new project",
+        "SelectOpen": "Select \"Open\" to open a project",
+        "SelectPlay": "Select \"Play\" to play presentations",
+        "SelectSettings": "Select \"Settings\" to adjust the settings in the interface"
+    },
+    "Language": "Language"
+}

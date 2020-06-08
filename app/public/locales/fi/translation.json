@@ -1,0 +1,10 @@
+{
+    "Welcome": {
+        "WelcomeTo": "Tervetuloa Dia Linkittäjään",
+        "SelectNew": "Valitse \"Uusi\" luodaksesi uuden projektin",
+        "SelectOpen": "Valitse \"Avaa\" avataksesi projektin",
+        "SelectPlay": "Valitse \"Pelaa\" pelataksesi diaesityksiä",
+        "SelectSettings": "Valitse \"Asetukset\" muuttaaksesi käyttöliittymän asetuksia"
+    },
+    "Language": "Kieli"
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import { useTranslation } from 'react-i18next';
 
 
 /**
@@ -7,35 +8,36 @@ import Typography from '@material-ui/core/Typography';
  * @param {Object} props received parameters
  */
 function WelcomeView(props) {
+    const { t } = useTranslation();
 
     return (
         <div>
             <Typography variant="h3" align="center">
-                Welcome to Slide Linker
+                {t("Welcome.WelcomeTo")}
             </Typography>
 
             <br/><br/><br/>
 
             <Typography variant="h5" align="center">
-                Select "New" to create a new project
+                {t("Welcome.SelectNew")}
             </Typography>
 
             <br/>
 
             <Typography variant="h5" align="center">
-                Select "Open" to open a project
+                {t("Welcome.SelectOpen")}
             </Typography>
 
             <br/>
 
             <Typography variant="h5" align="center">
-                Select "Play" to play presentations
+                {t("Welcome.SelectPlay")}
             </Typography>
 
             <br/>
 
             <Typography variant="h5" align="center">
-                Select "Settings" to adjust the settings in the interface
+                {t("Welcome.SelectSettings")}
             </Typography>
         </div>
     );

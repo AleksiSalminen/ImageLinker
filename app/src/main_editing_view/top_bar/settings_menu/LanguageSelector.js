@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
+import { useTranslation } from 'react-i18next';
 
 
 /**
@@ -8,15 +9,23 @@ import Button from '@material-ui/core/Button';
  * @param {Object} props received parameters
  */
 function LanguageSelector(props) {
-    const [language, setLanguage] = useState("en");
+    const { t, i18n } = useTranslation();
+    const english = "en";
+    const finnish = "fi";
+    const [language, setLanguage] = useState(english);
+
+    const changeLanguage = (newLang) => {
+        i18n.changeLanguage(newLang);
+        setLanguage(newLang);
+    }
 
     return (
         <MenuItem>
-            Language:
+            {t("Language")}:
             &nbsp;&nbsp;
-            <Button variant="contained" color={language === "en" ? "primary" : ""}>English</Button>
+            <Button onClick={() => {changeLanguage(english)}} variant="contained" color={language === english ? "primary" : ""}>English</Button>
             &nbsp;&nbsp;
-            <Button variant="contained" color={language === "fi" ? "primary" : ""}>Suomi</Button>
+            <Button onClick={() => {changeLanguage(finnish)}} variant="contained" color={language === finnish ? "primary" : ""}>Suomi</Button>
         </MenuItem>
     );
 }

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import SlideLinker from './SlideLinker.js';
 import store from './state/reducers/mainReducers.js';
 import * as actions from './state/actions/projectsActions.js';
 import { connect, Provider } from 'react-redux';
+import './i18n';
 
 
 /*
@@ -30,9 +31,11 @@ const App = connect(mapStateToProps, mapDispatchToProps)(SlideLinker);
 // Rendering here
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <Suspense fallback={(<div></div>)}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );
