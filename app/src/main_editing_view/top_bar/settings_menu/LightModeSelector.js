@@ -13,6 +13,8 @@ function LightModeSelector(props) {
 
     return (
         <MenuItem>
+            {t("TopBar.Settings.Mode.Theme")}:
+            &nbsp;&nbsp;
             {t("TopBar.Settings.Mode.DarkMode")}
             <Switch
                 checked={true}

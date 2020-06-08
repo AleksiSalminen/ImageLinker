@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -19,6 +20,7 @@ import SlidesTableFilterButton from './SlidesTableFilterButton';
  * @param {Object} props received parameters
  */
 function SlidesTable(props) {
+  const { t } = useTranslation();
   const [page, setPage] = React.useState(0);
   const [slidesPerPage, setSlidesPerPage] = React.useState(5);
 
@@ -52,8 +54,12 @@ function SlidesTable(props) {
                   <TableCell>
                     <Button variant="outlined">+</Button>
                   </TableCell>
-                  <TableCell>Heading</TableCell>
-                  <TableCell>Description</TableCell>
+                  <TableCell>
+                    {t("SlidesTable.Heading")}
+                  </TableCell>
+                  <TableCell>
+                    {t("SlidesTable.Description")}
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -78,6 +84,9 @@ function SlidesTable(props) {
             component="div"
             count={props.slides.length}
             rowsPerPage={slidesPerPage}
+            labelRowsPerPage={t("SlidesTable.RowsPerPage")}
+            backIconButtonText={t("SlidesTable.BackButton")}
+            nextIconButtonText={t("SlidesTable.NextButton")}
             page={page}
             onChangePage={handleChangePage}
             onChangeRowsPerPage={handleChangeRowsPerPage}

@@ -13,6 +13,7 @@
         "Settings": {
             "SettingsButton": "Settings",
             "Mode": {
+                "Theme": "Theme",
                 "DarkMode": "Dark",
                 "LightMode": "Light"
             },
@@ -24,5 +25,17 @@
                 "Large": "Large"
             }
         }
+    },
+    "ProjectTitle": {
+        "ChangeButton": "Change"
+    },
+    "SlidesTable": {
+        "SortButton": "Sort",
+        "FilterButton": "Filter",
+        "Heading": "Heading",
+        "Description": "Description",
+        "RowsPerPage": "Rows per page:",
+        "BackButton": "Previous page",
+        "NextButton": "Next page"
     }
 }

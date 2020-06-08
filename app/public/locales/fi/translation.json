@@ -13,6 +13,7 @@
         "Settings": {
             "SettingsButton": "Asetukset",
             "Mode": {
+                "Theme": "Teema",
                 "DarkMode": "Pimeä",
                 "LightMode": "Valoisa"
             },
@@ -24,5 +25,17 @@
                 "Large": "Suuri"
             }
         }
+    },
+    "ProjectTitle": {
+        "ChangeButton": "Muuta"
+    },
+    "SlidesTable": {
+        "SortButton": "Järjestä",
+        "FilterButton": "Suodata",
+        "Heading": "Otsikko",
+        "Description": "Kuvaus",
+        "RowsPerPage": "Rivejä per sivu:",
+        "BackButton": "Edellinen sivu",
+        "NextButton": "Seuraava sivu"
     }
 }
