@@ -19,7 +19,7 @@
             },
             "Language": "Kieli",
             "FontSize": {
-                "Font": "Fontti",
+                "FontSize": "Fonttikoko",
                 "Small": "Pieni",
                 "Medium": "Keskisuuri",
                 "Large": "Suuri"

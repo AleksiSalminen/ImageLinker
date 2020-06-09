@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import MenuItem from '@material-ui/core/MenuItem';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import MenuItem from '@material-ui/core/MenuItem';
 
 
 /**
@@ -10,20 +9,19 @@ import { useTranslation } from 'react-i18next';
  */
 function FontSizeSelector(props) {
     const { t } = useTranslation();
-    const small = "Small";
-    const medium = "Medium";
-    const large = "Large";
-    const [fontSize, setFontSize] = useState(medium);
 
     return (
         <MenuItem>
-            {t("TopBar.Settings.FontSize.Font")}:
+            {t("TopBar.Settings.FontSize.FontSize")}:
             &nbsp;&nbsp;
-            <Button variant="contained" color={fontSize === small ? "primary" : "default"}>{t("TopBar.Settings.FontSize.Small")}</Button>
-            &nbsp;&nbsp;
-            <Button variant="contained" color={fontSize === medium ? "primary" : "default"}>{t("TopBar.Settings.FontSize.Medium")}</Button>
-            &nbsp;&nbsp;
-            <Button variant="contained" color={fontSize === large ? "primary" : "default"}>{t("TopBar.Settings.FontSize.Large")}</Button>
+
+            <input 
+                type="number"
+                value={props.fontSize}
+                min={5}
+                max={30}
+                onChange={(event) => {props.setFontSize(event.target.value)}}
+            />
         </MenuItem>
     );
 }

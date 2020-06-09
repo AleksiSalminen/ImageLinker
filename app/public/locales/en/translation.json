@@ -19,7 +19,7 @@
             },
             "Language": "Language",
             "FontSize": {
-                "Font": "Font",
+                "FontSize": "Font size",
                 "Small": "Small",
                 "Medium": "Medium",
                 "Large": "Large"

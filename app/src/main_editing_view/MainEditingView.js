@@ -22,6 +22,8 @@ function MainEditingView(props) {
                     changeSelectedProject={props.changeSelectedProject}
                     darkState={props.darkState}
                     handleThemeChange={props.handleThemeChange}
+                    fontSize={props.fontSize}
+                    setFontSize={props.setFontSize}
                 />
     
                 <br/>
@@ -43,6 +45,8 @@ function MainEditingView(props) {
                     changeSelectedProject={props.changeSelectedProject}
                     darkState={props.darkState}
                     handleThemeChange={props.handleThemeChange}
+                    fontSize={props.fontSize}
+                    setFontSize={props.setFontSize}
                 />
     
                 <br/><br/>

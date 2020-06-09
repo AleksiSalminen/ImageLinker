@@ -26,7 +26,7 @@ function TopBar(props) {
                     &nbsp;&nbsp;
                     <Button variant="contained" color="primary">{t("TopBar.PlayButton")}</Button>
                     &nbsp;&nbsp;
-                    <SettingsMenu darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
+                    <SettingsMenu fontSize={props.fontSize} setFontSize={props.setFontSize} darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
                 </Box>
             </Toolbar>
         </AppBar>

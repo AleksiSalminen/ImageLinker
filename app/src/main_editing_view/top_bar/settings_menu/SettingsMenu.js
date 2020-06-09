@@ -39,7 +39,7 @@ function SettingsMenu(props) {
             >
                 <LightModeSelector darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
                 <LanguageSelector/>
-                <FontSizeSelector/>
+                <FontSizeSelector fontSize={props.fontSize} setFontSize={props.setFontSize}/>
             </Menu>
         </>
     );
