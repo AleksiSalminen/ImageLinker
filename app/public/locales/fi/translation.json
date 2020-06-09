@@ -18,6 +18,7 @@
                 "LightMode": "Valoisa"
             },
             "Language": "Kieli",
+            "Font": "Fontti",
             "FontSize": {
                 "FontSize": "Fonttikoko",
                 "Small": "Pieni",

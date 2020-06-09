@@ -18,6 +18,7 @@
                 "LightMode": "Light"
             },
             "Language": "Language",
+            "Font": "Font",
             "FontSize": {
                 "FontSize": "Font size",
                 "Small": "Small",
