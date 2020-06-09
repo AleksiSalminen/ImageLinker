@@ -12,13 +12,17 @@ import SlidesTable from './slides_table/SlidesTable.js';
  */
 function MainEditingView(props) {
     const selectedProject = props.selectedProjectInfo.selected;
-
+    
     if(selectedProject) {
 
         return (
             <div>
     
-                <TopBar changeSelectedProject={props.changeSelectedProject}/>
+                <TopBar
+                    changeSelectedProject={props.changeSelectedProject}
+                    darkState={props.darkState}
+                    handleThemeChange={props.handleThemeChange}
+                />
     
                 <br/>
                 
@@ -35,7 +39,11 @@ function MainEditingView(props) {
 
         return(
             <div>
-                <TopBar changeSelectedProject={props.changeSelectedProject}/>
+                <TopBar
+                    changeSelectedProject={props.changeSelectedProject}
+                    darkState={props.darkState}
+                    handleThemeChange={props.handleThemeChange}
+                />
     
                 <br/><br/>
 

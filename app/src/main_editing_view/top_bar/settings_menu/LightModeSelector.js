@@ -1,7 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import MenuItem from '@material-ui/core/MenuItem';
 import Switch from '@material-ui/core/Switch';
-import { useTranslation } from 'react-i18next';
 
 
 /**
@@ -10,19 +10,19 @@ import { useTranslation } from 'react-i18next';
  */
 function LightModeSelector(props) {
     const { t } = useTranslation();
-
+    
     return (
         <MenuItem>
             {t("TopBar.Settings.Mode.Theme")}:
             &nbsp;&nbsp;
-            {t("TopBar.Settings.Mode.DarkMode")}
+            {t("TopBar.Settings.Mode.LightMode")}
             <Switch
-                checked={true}
+                checked={props.darkState}
                 color="primary"
-                onChange={2}
+                onChange={props.handleThemeChange}
                 inputProps={{ 'aria-label': 'light dark mode selection' }}
             />
-            {t("TopBar.Settings.Mode.LightMode")}
+            {t("TopBar.Settings.Mode.DarkMode")}
         </MenuItem>
     );
 }

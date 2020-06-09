@@ -23,9 +23,9 @@ function LanguageSelector(props) {
         <MenuItem>
             {t("TopBar.Settings.Language")}:
             &nbsp;&nbsp;
-            <Button onClick={() => {changeLanguage(english)}} variant="contained" color={language === english ? "primary" : ""}>English</Button>
+            <Button onClick={() => {changeLanguage(english)}} variant="contained" color={language === english ? "primary" : "default"}>English</Button>
             &nbsp;&nbsp;
-            <Button onClick={() => {changeLanguage(finnish)}} variant="contained" color={language === finnish ? "primary" : ""}>Suomi</Button>
+            <Button onClick={() => {changeLanguage(finnish)}} variant="contained" color={language === finnish ? "primary" : "default"}>Suomi</Button>
         </MenuItem>
     );
 }

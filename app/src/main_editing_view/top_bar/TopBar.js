@@ -17,16 +17,16 @@ function TopBar(props) {
     const { t } = useTranslation();
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" color="default">
             <Toolbar>
                 <Box>
                     <Button variant="contained" color="primary">{t("TopBar.NewButton")}</Button>
-                    
+                    &nbsp;&nbsp;
                     <OpenProjectButton changeSelectedProject={props.changeSelectedProject}/>
-                    
+                    &nbsp;&nbsp;
                     <Button variant="contained" color="primary">{t("TopBar.PlayButton")}</Button>
-                    
-                    <SettingsMenu/>
+                    &nbsp;&nbsp;
+                    <SettingsMenu darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
                 </Box>
             </Toolbar>
         </AppBar>

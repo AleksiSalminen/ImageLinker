@@ -7,6 +7,7 @@ import LightModeSelector from './LightModeSelector.js';
 import LanguageSelector from './LanguageSelector.js';
 import FontSizeSelector from './FontSizeSelector.js';
 
+
 /**
  * Function that returns the view for settings menu
  * @param {Object} props received parameters
@@ -36,7 +37,7 @@ function SettingsMenu(props) {
                 open={Boolean(settingsAnchor)}
                 onClose={handleSettingsClose}
             >
-                <LightModeSelector/>
+                <LightModeSelector darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
                 <LanguageSelector/>
                 <FontSizeSelector/>
             </Menu>

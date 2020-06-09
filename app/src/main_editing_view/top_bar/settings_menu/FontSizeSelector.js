@@ -19,11 +19,11 @@ function FontSizeSelector(props) {
         <MenuItem>
             {t("TopBar.Settings.FontSize.Font")}:
             &nbsp;&nbsp;
-            <Button variant="contained" color={fontSize === small ? "primary" : ""}>{t("TopBar.Settings.FontSize.Small")}</Button>
+            <Button variant="contained" color={fontSize === small ? "primary" : "default"}>{t("TopBar.Settings.FontSize.Small")}</Button>
             &nbsp;&nbsp;
-            <Button variant="contained" color={fontSize === medium ? "primary" : ""}>{t("TopBar.Settings.FontSize.Medium")}</Button>
+            <Button variant="contained" color={fontSize === medium ? "primary" : "default"}>{t("TopBar.Settings.FontSize.Medium")}</Button>
             &nbsp;&nbsp;
-            <Button variant="contained" color={fontSize === large ? "primary" : ""}>{t("TopBar.Settings.FontSize.Large")}</Button>
+            <Button variant="contained" color={fontSize === large ? "primary" : "default"}>{t("TopBar.Settings.FontSize.Large")}</Button>
         </MenuItem>
     );
 }
