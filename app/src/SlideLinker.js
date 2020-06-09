@@ -10,12 +10,12 @@ import MainEditingView from './main_editing_view/MainEditingView.js';
  * @param {Object} props received parameters
  */
 function SlideLinker(props) {
-  const [font, setFont] = useState("Times New Roman");
-  const [fontSize, setFontSize] = useState(15);
+  const [font, setFont] = useState("Bahnschrift Light");
+  const [fontSize, setFontSize] = useState(14);
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
 
-  
+
   const theme = createMuiTheme({
     palette: {
       type: palletType
@@ -39,6 +39,8 @@ function SlideLinker(props) {
         changeSelectedProject={props.changeSelectedProject}
         darkState={darkState}
         handleThemeChange={handleThemeChange}
+        font={font}
+        setFont={setFont}
         fontSize={fontSize}
         setFontSize={setFontSize}
       />

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import LightModeSelector from './LightModeSelector.js';
 import LanguageSelector from './LanguageSelector.js';
+import FontSelector from './FontSelector.js';
 import FontSizeSelector from './FontSizeSelector.js';
 
 
@@ -39,6 +40,7 @@ function SettingsMenu(props) {
             >
                 <LightModeSelector darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
                 <LanguageSelector/>
+                <FontSelector font={props.font} setFont={props.setFont}/>
                 <FontSizeSelector fontSize={props.fontSize} setFontSize={props.setFontSize}/>
             </Menu>
         </>
