@@ -19,13 +19,13 @@ function TopBar(props) {
     return (
         <AppBar position="static" color="default">
             <Toolbar>
-                <Box>
+                <Box style={{marginLeft:"auto", marginRight:"0rem"}}>
                     <Button variant="contained" color="primary">{t("TopBar.NewButton")}</Button>
-                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <OpenProjectButton changeSelectedProject={props.changeSelectedProject}/>
-                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <Button variant="contained" color="primary">{t("TopBar.PlayButton")}</Button>
-                    &nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <SettingsMenu font={props.font} setFont={props.setFont} fontSize={props.fontSize} setFontSize={props.setFontSize} darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
                 </Box>
             </Toolbar>

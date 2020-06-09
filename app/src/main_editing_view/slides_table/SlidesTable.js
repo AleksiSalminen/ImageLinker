@@ -38,17 +38,19 @@ function SlidesTable(props) {
   }
 
   return (
-    <div>
+    <div style={{width:"90%", margin:"auto", paddingTop:"1.0rem", paddingBottom:"1.0rem", borderStyle:"double", borderWidth:"thin", borderRadius:"1.0rem", borderColor:"lightgrey"}}>
 
       <Box>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <SlidesTableSortButton/>
+        &nbsp;&nbsp;&nbsp;&nbsp;
         <SlidesTableFilterButton/>
       </Box>
-
+      <br/>
       <Box>
         <Paper>
           <TableContainer>
-            <Table stickyHeader aria-label="slides table">
+            <Table style={{borderStyle:"double hidden hidden hidden", borderColor:"lightgrey", borderWidth:"thin"}} stickyHeader aria-label="slides table">
               <TableHead>
                 <TableRow>
                   <TableCell>

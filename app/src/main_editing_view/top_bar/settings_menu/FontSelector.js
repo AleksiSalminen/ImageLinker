@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import MenuItem from '@material-ui/core/MenuItem';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
@@ -15,9 +16,9 @@ function FontSelector(props) {
     const { t } = useTranslation();
 
     return (
-        <MenuItem>
-            {t("TopBar.Settings.Font")}:
-            &nbsp;&nbsp;
+        <Box style={{margin:"1.5rem"}}>
+            <Typography>{t("TopBar.Settings.Font")}:</Typography>
+            
 
             <Autocomplete
                 id="font-select"
@@ -29,7 +30,7 @@ function FontSelector(props) {
                 style={{ width: 300 }}
                 renderInput={(params) => <TextField {...params} variant="outlined" />}
             />
-        </MenuItem>
+        </Box>
     );
 }
 

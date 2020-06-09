@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import MenuItem from '@material-ui/core/MenuItem';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 import Switch from '@material-ui/core/Switch';
 
 
@@ -12,8 +13,8 @@ function LightModeSelector(props) {
     const { t } = useTranslation();
     
     return (
-        <MenuItem>
-            {t("TopBar.Settings.Mode.Theme")}:
+        <Box style={{margin:"1.5rem"}}>
+            <Typography>{t("TopBar.Settings.Mode.Theme")}:</Typography>
             &nbsp;&nbsp;
             {t("TopBar.Settings.Mode.LightMode")}
             <Switch
@@ -23,7 +24,7 @@ function LightModeSelector(props) {
                 inputProps={{ 'aria-label': 'light dark mode selection' }}
             />
             {t("TopBar.Settings.Mode.DarkMode")}
-        </MenuItem>
+        </Box>
     );
 }
 

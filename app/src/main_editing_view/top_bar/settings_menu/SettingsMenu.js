@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import { useTranslation } from 'react-i18next';
+import Typography from '@material-ui/core/Typography';
 
 import LightModeSelector from './LightModeSelector.js';
 import LanguageSelector from './LanguageSelector.js';
@@ -27,13 +28,16 @@ function SettingsMenu(props) {
 
     return (
         <>
-            <Button variant="contained" color="primary" aria-controls="settings-menu" aria-haspopup="true" onClick={handleSettingsClick}>
+            <Button variant="contained" color={settingsAnchor ? "secondary" : "primary"} aria-controls="settings-menu" aria-haspopup="true" onClick={handleSettingsClick}>
                 {t("TopBar.Settings.SettingsButton")}
             </Button>
 
             <Menu
                 id="settings-menu"
                 anchorEl={settingsAnchor}
+                anchorOrigin={{
+                    vertical: 'bottom'
+                }}
                 keepMounted
                 open={Boolean(settingsAnchor)}
                 onClose={handleSettingsClose}

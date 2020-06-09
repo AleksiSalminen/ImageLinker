@@ -28,7 +28,7 @@ function MainEditingView(props) {
                     setFontSize={props.setFontSize}
                 />
     
-                <br/>
+                <br/><br/>
                 
                 <ProjectTitleArea projectName={selectedProject.name}/>
     
@@ -53,7 +53,7 @@ function MainEditingView(props) {
                     setFontSize={props.setFontSize}
                 />
     
-                <br/><br/>
+                <br/><br/><br/>
 
                 <WelcomeView/>
             </div>
