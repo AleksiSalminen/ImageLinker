@@ -12,13 +12,14 @@ function FontSizeSelector(props) {
     const { t } = useTranslation();
 
     return (
-        <Box style={{margin:"1.5rem"}}>
+        <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"ridge hidden hidden hidden"}}>
             <Typography>{t("TopBar.Settings.FontSize.FontSize")}:</Typography>
             &nbsp;&nbsp;
 
             <input 
                 type="number"
                 value={props.fontSize}
+                style={{padding:"0.5rem", borderStyle:"solid", borderRadius:"0.3rem", borderWidth:"thin", borderColor:"grey"}}
                 min={5}
                 max={30}
                 onChange={(event) => {props.setFontSize(event.target.value)}}

@@ -17,7 +17,7 @@ function MainEditingView(props) {
 
         return (
             <div>
-    
+                <br/><br/>
                 <TopBar
                     changeSelectedProject={props.changeSelectedProject}
                     darkState={props.darkState}
@@ -35,7 +35,7 @@ function MainEditingView(props) {
                 <br/><br/>
     
                 <SlidesTable slides={selectedProject.slides} />
-    
+                <br/><br/>
             </div>
         );
     }
@@ -43,6 +43,7 @@ function MainEditingView(props) {
 
         return(
             <div>
+                <br/><br/>
                 <TopBar
                     changeSelectedProject={props.changeSelectedProject}
                     darkState={props.darkState}
@@ -56,6 +57,7 @@ function MainEditingView(props) {
                 <br/><br/><br/>
 
                 <WelcomeView/>
+                <br/><br/>
             </div>
         );
     }

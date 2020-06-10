@@ -13,7 +13,7 @@ function LightModeSelector(props) {
     const { t } = useTranslation();
     
     return (
-        <Box style={{margin:"1.5rem"}}>
+        <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"hidden hidden hidden hidden"}}>
             <Typography>{t("TopBar.Settings.Mode.Theme")}:</Typography>
             &nbsp;&nbsp;
             {t("TopBar.Settings.Mode.LightMode")}

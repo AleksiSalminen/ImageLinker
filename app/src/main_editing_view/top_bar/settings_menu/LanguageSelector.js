@@ -21,7 +21,7 @@ function LanguageSelector(props) {
     }
 
     return (
-        <Box style={{margin:"1.5rem"}}>
+        <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"ridge hidden hidden hidden"}}>
             <Typography>{t("TopBar.Settings.Language")}:</Typography>
             &nbsp;&nbsp;
             <Button onClick={() => {changeLanguage(english)}} variant="contained" color={language === english ? "primary" : "default"}>English</Button>

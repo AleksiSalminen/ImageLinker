@@ -10,8 +10,8 @@ import MainEditingView from './main_editing_view/MainEditingView.js';
  * @param {Object} props received parameters
  */
 function SlideLinker(props) {
-  const [font, setFont] = useState("Bahnschrift Light");
-  const [fontSize, setFontSize] = useState(14);
+  const [font, setFont] = useState("Gabriola");
+  const [fontSize, setFontSize] = useState(20);
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
 

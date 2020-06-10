@@ -16,7 +16,7 @@ function FontSelector(props) {
     const { t } = useTranslation();
 
     return (
-        <Box style={{margin:"1.5rem"}}>
+        <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"ridge hidden hidden hidden"}}>
             <Typography>{t("TopBar.Settings.Font")}:</Typography>
             
 
@@ -25,6 +25,7 @@ function FontSelector(props) {
                 value={props.font}
                 onChange={(event, newFont) => {props.setFont(newFont)}}
                 options={fonts}
+                size="small"
                 disableClearable={true}
                 getOptionLabel={(option) => option}
                 style={{ width: 300 }}

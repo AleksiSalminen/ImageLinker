@@ -17,7 +17,7 @@ function TopBar(props) {
     const { t } = useTranslation();
 
     return (
-        <AppBar position="static" color="default">
+        <AppBar position="fixed" color="default">
             <Toolbar>
                 <Box style={{marginLeft:"auto", marginRight:"0rem"}}>
                     <Button variant="contained" color="primary">{t("TopBar.NewButton")}</Button>
