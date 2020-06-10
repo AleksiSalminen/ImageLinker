@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
 
+import ProjectTitleArea from './ProjectTitleArea.js';
 import OpenProjectButton from './OpenProjectButton.js';
 import SettingsMenu from './settings_menu/SettingsMenu.js';
 
@@ -17,15 +18,21 @@ function TopBar(props) {
     const { t } = useTranslation();
 
     return (
-        <AppBar position="fixed" color="default">
+        <AppBar position="sticky" color="default">
             <Toolbar>
-                <Box style={{marginLeft:"auto", marginRight:"0rem"}}>
-                    <Button variant="contained" color="primary">{t("TopBar.NewButton")}</Button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                <Box style={{marginLeft:"0rem", marginRight:"auto"}}>
+                    <img src="Logo.png" alt="Slide Linker logo" style={{height:"2.0rem", width:"auto"}}/>
+                </Box>
+                <Box style={{marginLeft:"0%", padding:"0.5rem"}}>
+                    <ProjectTitleArea projectName={props.projectName}/>
+                </Box>
+                <Box style={{marginLeft:"auto", marginRight:"0rem", padding:"0.5rem"}}>
+                    <Button variant="contained" color="primary" style={{margin:"0.25rem"}}>{t("TopBar.NewButton")}</Button>
+                    
                     <OpenProjectButton changeSelectedProject={props.changeSelectedProject}/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <Button variant="contained" color="primary">{t("TopBar.PlayButton")}</Button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <Button variant="contained" color="primary" style={{margin:"0.25rem"}}>{t("TopBar.PlayButton")}</Button>
+                    
                     <SettingsMenu font={props.font} setFont={props.setFont} fontSize={props.fontSize} setFontSize={props.setFontSize} darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
                 </Box>
             </Toolbar>

@@ -22,7 +22,7 @@ function OpenProjectButton(props) {
     }
 
     return (
-        <Button variant="contained" component="label" color="primary">
+        <Button variant="contained" component="label" color="primary" style={{margin:"0.25rem"}}>
             {t("TopBar.OpenButton")}
             <input type="file" style={{ display: "none" }} onChange={(event) => {changeProject(event.target.files[0])}}/>
         </Button>

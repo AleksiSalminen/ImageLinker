@@ -54,7 +54,7 @@ function SlidesTable(props) {
               <TableHead>
                 <TableRow>
                   <TableCell>
-                    <Button variant="outlined">+</Button>
+                    <Button variant="outlined" size="small">+</Button>
                   </TableCell>
                   <TableCell>
                     {t("SlidesTable.Heading")}
@@ -82,7 +82,7 @@ function SlidesTable(props) {
             </Table>
           </TableContainer>
           <TablePagination
-            rowsPerPageOptions={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]}
+            rowsPerPageOptions={[5, 10, 15, 20, 25, 30]}
             component="div"
             count={props.slides.length}
             rowsPerPage={slidesPerPage}

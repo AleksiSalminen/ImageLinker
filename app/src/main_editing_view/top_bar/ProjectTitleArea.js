@@ -11,14 +11,19 @@ import { useTranslation } from 'react-i18next';
 function ProjectTitleArea(props) {
     const { t } = useTranslation();
 
-    return (
-        <div>
-            <Typography variant="h4" align="center">
-                {props.projectName}&nbsp;
-                <Button variant="contained">{t("ProjectTitle.ChangeButton")}</Button>
-            </Typography>
-        </div>
-    );
+    if(props.projectName) {
+        return (
+            <div>
+                <Typography variant="h4" align="center">
+                    {props.projectName}&nbsp;
+                    <Button variant="contained" size="small">{t("ProjectTitle.ChangeButton")}</Button>
+                </Typography>
+            </div>
+        );
+    }
+    else {
+        return (<div></div>);
+    }
 }
 
 export default ProjectTitleArea;

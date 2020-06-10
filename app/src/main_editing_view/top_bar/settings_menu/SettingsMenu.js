@@ -28,7 +28,7 @@ function SettingsMenu(props) {
 
     return (
         <>
-            <Button variant="contained" color={settingsAnchor ? "secondary" : "primary"} aria-controls="settings-menu" aria-haspopup="true" onClick={handleSettingsClick}>
+            <Button variant="contained" color={settingsAnchor ? "secondary" : "primary"} aria-controls="settings-menu" aria-haspopup="true" onClick={handleSettingsClick} style={{margin:"0.25rem"}}>
                 {t("TopBar.Settings.SettingsButton")}
             </Button>
 

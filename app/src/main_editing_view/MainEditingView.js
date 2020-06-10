@@ -2,7 +2,6 @@ import React from 'react';
 
 import TopBar from './top_bar/TopBar.js';
 import WelcomeView from './welcome_view/WelcomeView.js';
-import ProjectTitleArea from './project_title_area/ProjectTitleArea.js';
 import SlidesTable from './slides_table/SlidesTable.js';
 
 
@@ -17,7 +16,6 @@ function MainEditingView(props) {
 
         return (
             <div>
-                <br/><br/>
                 <TopBar
                     changeSelectedProject={props.changeSelectedProject}
                     darkState={props.darkState}
@@ -26,11 +24,8 @@ function MainEditingView(props) {
                     setFont={props.setFont}
                     fontSize={props.fontSize}
                     setFontSize={props.setFontSize}
+                    projectName={selectedProject.name}
                 />
-    
-                <br/><br/>
-                
-                <ProjectTitleArea projectName={selectedProject.name}/>
     
                 <br/><br/>
     
@@ -43,7 +38,6 @@ function MainEditingView(props) {
 
         return(
             <div>
-                <br/><br/>
                 <TopBar
                     changeSelectedProject={props.changeSelectedProject}
                     darkState={props.darkState}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { Helmet } from 'react-helmet'
 
 import MainEditingView from './main_editing_view/MainEditingView.js';
 
@@ -33,6 +34,11 @@ function SlideLinker(props) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+
+      <Helmet>
+        <meta charSet="utf-8"/>
+        <title>Slide Linker</title>
+      </Helmet>
 
       <MainEditingView
         selectedProjectInfo={props.selectedProjectInfo}
