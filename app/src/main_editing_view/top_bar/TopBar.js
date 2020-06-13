@@ -29,7 +29,7 @@ function TopBar(props) {
                 <Box style={{marginLeft:"auto", marginRight:"0rem", padding:"0.5rem"}}>
                     <Button variant="contained" color="primary" style={{margin:"0.25rem"}}>{t("TopBar.NewButton")}</Button>
                     
-                    <OpenProjectButton changeSelectedProject={props.changeSelectedProject}/>
+                    <OpenProjectButton changeSelectedProject={props.changeSelectedProject} updateSlides={props.updateSlides}/>
                     
                     <Button variant="contained" color="primary" style={{margin:"0.25rem"}}>{t("TopBar.PlayButton")}</Button>
                     

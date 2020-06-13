@@ -15,7 +15,8 @@ import './i18n';
 function mapStateToProps(state) {
   return {
     projects: state.projectList.projects,
-    selectedProjectInfo: state.selectedProject.selectedProjectInfo
+    selectedProjectInfo: state.selectedProject.selectedProjectInfo,
+    slides: state.selectedProject.slideList.slides
   };
 }
 

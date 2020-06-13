@@ -18,6 +18,7 @@ function MainEditingView(props) {
             <div>
                 <TopBar
                     changeSelectedProject={props.changeSelectedProject}
+                    updateSlides={props.updateSlides}
                     darkState={props.darkState}
                     handleThemeChange={props.handleThemeChange}
                     font={props.font}
@@ -30,7 +31,7 @@ function MainEditingView(props) {
                 <br/><br/>
     
                 <SlidesTable
-                    slides={selectedProject.slides}
+                    slides={props.slides}
                     updateSlides={props.updateSlides}
                 />
                 <br/><br/>
@@ -43,6 +44,7 @@ function MainEditingView(props) {
             <div>
                 <TopBar
                     changeSelectedProject={props.changeSelectedProject}
+                    updateSlides={props.updateSlides}
                     darkState={props.darkState}
                     handleThemeChange={props.handleThemeChange}
                     font={props.font}

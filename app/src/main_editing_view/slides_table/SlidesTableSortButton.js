@@ -24,7 +24,7 @@ function SlidesTableSortButton(props) {
     return (
         <>
             <Button variant="outlined" onClick={openDialog}>
-                {t("SlidesTable.SortButton")}
+                {t("SlidesTable.Sorting.SortButton")}
             </Button>
 
             <SlidesTableSortDialog 

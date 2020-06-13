@@ -14,8 +14,11 @@ function OpenProjectButton(props) {
         if(file) {
             let reader = new FileReader();
             reader.onload = function() {
-                const project = JSON.parse(this.result);
+                let project = JSON.parse(this.result);
+                const slides = project.slides;
+                delete project["slides"];
                 props.changeSelectedProject(project);
+                props.updateSlides(slides);
             };
             reader.readAsText(file);
         }

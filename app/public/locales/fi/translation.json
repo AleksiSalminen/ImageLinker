@@ -31,7 +31,14 @@
         "ChangeButton": "Muuta"
     },
     "SlidesTable": {
-        "SortButton": "Järjestä",
+        "Sorting": {
+            "SortButton": "Järjestä",
+            "SortDialogHeader": "Taulukon järjestysasetukset",
+            "OldestFirstOption": "Vanhin ensin",
+            "NewestFirstOption": "Uusin ensin",
+            "AlphabetAscOption": "Nouseva aakkosjärjestys otsikon perusteella",
+            "AlphabetDescOption": "Laskeva aakkosjärjestys otsikon perusteella"
+        },
         "FilterButton": "Suodata",
         "Heading": "Otsikko",
         "Description": "Kuvaus",

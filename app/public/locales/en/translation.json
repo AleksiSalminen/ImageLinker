@@ -31,7 +31,14 @@
         "ChangeButton": "Change"
     },
     "SlidesTable": {
-        "SortButton": "Sort",
+        "Sorting": {
+            "SortButton": "Sort",
+            "SortDialogHeader": "Table sorting options",
+            "OldestFirstOption": "Oldest first",
+            "NewestFirstOption": "Newest first",
+            "AlphabetAscOption": "Ascending alphabetical order for heading",
+            "AlphabetDescOption": "Descending alphabetical order for heading"
+        },
         "FilterButton": "Filter",
         "Heading": "Heading",
         "Description": "Description",

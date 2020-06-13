@@ -24,19 +24,27 @@ function SlidesTableSortDialog(props) {
 
 
     const sortOldestFirst = (slides) => {
-        alert(1);
+        slides.sort((slide1, slide2) => parseFloat(slide1.id) - parseFloat(slide2.id));
+        const newSlides = JSON.parse(JSON.stringify(slides));
+        return newSlides;
     }
 
     const sortNewestFirst = (slides) => {
-        alert(2);
+        slides.sort((slide1, slide2) => parseFloat(slide2.id) - parseFloat(slide1.id));
+        const newSlides = JSON.parse(JSON.stringify(slides));
+        return newSlides;
     }
 
     const sortAlphabetAsc = (slides) => {
-        alert(3);
+        slides.sort((slide1, slide2) => (slide1.heading > slide2.heading ? 1 : -1));
+        const newSlides = JSON.parse(JSON.stringify(slides));
+        return newSlides;
     }
 
     const sortAlphabetDesc = (slides) => {
-        alert(4);
+        slides.sort((slide1, slide2) => (slide1.heading < slide2.heading ? 1 : -1));
+        const newSlides = JSON.parse(JSON.stringify(slides));
+        return newSlides;
     }
 
     const sortSlides = (slides, newSortValue) => {
@@ -68,12 +76,12 @@ function SlidesTableSortDialog(props) {
     return (
         <Dialog open={props.open} onClose={props.closeDialog}>
             <FormControl component="fieldset" style={{margin:"1.0rem"}}>
-                <FormLabel component="legend">Table sorting options</FormLabel>
+                <FormLabel component="legend">{t("SlidesTable.Sorting.SortDialogHeader")}</FormLabel>
                 <RadioGroup aria-label="sorting" value={sortValue} onChange={changeSorting}>
-                    <FormControlLabel value={OLDEST_FIRST} control={<Radio color="primary"/>} label="Oldest first"/>
-                    <FormControlLabel value={NEWEST_FIRST} control={<Radio color="primary"/>} label="Newest first" />
-                    <FormControlLabel value={ALPHABET_ASC} control={<Radio color="primary"/>} label="Ascending alphabetical order for heading" />
-                    <FormControlLabel value={ALPHABET_DESC} control={<Radio color="primary"/>} label="Descending alphabetical order for heading" />
+                    <FormControlLabel value={OLDEST_FIRST} control={<Radio color="primary"/>} label={t("SlidesTable.Sorting.OldestFirstOption")}/>
+                    <FormControlLabel value={NEWEST_FIRST} control={<Radio color="primary"/>} label={t("SlidesTable.Sorting.NewestFirstOption")}/>
+                    <FormControlLabel value={ALPHABET_ASC} control={<Radio color="primary"/>} label={t("SlidesTable.Sorting.AlphabetAscOption")}/>
+                    <FormControlLabel value={ALPHABET_DESC} control={<Radio color="primary"/>} label={t("SlidesTable.Sorting.AlphabetDescOption")}/>
                 </RadioGroup>
             </FormControl>
         </Dialog>

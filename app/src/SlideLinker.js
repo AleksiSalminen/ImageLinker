@@ -43,6 +43,7 @@ function SlideLinker(props) {
       <MainEditingView
         selectedProjectInfo={props.selectedProjectInfo}
         changeSelectedProject={props.changeSelectedProject}
+        slides={props.slides}
         updateSlides={props.updateSlides}
         darkState={darkState}
         handleThemeChange={handleThemeChange}

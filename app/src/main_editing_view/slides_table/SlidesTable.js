@@ -24,6 +24,11 @@ function SlidesTable(props) {
   const [page, setPage] = React.useState(0);
   const [slidesPerPage, setSlidesPerPage] = React.useState(5);
 
+  let slides = [];
+  if(props.slides && props.slides.length) {
+    slides = props.slides
+  }
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -42,7 +47,7 @@ function SlidesTable(props) {
 
       <Box>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <SlidesTableSortButton slides={props.slides} updateSlides={props.updateSlides}/>
+        <SlidesTableSortButton slides={slides} updateSlides={props.updateSlides}/>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <SlidesTableFilterButton/>
       </Box>
@@ -65,7 +70,7 @@ function SlidesTable(props) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {props.slides.slice(page * slidesPerPage, page * slidesPerPage + slidesPerPage).map((row, index) => (
+                {slides.slice(page * slidesPerPage, page * slidesPerPage + slidesPerPage).map((row, index) => (
                   <TableRow hover onClick={() => { selectSlide(row.id) }} key={row.name + "-" + index}>
                     <TableCell component="th" scope="row">
                       (image)
@@ -84,7 +89,7 @@ function SlidesTable(props) {
           <TablePagination
             rowsPerPageOptions={[5, 10, 15, 20, 25, 30]}
             component="div"
-            count={props.slides.length}
+            count={slides.length}
             rowsPerPage={slidesPerPage}
             labelRowsPerPage={t("SlidesTable.RowsPerPage")}
             backIconButtonText={t("SlidesTable.BackButton")}
