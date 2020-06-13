@@ -1,6 +1,8 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Button from '@material-ui/core/Button';
+
+import SlidesTableSortDialog from './SlidesTableSortDialog.js';
 
 
 /**
@@ -9,11 +11,29 @@ import { useTranslation } from 'react-i18next';
  */
 function SlidesTableSortButton(props) {
     const { t } = useTranslation();
+    const [dialogOpen, setDialogOpen] = useState(false);
+
+    const openDialog = () => {
+        setDialogOpen(true);
+    }
+
+    const closeDialog = () => {
+        setDialogOpen(false);
+    }
 
     return (
-        <Button variant="outlined">
-            {t("SlidesTable.SortButton")}
-        </Button>
+        <>
+            <Button variant="outlined" onClick={openDialog}>
+                {t("SlidesTable.SortButton")}
+            </Button>
+
+            <SlidesTableSortDialog 
+                open={dialogOpen}
+                closeDialog={closeDialog}
+                slides={props.slides}
+                updateSlides={props.updateSlides}
+            />
+        </>
     );
 }
 

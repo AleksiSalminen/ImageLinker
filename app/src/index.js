@@ -22,6 +22,7 @@ function mapStateToProps(state) {
 // Map Redux actions to component props
 const mapDispatchToProps = {
   changeSelectedProject: (project) => store.dispatch(actions.receiveProject(project)),
+  updateSlides: (slides) => store.dispatch(actions.receiveSlides(slides))
 };
 
 // Connected Component

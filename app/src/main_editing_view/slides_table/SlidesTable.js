@@ -42,7 +42,7 @@ function SlidesTable(props) {
 
       <Box>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <SlidesTableSortButton/>
+        <SlidesTableSortButton slides={props.slides} updateSlides={props.updateSlides}/>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <SlidesTableFilterButton/>
       </Box>

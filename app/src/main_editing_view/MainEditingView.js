@@ -29,7 +29,10 @@ function MainEditingView(props) {
     
                 <br/><br/>
     
-                <SlidesTable slides={selectedProject.slides} />
+                <SlidesTable
+                    slides={selectedProject.slides}
+                    updateSlides={props.updateSlides}
+                />
                 <br/><br/>
             </div>
         );
