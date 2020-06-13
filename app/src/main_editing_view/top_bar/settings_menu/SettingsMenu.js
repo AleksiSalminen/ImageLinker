@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
-import Typography from '@material-ui/core/Typography';
 
 import LightModeSelector from './LightModeSelector.js';
+import ColorsPicker from './ColorsPicker.js';
 import LanguageSelector from './LanguageSelector.js';
 import FontSelector from './FontSelector.js';
 import FontSizeSelector from './FontSizeSelector.js';
@@ -34,6 +34,7 @@ function SettingsMenu(props) {
 
             <Menu
                 id="settings-menu"
+                getContentAnchorEl={null}
                 anchorEl={settingsAnchor}
                 anchorOrigin={{
                     vertical: 'bottom'
@@ -42,10 +43,29 @@ function SettingsMenu(props) {
                 open={Boolean(settingsAnchor)}
                 onClose={handleSettingsClose}
             >
-                <LightModeSelector darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
+                <LightModeSelector
+                    darkState={props.darkState}
+                    handleThemeChange={props.handleThemeChange}
+                />
+                
+                <ColorsPicker
+                    primaryColor={props.primaryColor}
+                    setPrimaryColor={props.setPrimaryColor}
+                    secondaryColor={props.secondaryColor}
+                    setSecondaryColor={props.setSecondaryColor}
+                />
+
                 <LanguageSelector/>
-                <FontSelector font={props.font} setFont={props.setFont}/>
-                <FontSizeSelector fontSize={props.fontSize} setFontSize={props.setFontSize}/>
+
+                <FontSelector
+                    font={props.font}
+                    setFont={props.setFont}
+                />
+
+                <FontSizeSelector
+                    fontSize={props.fontSize}
+                    setFontSize={props.setFontSize}
+                />
             </Menu>
         </>
     );

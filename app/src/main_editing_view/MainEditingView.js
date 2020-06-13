@@ -26,6 +26,10 @@ function MainEditingView(props) {
                     fontSize={props.fontSize}
                     setFontSize={props.setFontSize}
                     projectName={selectedProject.name}
+                    primaryColor={props.primaryColor}
+                    setPrimaryColor={props.setPrimaryColor}
+                    secondaryColor={props.secondaryColor}
+                    setSecondaryColor={props.setSecondaryColor}
                 />
     
                 <br/><br/>
@@ -51,6 +55,10 @@ function MainEditingView(props) {
                     setFont={props.setFont}
                     fontSize={props.fontSize}
                     setFontSize={props.setFontSize}
+                    primaryColor={props.primaryColor}
+                    setPrimaryColor={props.setPrimaryColor}
+                    secondaryColor={props.secondaryColor}
+                    setSecondaryColor={props.setSecondaryColor}
                 />
     
                 <br/><br/><br/>

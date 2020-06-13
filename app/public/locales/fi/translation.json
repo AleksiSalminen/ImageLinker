@@ -17,6 +17,11 @@
                 "DarkMode": "Pimeä",
                 "LightMode": "Valoisa"
             },
+            "Colors": {
+                "Heading": "Värit",
+                "PrimaryColor": "Pääväri",
+                "SecondaryColor": "Lisäväri"
+            },
             "Language": "Kieli",
             "Font": "Fontti",
             "FontSize": {

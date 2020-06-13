@@ -29,11 +29,25 @@ function TopBar(props) {
                 <Box style={{marginLeft:"auto", marginRight:"0rem", padding:"0.5rem"}}>
                     <Button variant="contained" color="primary" style={{margin:"0.25rem"}}>{t("TopBar.NewButton")}</Button>
                     
-                    <OpenProjectButton changeSelectedProject={props.changeSelectedProject} updateSlides={props.updateSlides}/>
+                    <OpenProjectButton
+                        changeSelectedProject={props.changeSelectedProject}
+                        updateSlides={props.updateSlides}
+                    />
                     
                     <Button variant="contained" color="primary" style={{margin:"0.25rem"}}>{t("TopBar.PlayButton")}</Button>
                     
-                    <SettingsMenu font={props.font} setFont={props.setFont} fontSize={props.fontSize} setFontSize={props.setFontSize} darkState={props.darkState} handleThemeChange={props.handleThemeChange}/>
+                    <SettingsMenu
+                        font={props.font}
+                        setFont={props.setFont}
+                        fontSize={props.fontSize}
+                        setFontSize={props.setFontSize}
+                        darkState={props.darkState}
+                        handleThemeChange={props.handleThemeChange}
+                        primaryColor={props.primaryColor}
+                        setPrimaryColor={props.setPrimaryColor}
+                        secondaryColor={props.secondaryColor}
+                        setSecondaryColor={props.setSecondaryColor}
+                    />
                 </Box>
             </Toolbar>
         </AppBar>

@@ -17,6 +17,11 @@
                 "DarkMode": "Dark",
                 "LightMode": "Light"
             },
+            "Colors": {
+                "Heading": "Colors",
+                "PrimaryColor": "Primary color",
+                "SecondaryColor": "Secondary color"
+            },
             "Language": "Language",
             "Font": "Font",
             "FontSize": {

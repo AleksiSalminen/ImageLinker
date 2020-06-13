@@ -11,6 +11,8 @@ import MainEditingView from './main_editing_view/MainEditingView.js';
  * @param {Object} props received parameters
  */
 function SlideLinker(props) {
+  const [primaryColor, setPrimaryColor] = useState("#977F55");
+  const [secondaryColor, setSecondaryColor] = useState("#D1AF74");
   const [font, setFont] = useState("Gabriola");
   const [fontSize, setFontSize] = useState(20);
   const [darkState, setDarkState] = useState(false);
@@ -19,7 +21,13 @@ function SlideLinker(props) {
 
   const theme = createMuiTheme({
     palette: {
-      type: palletType
+      type: palletType,
+      primary: {
+        main: primaryColor
+      },
+      secondary: {
+        main: secondaryColor
+      }
     },
     typography: {
       fontFamily: font,
@@ -43,14 +51,22 @@ function SlideLinker(props) {
       <MainEditingView
         selectedProjectInfo={props.selectedProjectInfo}
         changeSelectedProject={props.changeSelectedProject}
+
         slides={props.slides}
         updateSlides={props.updateSlides}
+
         darkState={darkState}
         handleThemeChange={handleThemeChange}
+
         font={font}
         setFont={setFont}
         fontSize={fontSize}
         setFontSize={setFontSize}
+        
+        primaryColor={primaryColor}
+        setPrimaryColor={setPrimaryColor}
+        secondaryColor={secondaryColor}
+        setSecondaryColor={setSecondaryColor}
       />
     </ThemeProvider>
   );
