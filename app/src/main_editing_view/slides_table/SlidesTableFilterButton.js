@@ -1,19 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
 
+import SlidesTableFilterDialog from './SlidesTableFilterDialog.js';
+
 
 /**
- * Function that returns the sorting button for the slides table
+ * Function that returns the filter button for the slides table
  * @param {Object} props received parameters
  */
 function SlidesTableFilterButton(props) {
     const { t } = useTranslation();
+    const [dialogOpen, setDialogOpen] = useState(false);
+
+    const openDialog = () => {
+        setDialogOpen(true);
+    }
+
+    const closeDialog = () => {
+        setDialogOpen(false);
+    }
 
     return (
-        <Button variant="outlined">
-            {t("SlidesTable.FilterButton")}
-        </Button>
+        <>
+            <Button variant="outlined" onClick={openDialog}>
+                {t("SlidesTable.FilterButton")}
+            </Button>
+
+            <SlidesTableFilterDialog
+                open={dialogOpen}
+                closeDialog={closeDialog}
+                slides={props.slides}
+                updateSlides={props.updateSlides}
+            />
+        </>
     );
 }
 
