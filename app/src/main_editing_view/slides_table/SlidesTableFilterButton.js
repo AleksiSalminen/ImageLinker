@@ -30,8 +30,10 @@ function SlidesTableFilterButton(props) {
             <SlidesTableFilterDialog
                 open={dialogOpen}
                 closeDialog={closeDialog}
-                slides={props.slides}
-                updateSlides={props.updateSlides}
+                filterHeading={props.filterHeading}
+                setFilterHeading={props.setFilterHeading}
+                filterDescription={props.filterDescription}
+                setFilterDescription={props.setFilterDescription}
             />
         </>
     );

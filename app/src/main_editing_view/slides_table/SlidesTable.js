@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
@@ -21,8 +21,12 @@ import SlidesTableFilterButton from './SlidesTableFilterButton';
  */
 function SlidesTable(props) {
   const { t } = useTranslation();
-  const [page, setPage] = React.useState(0);
-  const [slidesPerPage, setSlidesPerPage] = React.useState(5);
+  const [page, setPage] = useState(0);
+  const [slidesPerPage, setSlidesPerPage] = useState(5);
+
+  /* Filtering settings */
+  const [filterHeading, setFilterHeading] = useState(null);
+  const [filterDescription, setFilterDescription] = useState(null);
 
   let slides = [];
   if(props.slides && props.slides.length) {
@@ -47,9 +51,19 @@ function SlidesTable(props) {
 
       <Box>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <SlidesTableSortButton slides={slides} updateSlides={props.updateSlides}/>
+
+        <SlidesTableSortButton
+          slides={slides}
+          updateSlides={props.updateSlides}
+        />
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <SlidesTableFilterButton slides={slides} updateSlides={props.updateSlides}/>
+
+        <SlidesTableFilterButton
+          filterHeading={filterHeading}
+          setFilterHeading={setFilterHeading}
+          filterDescription={filterDescription}
+          setFilterDescription={setFilterDescription}
+        />
       </Box>
       <br/>
       <Box>
