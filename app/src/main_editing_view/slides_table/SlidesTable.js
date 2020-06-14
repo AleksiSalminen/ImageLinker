@@ -33,6 +33,18 @@ function SlidesTable(props) {
     slides = props.slides
   }
 
+  /* Apply filters */
+
+  if(filterHeading) {
+    slides = slides.filter(slide => slide.heading.includes(filterHeading));
+  }
+
+  if(filterDescription) {
+    slides = slides.filter(slide => slide.description.includes(filterDescription));
+  }
+
+  /* Table page handling */
+
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -41,6 +53,7 @@ function SlidesTable(props) {
     setSlidesPerPage(+event.target.value);
     setPage(0);
   };
+
 
   const selectSlide = (id) => {
     alert(id);
