@@ -38,8 +38,37 @@ function SlidesTableFilterDialog(props) {
         setDescriptionFilter(event.target.value);
     }
 
+    const saveChanges = () => {
+        props.closeDialog();
+
+        if(filterHeading) {
+            props.setFilterHeading(headingFilter);
+        }
+        else {
+            props.setFilterHeading(null);
+            setHeadingFilter(null);
+        }
+
+        if(filterDescription) {
+            props.setFilterDescription(descriptionFilter);
+        }
+        else {
+            props.setFilterDescription(null);
+            setDescriptionFilter(null);
+        }
+    }
+
+    const cancelChanges = () => {
+        props.closeDialog();
+
+        setFilterHeading(props.filterHeading !== null);
+        setHeadingFilter(props.filterHeading);
+        setFilterDescription(props.filterDescription !== null);
+        setDescriptionFilter(props.filterDescription);
+    }
+
     return (
-        <Dialog open={props.open} onClose={props.closeDialog}>
+        <Dialog open={props.open}>
             <Box style={{ margin:"1.0rem" }}>
                 <Typography>Table filtering options</Typography>
 
@@ -57,10 +86,9 @@ function SlidesTableFilterDialog(props) {
                     />
                     <TextField
                         disabled={!filterHeading}
+                        value={headingFilter}
                         onChange={changeHeadingFilter}
-                    >
-                        {headingFilter}
-                    </TextField>
+                    />
                 </FormGroup>
 
                 <FormGroup row>
@@ -77,17 +105,16 @@ function SlidesTableFilterDialog(props) {
                     />
                     <TextField
                         disabled={!filterDescription}
+                        value={descriptionFilter}
                         onChange={changeDescriptionFilter}
-                    >
-                        {descriptionFilter}
-                    </TextField>
+                    />
                 </FormGroup>
 
-                <Button variant="contained" color="primary" size="small">
+                <Button variant="contained" color="primary" size="small" onClick={saveChanges}>
                     Save
                 </Button>
                 &nbsp;
-                <Button variant="contained" color="default" size="small">
+                <Button variant="contained" color="default" size="small" onClick={cancelChanges}>
                     Cancel
                 </Button>
             </Box>
