@@ -35,8 +35,14 @@ function MainEditingView(props) {
                 <br/><br/>
     
                 <SlidesTable
+                    setActiveView={props.setActiveView}
+                    MAIN_EDITING_VIEW={props.MAIN_EDITING_VIEW}
+                    SLIDE_EDITING_VIEW={props.SLIDE_EDITING_VIEW}
+                    PRESENTATION_VIEW={props.PRESENTATION_VIEW}
+
                     slides={props.slides}
                     updateSlides={props.updateSlides}
+                    selectSlide={props.selectSlide}
                 />
                 <br/><br/>
             </div>

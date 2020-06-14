@@ -16,14 +16,16 @@ function mapStateToProps(state) {
   return {
     projects: state.projectList.projects,
     selectedProjectInfo: state.selectedProject.selectedProjectInfo,
-    slides: state.selectedProject.slideList.slides
+    slides: state.selectedProject.slideList.slides,
+    selectedSlide: state.selectedProject.selectedSlide.selected
   };
 }
 
 // Map Redux actions to component props
 const mapDispatchToProps = {
   changeSelectedProject: (project) => store.dispatch(actions.receiveProject(project)),
-  updateSlides: (slides) => store.dispatch(actions.receiveSlides(slides))
+  updateSlides: (slides) => store.dispatch(actions.receiveSlides(slides)),
+  selectSlide: (slide) => store.dispatch(actions.receiveSlide(slide))
 };
 
 // Connected Component

@@ -54,9 +54,21 @@ function SlidesTable(props) {
     setPage(0);
   };
 
+  const findSlide = (slideArray, idToFind) => {
+    for(let i = 0; i < slideArray.length; i++) {
+      if(slideArray[i]['id'] === idToFind) {
+          return slideArray[i];
+      }
+    }
+    return null;
+  }
 
   const selectSlide = (id) => {
-    alert(id);
+    const slide = findSlide(slides, id);
+    if(slide) {
+      props.selectSlide(slide);
+      props.setActiveView(props.SLIDE_EDITING_VIEW);
+    }
   }
 
   return (
