@@ -66,7 +66,7 @@ function SlidesTable(props) {
         &nbsp;&nbsp;&nbsp;&nbsp;
 
         <SlidesTableSortButton
-          slides={slides}
+          slides={props.slides}
           updateSlides={props.updateSlides}
         />
         &nbsp;&nbsp;&nbsp;&nbsp;
