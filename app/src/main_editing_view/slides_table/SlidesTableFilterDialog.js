@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Dialog from '@material-ui/core/Dialog';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Button from '@material-ui/core/Button';
 
 
 /**
@@ -38,53 +38,50 @@ function SlidesTableFilterDialog(props) {
         setDescriptionFilter(event.target.value);
     }
 
-    function OptionFilter(props) {
-        return (
-            <FormGroup row>
-                <FormControlLabel
-                    control={
-                        <Checkbox
-                            checked={props.filtering}
-                            color="primary"
-                            onChange={props.changeFiltering}
-                            inputProps={{ 'aria-label': props.ariaLabel }}
-                        />
-                    }
-                    label={props.label}
-                />
-                <TextField
-                    disabled={!props.filtering}
-                    value={props.filter}
-                    onChange={props.changeFilter}
-                    autoFocus={true}
-                >
-                </TextField>
-            </FormGroup>
-        );
-    }
-
     return (
         <Dialog open={props.open} onClose={props.closeDialog}>
             <Box style={{ margin:"1.0rem" }}>
                 <Typography>Table filtering options</Typography>
 
-                <OptionFilter
-                    filtering={filterHeading}
-                    changeFiltering={changeFilterHeading}
-                    filter={headingFilter}
-                    changeFilter={changeHeadingFilter}
-                    label="Filter headings"
-                    ariaLabel="heading filtering checkbox"
-                />
+                <FormGroup row>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={filterHeading}
+                                color="primary"
+                                onChange={changeFilterHeading}
+                                inputProps={{ 'aria-label': 'heading filtering checkbox' }}
+                            />
+                        }
+                        label="Filter headings"
+                    />
+                    <TextField
+                        disabled={!filterHeading}
+                        onChange={changeHeadingFilter}
+                    >
+                        {headingFilter}
+                    </TextField>
+                </FormGroup>
 
-                <OptionFilter
-                    filtering={filterDescription}
-                    changeFiltering={changeFilterDescription}
-                    filter={descriptionFilter}
-                    changeFilter={changeDescriptionFilter}
-                    label="Filter descriptions"
-                    ariaLabel="description filtering checkbox"
-                />
+                <FormGroup row>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={filterDescription}
+                                color="primary"
+                                onChange={changeFilterDescription}
+                                inputProps={{ 'aria-label': 'description filtering checkbox' }}
+                            />
+                        }
+                        label="Filter descriptions"
+                    />
+                    <TextField
+                        disabled={!filterDescription}
+                        onChange={changeDescriptionFilter}
+                    >
+                        {descriptionFilter}
+                    </TextField>
+                </FormGroup>
 
                 <Button variant="contained" color="primary" size="small">
                     Save
