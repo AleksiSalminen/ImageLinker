@@ -44,7 +44,14 @@
             "AlphabetAscOption": "Nouseva aakkosjärjestys otsikon perusteella",
             "AlphabetDescOption": "Laskeva aakkosjärjestys otsikon perusteella"
         },
-        "FilterButton": "Suodata",
+        "Filtering": {
+            "FilterButton": "Suodata",
+            "Header": "Taulukon suodatusasetukset",
+            "HeadingFilter": "Suodata otsikon perusteella",
+            "DescriptionFilter": "Suodata kuvauksen perusteella",
+            "SaveButton": "Tallenna",
+            "CancelButton": "Peruuta"
+        },
         "Heading": "Otsikko",
         "Description": "Kuvaus",
         "RowsPerPage": "Rivejä per sivu:",

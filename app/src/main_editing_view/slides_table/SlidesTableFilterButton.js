@@ -24,7 +24,7 @@ function SlidesTableFilterButton(props) {
     return (
         <>
             <Button variant="outlined" onClick={openDialog}>
-                {t("SlidesTable.FilterButton")}
+                {t("SlidesTable.Filtering.FilterButton")}
             </Button>
 
             <SlidesTableFilterDialog

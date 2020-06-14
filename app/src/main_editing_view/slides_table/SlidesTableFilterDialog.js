@@ -70,7 +70,7 @@ function SlidesTableFilterDialog(props) {
     return (
         <Dialog open={props.open}>
             <Box style={{ margin:"1.0rem" }}>
-                <Typography>Table filtering options</Typography>
+                <Typography>{t("SlidesTable.Filtering.Header")}</Typography>
 
                 <FormGroup row>
                     <FormControlLabel
@@ -82,7 +82,7 @@ function SlidesTableFilterDialog(props) {
                                 inputProps={{ 'aria-label': 'heading filtering checkbox' }}
                             />
                         }
-                        label="Filter headings"
+                        label={t("SlidesTable.Filtering.HeadingFilter")}
                     />
                     <TextField
                         disabled={!filterHeading}
@@ -101,7 +101,7 @@ function SlidesTableFilterDialog(props) {
                                 inputProps={{ 'aria-label': 'description filtering checkbox' }}
                             />
                         }
-                        label="Filter descriptions"
+                        label={t("SlidesTable.Filtering.DescriptionFilter")}
                     />
                     <TextField
                         disabled={!filterDescription}
@@ -110,13 +110,16 @@ function SlidesTableFilterDialog(props) {
                     />
                 </FormGroup>
 
-                <Button variant="contained" color="primary" size="small" onClick={saveChanges}>
-                    Save
-                </Button>
-                &nbsp;
-                <Button variant="contained" color="default" size="small" onClick={cancelChanges}>
-                    Cancel
-                </Button>
+                <Box style={{ marginTop:"1.0rem" }}>
+                    <Button style={{ marginRight:"0.5rem" }} variant="contained" color="primary" size="small" onClick={saveChanges}>
+                        {t("SlidesTable.Filtering.SaveButton")}
+                    </Button>
+
+                    <Button style={{ margin:"0.5rem" }} variant="contained" color="default" size="small" onClick={cancelChanges}>
+                        {t("SlidesTable.Filtering.CancelButton")}
+                    </Button>
+                </Box>
+
             </Box>
         </Dialog>
     );

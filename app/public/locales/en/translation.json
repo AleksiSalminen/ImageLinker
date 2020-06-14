@@ -44,7 +44,14 @@
             "AlphabetAscOption": "Ascending alphabetical order for heading",
             "AlphabetDescOption": "Descending alphabetical order for heading"
         },
-        "FilterButton": "Filter",
+        "Filtering": {
+            "FilterButton": "Filter",
+            "Header": "Table filtering options",
+            "HeadingFilter": "Filter headings",
+            "DescriptionFilter": "Filter descriptions",
+            "SaveButton": "Save",
+            "CancelButton": "Cancel"
+        },
         "Heading": "Heading",
         "Description": "Description",
         "RowsPerPage": "Rows per page:",
