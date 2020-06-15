@@ -1,4 +1,8 @@
 import React from 'react';
+import Box from '@material-ui/core/Box';
+import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import TopBar from './top_bar/TopBar.js';
 
@@ -27,6 +31,16 @@ function SlideEditingView(props) {
                 secondaryColor={props.secondaryColor}
                 setSecondaryColor={props.setSecondaryColor}
             />
+
+            <Box style={{ margin:"auto", marginTop:"2rem", width:"90%" }}>
+                <TextField label="Heading" defaultValue={props.selectedSlide.heading}/>
+
+                <FormControlLabel
+                    control={<Checkbox color="primary" />}
+                    label="Allow reverting"
+                    labelPlacement="start"
+                />
+            </Box>
         </div>
     );
 }
