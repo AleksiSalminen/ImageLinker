@@ -102,6 +102,22 @@ function SlideLinker(props) {
           PRESENTATION_VIEW={PRESENTATION_VIEW}
 
           selectedSlide={props.selectedSlide}
+
+          selectedProjectInfo={props.selectedProjectInfo}
+          changeSelectedProject={props.changeSelectedProject}
+
+          darkState={darkState}
+          handleThemeChange={handleThemeChange}
+  
+          font={font}
+          setFont={setFont}
+          fontSize={fontSize}
+          setFontSize={setFontSize}
+          
+          primaryColor={primaryColor}
+          setPrimaryColor={setPrimaryColor}
+          secondaryColor={secondaryColor}
+          setSecondaryColor={setSecondaryColor}
         />
       </ThemeProvider>
     );
