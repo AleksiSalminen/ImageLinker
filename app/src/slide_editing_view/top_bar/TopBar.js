@@ -23,19 +23,8 @@ function TopBar(props) {
                 <Box style={{marginLeft:"0rem", marginRight:"auto"}}>
                     <img src="Logo.png" alt="Slide Linker logo" style={{height:"2.0rem", width:"auto"}}/>
                 </Box>
-                <Box style={{marginLeft:"0%", padding:"0.5rem"}}>
-                    <ProjectTitleArea projectName={props.projectName}/>
-                </Box>
-                <Box style={{marginLeft:"auto", marginRight:"0rem", padding:"0.5rem"}}>
-                    <Button variant="contained" color="primary" style={{margin:"0.25rem"}}>{t("TopBar.NewButton")}</Button>
-                    
-                    <OpenProjectButton
-                        changeSelectedProject={props.changeSelectedProject}
-                        updateSlides={props.updateSlides}
-                    />
-                    
-                    <Button variant="contained" color="primary" style={{margin:"0.25rem"}}>{t("TopBar.PlayButton")}</Button>
-                    
+                
+                <Box style={{marginLeft:"auto", marginRight:"0rem", padding:"0.5rem"}}>                    
                     <SettingsMenu
                         font={props.font}
                         setFont={props.setFont}
