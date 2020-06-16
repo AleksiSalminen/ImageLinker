@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import Logo from './Logo.png';
@@ -40,8 +40,14 @@ function ImageEditArea(props) {
     
 
     return (
-        <Box>
-			<Box display="flex" style={{"position": "relative", "top":"3rem", "width":"25rem", "height":"25rem", "marginBottom":"10rem"}}>
+        <Box style={{ marginTop:"3rem" }}>
+            Drag-n-drop or&nbsp;&nbsp;
+
+            <Button variant="outlined" size="small">
+                Choose file
+            </Button>
+
+			<Box display="flex" style={{"position": "relative", "top":"3rem", "width":"25rem", "height":"25rem", "marginBottom":"10rem" }}>
                 <Slider
                     value={-hPos}
                     orientation="vertical"
