@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import Slider from '@material-ui/core/Slider';
+import Typography from '@material-ui/core/Typography';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import Logo from './Logo.png';
 
@@ -39,7 +41,7 @@ function ImageEditArea(props) {
 
     return (
         <Box>
-			<Box display="flex" style={{"position": "relative", "top":"3rem", "width":"25rem", "height":"25rem"}}>
+			<Box display="flex" style={{"position": "relative", "top":"3rem", "width":"25rem", "height":"25rem", "marginBottom":"10rem"}}>
                 <Slider
                     value={-hPos}
                     orientation="vertical"
@@ -66,6 +68,32 @@ function ImageEditArea(props) {
                             onChange={(event, value) => setvPos(value)}
                         />
 					</Box>
+
+                    <FormControlLabel
+                        control={
+                            <input 
+                                type="number"
+                                style={{padding:"0.5rem", borderStyle:"solid", borderRadius:"0.3rem", borderWidth:"thin", borderColor:"grey"}}
+                                min={0}
+                                max={500}
+                            />
+                        }
+                        label="Size:&nbsp;"
+                        labelPlacement="start"
+                    />
+
+                    <FormControlLabel style={{ marginLeft:"5rem"}}
+                        control={
+                            <input 
+                                type="number"
+                                style={{padding:"0.5rem", borderStyle:"solid", borderRadius:"0.3rem", borderWidth:"thin", borderColor:"grey"}}
+                                min={0}
+                                max={360}
+                            />
+                        }
+                        label="Angle:&nbsp;"
+                        labelPlacement="start"
+                    />
 				</Box>
 			</Box>
 			<img onLoad={() => {setvPos(0);}} src={Logo} ref={imageEl} style={{"display": "none"}}/>
