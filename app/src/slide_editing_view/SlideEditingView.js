@@ -5,6 +5,13 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 import TopBar from './top_bar/TopBar.js';
 import ImageEditArea from './image_edit_area/ImageEditArea.js';
@@ -40,7 +47,8 @@ function SlideEditingView(props) {
                     <Grid item style={{width:"29rem", borderStyle:"hidden ridge hidden hidden", height:"35rem"}}>
                         <ImageEditArea/>
                     </Grid>
-                    <Grid item style={{ width:"29rem", marginRight:"10rem", borderStyle:"hidden ridge hidden hidden" }}>
+
+                    <Grid item style={{ width:"29rem", borderStyle:"hidden ridge hidden hidden" }}>
                         <TextField label="Heading" defaultValue={props.selectedSlide.heading} fullWidth/>
 
                         <FormControlLabel
@@ -57,6 +65,33 @@ function SlideEditingView(props) {
                             rowsMax={14}
                             fullWidth
                         />
+                    </Grid>
+
+                    <Grid item style={{ width:"29rem", height:"32rem", marginLeft:"1rem" }}>
+                        <Paper>
+                            <TableContainer style={{ height:"32rem" }}>
+                                <Table style={{borderStyle:"double hidden hidden hidden", borderColor:"lightgrey", borderWidth:"thin"}} stickyHeader aria-label="options table">
+                                <TableHead>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Button variant="outlined" size="small">
+                                                    +
+                                                </Button>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                Options
+                                            </TableCell>
+                                        </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    <TableRow hover>
+                                        <TableCell>
+                                            AAAA
+                                        </TableCell>
+                                    </TableRow>
+                                </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Paper>
                     </Grid>
                 </Grid>
 
