@@ -35,35 +35,35 @@ function SlideEditingView(props) {
                 setSecondaryColor={props.setSecondaryColor}
             />
 
-            <Box style={{ margin:"auto", marginTop:"2rem", width:"90%" }}>
-                <TextField label="Heading" defaultValue={props.selectedSlide.heading}/>
-
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Allow reverting"
-                    labelPlacement="start"
-                />
-
-                <Grid container rows spacing={2}>
-                    <Grid item style={{width:"30rem", borderStyle:"hidden ridge hidden hidden"}}>
+            <Box style={{ margin:"auto", width:"90%" }}>
+                <Grid container rows spacing={4} style={{ marginTop:"0.5rem" }}>
+                    <Grid item style={{width:"29rem", borderStyle:"hidden ridge hidden hidden", height:"35rem"}}>
                         <ImageEditArea/>
                     </Grid>
-                    <Grid item>
+                    <Grid item style={{ width:"29rem", marginRight:"10rem", borderStyle:"hidden ridge hidden hidden" }}>
+                        <TextField label="Heading" defaultValue={props.selectedSlide.heading} fullWidth/>
+
+                        <FormControlLabel
+                            control={<Checkbox color="primary" />}
+                            label="Allow reverting"
+                            labelPlacement="start"
+                        />
+                        
                         <TextField
                             label="Description"
-                            size="medium"
                             variant="outlined"
                             multiline
-                            rows={10}
-                            rowsMax={10}
+                            rows={14}
+                            rowsMax={14}
+                            fullWidth
                         />
                     </Grid>
                 </Grid>
 
-                <Box>
-                    <Button variant="contained" color="primary" style={{ marginLeft:"0rem" }}>Save</Button>
-                    <Button variant="contained" color="secondary" style={{ margin:"auto" }}>Delete</Button>
-                    <Button variant="contained" style={{ marginRight:"0rem" }}>Cancel</Button>
+                <Box style={{ marginTop:"1.5rem", borderStyle:"ridge hidden hidden hidden", padding:"0.5rem" }}>
+                    <Button variant="contained" color="primary" style={{}}>Save</Button>
+                    <Button variant="contained" color="secondary" style={{ marginLeft:"40%" }}>Delete</Button>
+                    <Button variant="contained" style={{ marginLeft:"40%" }}>Cancel</Button>
                 </Box>
             </Box>
         </div>

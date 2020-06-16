@@ -40,14 +40,16 @@ function ImageEditArea(props) {
     
 
     return (
-        <Box style={{ marginTop:"3rem" }}>
-            Drag-n-drop or&nbsp;&nbsp;
+        <Box>
+            <Box style={{ marginLeft:"20%" }}>
+                Drag-n-drop or&nbsp;&nbsp;
 
-            <Button variant="outlined" size="small">
-                Choose file
-            </Button>
+                <Button variant="outlined" size="small">
+                    Choose file
+                </Button>
+            </Box>
 
-			<Box display="flex" style={{"position": "relative", "top":"3rem", "width":"25rem", "height":"25rem", "marginBottom":"10rem" }}>
+			<Box display="flex" style={{"position": "relative", "top":"1rem", "width":"25rem", "height":"25rem" }}>
                 <Slider
                     value={-hPos}
                     orientation="vertical"
