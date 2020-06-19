@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -22,7 +22,24 @@ import ImageEditArea from './image_edit_area/ImageEditArea.js';
  * @param {Object} props received parameters
  */
 function SlideEditingView(props) {
-    const selectedProject = props.selectedProjectInfo.selected;
+    const slide = props.selectedSlide;
+    const project = props.selectedProjectInfo.selected;
+    
+    const [heading, setHeading] = useState(slide.heading);
+    const [reverting, setReverting] = useState(slide.reverting);
+    const [description, setDescription] = useState(slide.description);
+
+    const updateHeading = (event) => {
+        setHeading(event.target.value);
+    }
+
+    const updateReverting = () => {
+        setReverting(!reverting)
+    }
+
+    const updateDescription = (event) => {
+        setDescription(event.target.value);
+    }
     
     return (
         <div>
@@ -35,7 +52,7 @@ function SlideEditingView(props) {
                 setFont={props.setFont}
                 fontSize={props.fontSize}
                 setFontSize={props.setFontSize}
-                projectName={selectedProject.name}
+                projectName={project.name}
                 primaryColor={props.primaryColor}
                 setPrimaryColor={props.setPrimaryColor}
                 secondaryColor={props.secondaryColor}
@@ -49,15 +66,17 @@ function SlideEditingView(props) {
                     </Grid>
 
                     <Grid item style={{ width:"29rem", borderStyle:"hidden ridge hidden hidden" }}>
-                        <TextField label="Heading" defaultValue={props.selectedSlide.heading} fullWidth/>
+                        <TextField label="Heading" value={heading} onChange={updateHeading} fullWidth/>
 
                         <FormControlLabel
-                            control={<Checkbox color="primary" />}
+                            control={<Checkbox checked={reverting} color="primary" onChange={updateReverting}/>}
                             label="Allow reverting"
                             labelPlacement="start"
                         />
                         
                         <TextField
+                            value={description}
+                            onChange={updateDescription}
                             label="Description"
                             variant="outlined"
                             multiline
