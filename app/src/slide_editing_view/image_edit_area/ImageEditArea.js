@@ -33,10 +33,19 @@ function ImageEditArea(props) {
 		ctx.rotate(rotation/180*Math.PI);
         ctx.translate(-w/2, -h/2);
         
+        const imageWidth = imageEl.current.width;
         const imageHeight = imageEl.current.height;
-        const heightRatio = imageHeight / h;
-		ctx.drawImage(imageEl.current, 0, (h/2 - (heightRatio * imageHeight / 2)), w, (heightRatio * imageHeight));
-		ctx.restore();
+
+        if(imageWidth >= imageHeight) {
+            const ratio = imageHeight / imageWidth;
+            ctx.drawImage(imageEl.current, 0, (h/2 - (ratio*h/2)), w, (ratio * h));
+        }
+        else {
+            const ratio = imageWidth / imageHeight;
+            ctx.drawImage(imageEl.current, (w/2 - (ratio*w/2)), 0, (ratio * w), h);
+        }
+
+        ctx.restore();
     });
 
 	const imageDragEnter = (event) => {
