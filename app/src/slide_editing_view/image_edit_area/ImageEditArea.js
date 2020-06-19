@@ -55,14 +55,18 @@ function ImageEditArea(props) {
     const imageOnDrop = (event) => {
 		event.preventDefault();
 		let file = event.dataTransfer.files[0];
-		if(file && (file.type === "image/jpeg" || file.type === "image/png" || file.type === "image/gif")) {
-			let reader = new FileReader()
+		changeImage(file);
+    }
+    
+    const changeImage = (file) => {
+        if(file && (file.type === "image/jpeg" || file.type === "image/png" || file.type === "image/gif")) {
+            let reader = new FileReader()
 			reader.onloadend = function(evt) {
 				setImage(reader.result);
 			};
-			reader.readAsDataURL(file)
-		}
-	}
+			reader.readAsDataURL(file);
+        }
+    }
     
 
     return (
@@ -70,8 +74,9 @@ function ImageEditArea(props) {
             <Box style={{ marginLeft:"20%" }}>
                 Drag-n-drop or&nbsp;&nbsp;
 
-                <Button variant="outlined" size="small">
+                <Button variant="outlined" component="label" size="small">
                     Choose file
+                    <input type="file" accept="image/*" style={{ display: "none" }} onChange={(event) => {changeImage(event.target.files[0])}}/>
                 </Button>
             </Box>
 
