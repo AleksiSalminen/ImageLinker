@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Box from '@material-ui/core/Box';
 import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
@@ -12,10 +12,11 @@ import Logo from './Logo.png';
  * @param {Object} props received parameters
  */
 function ImageEditArea(props) {
-    const [zoom, setZoom] = React.useState(1.0);
-	const [vPos, setvPos] = React.useState(1);
-	const [hPos, sethPos] = React.useState(1);
-    const [rotation, setRotation] = React.useState(0);
+    const [image, setImage] = useState(Logo);
+    const [zoom, setZoom] = useState(props.info.size);
+	const [vPos, setvPos] = useState(props.info.vert_pos);
+	const [hPos, sethPos] = useState(props.info.horiz_pos);
+    const [rotation, setRotation] = useState(props.info.angle);
     
     const canvasRef = useRef(null);
 	const imageEl = useRef(null);
@@ -28,7 +29,7 @@ function ImageEditArea(props) {
 		ctx.save();
 		ctx.translate(vPos, hPos);
 		ctx.translate(w/2, h/2);
-		ctx.scale(zoom, zoom);
+		ctx.scale(zoom/100, zoom/100);
 		ctx.rotate(rotation/180*Math.PI);
         ctx.translate(-w/2, -h/2);
         
@@ -79,32 +80,36 @@ function ImageEditArea(props) {
 
                     <FormControlLabel
                         control={
-                            <input 
+                            <input
+                                value={zoom}
+                                onChange={(event) => setZoom(event.target.value)}
                                 type="number"
                                 style={{padding:"0.5rem", borderStyle:"solid", borderRadius:"0.3rem", borderWidth:"thin", borderColor:"grey"}}
-                                min={0}
-                                max={500}
+                                min={1}
+                                max={1000}
                             />
                         }
-                        label="Size:&nbsp;"
+                        label="Size (%):&nbsp;"
                         labelPlacement="start"
                     />
 
-                    <FormControlLabel style={{ marginLeft:"5rem"}}
+                    <FormControlLabel style={{ marginLeft:"2rem"}}
                         control={
-                            <input 
+                            <input
+                                value={rotation}
+                                onChange={(event) => setRotation(event.target.value)}
                                 type="number"
                                 style={{padding:"0.5rem", borderStyle:"solid", borderRadius:"0.3rem", borderWidth:"thin", borderColor:"grey"}}
                                 min={0}
                                 max={360}
                             />
                         }
-                        label="Angle:&nbsp;"
+                        label="Angle (degrees):&nbsp;"
                         labelPlacement="start"
                     />
 				</Box>
 			</Box>
-			<img onLoad={() => {setvPos(0);}} src={Logo} ref={imageEl} style={{"display": "none"}}/>
+			<img onLoad={() => {setvPos(0);}} src={image} ref={imageEl} style={{"display": "none"}}/>
 		</Box>
     );
     

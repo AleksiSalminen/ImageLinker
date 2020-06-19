@@ -24,6 +24,8 @@ import ImageEditArea from './image_edit_area/ImageEditArea.js';
 function SlideEditingView(props) {
     const slide = props.selectedSlide;
     const project = props.selectedProjectInfo.selected;
+
+    console.log(slide);
     
     const [heading, setHeading] = useState(slide.heading);
     const [reverting, setReverting] = useState(slide.reverting);
@@ -62,7 +64,7 @@ function SlideEditingView(props) {
             <Box style={{ margin:"auto", width:"90%" }}>
                 <Grid container rows spacing={4} style={{ marginTop:"0.5rem" }}>
                     <Grid item style={{width:"29rem", borderStyle:"hidden ridge hidden hidden", height:"35rem"}}>
-                        <ImageEditArea/>
+                        <ImageEditArea info={slide.image}/>
                     </Grid>
 
                     <Grid item style={{ width:"29rem", borderStyle:"hidden ridge hidden hidden" }}>
