@@ -38,6 +38,31 @@ function ImageEditArea(props) {
 		ctx.drawImage(imageEl.current, 0, (h/2 - (heightRatio * imageHeight / 2)), w, (heightRatio * imageHeight));
 		ctx.restore();
     });
+
+	const imageDragEnter = (event) => {
+		event.preventDefault();
+        let file = event.dataTransfer.files[0];
+		if(file && (file.type === "image/jpeg" || file.type === "image/png" || file.type === "image/gif")) {
+			event.preventDefault();
+		}
+    }
+    
+	const imageDragOver = (event) => {
+		event.preventDefault();
+		event.dataTransfer.dropEffect = "copy"
+    }
+    
+    const imageOnDrop = (event) => {
+		event.preventDefault();
+		let file = event.dataTransfer.files[0];
+		if(file && (file.type === "image/jpeg" || file.type === "image/png" || file.type === "image/gif")) {
+			let reader = new FileReader()
+			reader.onloadend = function(evt) {
+				setImage(reader.result);
+			};
+			reader.readAsDataURL(file)
+		}
+	}
     
 
     return (
@@ -66,6 +91,10 @@ function ImageEditArea(props) {
 						height="400rem"
                         ref={canvasRef}
                         style={{ borderStyle:"ridge" }}
+                        draggable={true}
+                        onDragEnter={imageDragEnter}
+                        onDrop={imageOnDrop} 
+                        onDragOver={imageDragOver}
 					/>
 					<Box>
                         <Slider
@@ -109,7 +138,12 @@ function ImageEditArea(props) {
                     />
 				</Box>
 			</Box>
-			<img onLoad={() => {setvPos(0);}} src={image} ref={imageEl} style={{"display": "none"}}/>
+			<img
+                onLoad={() => {setvPos(0);}}
+                src={image}
+                ref={imageEl}
+                style={{"display": "none"}}
+            />
 		</Box>
     );
     
