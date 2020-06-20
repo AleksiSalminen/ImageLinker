@@ -17,8 +17,6 @@ function SlideEditingView(props) {
     const slide = props.selectedSlide;
     const project = props.selectedProjectInfo.selected;
     let options = slide.options;
-
-    console.log(slide);
     
     return (
         <div>
@@ -49,7 +47,7 @@ function SlideEditingView(props) {
                     </Grid>
 
                     <Grid item style={{ width:"29rem", height:"32rem", marginLeft:"1rem" }}>
-                        <OptionsArea options={options}/>
+                        <OptionsArea options={options} slides={props.slides}/>
                     </Grid>
                 </Grid>
 

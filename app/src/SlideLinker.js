@@ -102,6 +102,7 @@ function SlideLinker(props) {
           PRESENTATION_VIEW={PRESENTATION_VIEW}
 
           selectedSlide={props.selectedSlide}
+          slides={props.slides}
 
           selectedProjectInfo={props.selectedProjectInfo}
           changeSelectedProject={props.changeSelectedProject}

@@ -73,6 +73,7 @@ function OptionsArea(props) {
                 open={editDialogOpen}
                 closeDialog={closeDialog}
                 option={selectedOption}
+                slides={props.slides}
             />
         </Paper>
     );
