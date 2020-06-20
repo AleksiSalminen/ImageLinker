@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Dialog from '@material-ui/core/Dialog';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
@@ -35,14 +36,29 @@ function OptionEditDialog(props) {
         setTitle(event.target.value);
     }
 
+    const cancelChanges = () => {
+        props.closeDialog();
+        
+        setTitle(props.option.title);
+
+        const endPointSlide = findSlide(props.slides, props.option.endpoint_id);
+        setEndPoint(endPointSlide);
+    }
+
     return (
-        <Dialog open={props.open} onClose={props.closeDialog} style={{ padding: "0.5rem" }}>
+        <Dialog open={props.open} style={{ padding: "0.5rem" }}>
             <Box style={{ padding: "1rem" }}>
                 <TextField label="Title" value={title} onChange={updateTitle} />
 
                 <br/><br/>
                 <Typography>{ "End point: " + (endPoint ? endPoint.heading : "") }</Typography>
                 <SlidesTable slides={props.slides} setEndPoint={setEndPoint} />
+            
+                <Box style={{ marginTop:"1rem" }}>
+                    <Button variant="outlined" color="primary" style={{marginRight:"2rem"}}>Save</Button>
+                    <Button variant="outlined" color="secondary" style={{marginRight:"2rem"}}>Delete</Button>
+                    <Button variant="outlined" color="default" style={{}} onClick={cancelChanges}>Cancel</Button>
+                </Box>
             </Box>
         </Dialog>
     );
