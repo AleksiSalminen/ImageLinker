@@ -20,16 +20,14 @@ import SlidesTableFilterButton from './SlidesTableFilterButton';
  */
 function SlidesTable(props) {
   const { t } = useTranslation();
+  const [slideArray, setSlides] = useState(props.slides ? props.slides : []);
   const [page, setPage] = useState(0);
   const [slidesPerPage, setSlidesPerPage] = useState(5);
 
+  let slides = slideArray;
+
   /* Filtering settings */
   const [filterHeading, setFilterHeading] = useState(null);
-
-  let slides = [];
-  if(props.slides && props.slides.length) {
-    slides = props.slides
-  }
 
   /* Apply filters */
 
@@ -47,6 +45,11 @@ function SlidesTable(props) {
     setSlidesPerPage(+event.target.value);
     setPage(0);
   };
+
+
+  const updateSlides = (slides) => {
+    setSlides(slides);
+  }
 
   const findSlide = (slideArray, idToFind) => {
     for(let i = 0; i < slideArray.length; i++) {
@@ -71,8 +74,8 @@ function SlidesTable(props) {
         &nbsp;&nbsp;&nbsp;&nbsp;
 
         <SlidesTableSortButton
-          slides={props.slides}
-          updateSlides={props.updateSlides}
+          slides={slides}
+          updateSlides={updateSlides}
         />
         &nbsp;&nbsp;&nbsp;&nbsp;
 
