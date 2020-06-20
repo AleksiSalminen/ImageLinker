@@ -63,7 +63,7 @@ function SlidesTable(props) {
   const selectSlide = (id) => {
     const slide = findSlide(slides, id);
     if(slide) {
-      alert(JSON.stringify(slide));
+      props.setEndPoint(slide);
     }
   }
 
