@@ -10,6 +10,8 @@
         "NewButton": "Uusi",
         "OpenButton": "Avaa",
         "PlayButton": "Pelaa",
+        "UndoButton": "Kumoa",
+        "RedoButton": "Toista",
         "Settings": {
             "SettingsButton": "Asetukset",
             "Mode": {
@@ -57,5 +59,31 @@
         "RowsPerPage": "Rivejä per sivu:",
         "BackButton": "Edellinen sivu",
         "NextButton": "Seuraava sivu"
+    },
+    "ImageEditArea": {
+        "DragAndDrop": "Vedä-ja-pudota tai",
+        "ChooseFile": "Valitse tiedosto",
+        "Size": "Koko (%):",
+        "Angle": "Kulma (asteina):"
+    },
+    "InfoArea": {
+        "Heading": "Otsikko",
+        "Reverting": "Salli peruutus",
+        "Description": "Kuvaus"
+    },
+    "OptionsArea": {
+        "Options": "Vaihtoehdot",
+        "OptionsEditDialog": {
+            "Title": "Otsikko",
+            "EndPoint": "Päätepiste: ",
+            "SaveButton": "Tallenna",
+            "DeleteButton": "Poista",
+            "CancelButton": "Peruuta"
+        }
+    },
+    "BottomArea": {
+        "SaveButton": "Tallenna",
+        "DeleteButton": "Poista",
+        "CancelButton": "Peruuta"
     }
 }

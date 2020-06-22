@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -17,6 +17,8 @@ import OptionEditDialog from './OptionEditDialog.js';
  * @param {Object} props received parameters
  */
 function OptionsArea(props) {
+    const { t } = useTranslation();
+
     const [selectedOption, setSelectedOption] = useState(null);
     const [editDialogOpen, setEditDialogOpen] = useState(false);
 
@@ -53,7 +55,7 @@ function OptionsArea(props) {
                                     +
                                 </Button>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                Options
+                                {t("OptionsArea.Options")}
                             </TableCell>
                         </TableRow>
                     </TableHead>

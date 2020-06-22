@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { useTranslation } from 'react-i18next';
 
 import SettingsMenu from './settings_menu/SettingsMenu.js';
 import { UndoButton, RedoButton } from '../history/history.js';
@@ -13,7 +12,6 @@ import { UndoButton, RedoButton } from '../history/history.js';
  * @param {Object} props received parameters
  */
 function TopBar(props) {
-    const { t } = useTranslation();
 
     return (
         <AppBar position="sticky" color="default">

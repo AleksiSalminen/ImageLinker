@@ -10,6 +10,8 @@
         "NewButton": "New",
         "OpenButton": "Open",
         "PlayButton": "Play",
+        "UndoButton": "Undo",
+        "RedoButton": "Redo",
         "Settings": {
             "SettingsButton": "Settings",
             "Mode": {
@@ -57,5 +59,31 @@
         "RowsPerPage": "Rows per page:",
         "BackButton": "Previous page",
         "NextButton": "Next page"
+    },
+    "ImageEditArea": {
+        "DragAndDrop": "Drag-n-drop or",
+        "ChooseFile": "Choose file",
+        "Size": "Size (%):",
+        "Angle": "Angle (degrees):"
+    },
+    "InfoArea": {
+        "Heading": "Heading",
+        "Reverting": "Allow reverting",
+        "Description": "Description"
+    },
+    "OptionsArea": {
+        "Options": "Options",
+        "OptionsEditDialog": {
+            "Title": "Title",
+            "EndPoint": "End point: ",
+            "SaveButton": "Save",
+            "DeleteButton": "Delete",
+            "CancelButton": "Cancel"
+        }
+    },
+    "BottomArea": {
+        "SaveButton": "Save",
+        "DeleteButton": "Delete",
+        "CancelButton": "Cancel"
     }
 }

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import Box from '@material-ui/core/Box';
 import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
@@ -12,6 +13,8 @@ import Logo from './Logo.png';
  * @param {Object} props received parameters
  */
 function ImageEditArea(props) {
+    const { t } = useTranslation();
+
     const [image, setImage] = useState(Logo);
     const [zoom, setZoom] = useState(props.info.size);
 	const [vPos, setvPos] = useState(props.info.vert_pos);
@@ -102,10 +105,10 @@ function ImageEditArea(props) {
     return (
         <Box>
             <Box style={{ marginLeft:"20%" }}>
-                Drag-n-drop or&nbsp;&nbsp;
+                {t("ImageEditArea.DragAndDrop")}&nbsp;&nbsp;
 
                 <Button variant="outlined" component="label" size="small">
-                    Choose file
+                    {t("ImageEditArea.ChooseFile")}
                     <input type="file" accept="image/*" style={{ display: "none" }} onChange={(event) => {changeImage(event.target.files[0])}}/>
                 </Button>
             </Box>
@@ -153,7 +156,7 @@ function ImageEditArea(props) {
                                 max={1000}
                             />
                         }
-                        label="Size (%):&nbsp;"
+                        label={t("ImageEditArea.Size")}
                         labelPlacement="start"
                     />
 
@@ -168,7 +171,7 @@ function ImageEditArea(props) {
                                 max={360}
                             />
                         }
-                        label="Angle (degrees):&nbsp;"
+                        label={t("ImageEditArea.Angle")}
                         labelPlacement="start"
                     />
 				</Box>

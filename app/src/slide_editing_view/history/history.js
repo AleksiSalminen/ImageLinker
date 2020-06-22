@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from '@material-ui/core/Button';
 
 import store from '../../state/reducers/mainReducers.js';
@@ -31,6 +32,8 @@ export const emptyHistory = () => {
  * @param {Object} props received parameters
  */
 export function UndoButton(props) {
+    const { t } = useTranslation();
+
     let undoStack = props.history.pastOperations.undoStack;
     let redoStack = props.history.futureOperations.redoStack;
     let lastOperation = props.history.lastOperation.operation;
@@ -56,7 +59,7 @@ export function UndoButton(props) {
 
     return (
         <Button variant="outlined" disabled={disabled} style={{ margin:"0.25rem" }} onClick={undo}>
-            Undo
+            {t("TopBar.UndoButton")}
         </Button>
     );
 }
@@ -66,6 +69,8 @@ export function UndoButton(props) {
  * @param {Object} props received parameters
  */
 export function RedoButton(props) {
+    const { t } = useTranslation();
+
     let undoStack = props.history.pastOperations.undoStack;
     let redoStack = props.history.futureOperations.redoStack;
     let lastOperation = props.history.lastOperation.operation;
@@ -91,7 +96,7 @@ export function RedoButton(props) {
 
     return (
         <Button variant="outlined" disabled={disabled} style={{ margin:"0.25rem" }} onClick={redo}>
-            Redo
+            {t("TopBar.RedoButton")}
         </Button>
     );
 }
