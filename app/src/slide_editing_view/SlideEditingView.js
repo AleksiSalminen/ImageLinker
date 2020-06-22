@@ -8,6 +8,8 @@ import InfoArea from './info_area/InfoArea.js';
 import OptionsArea from './options_area/OptionsArea.js';
 import BottomArea from './bottom_area/BottomArea.js';
 
+import * as history from './history/history.js';
+
 
 /**
  * Function that returns the slide editing view
@@ -21,6 +23,7 @@ function SlideEditingView(props) {
     return (
         <div>
             <TopBar
+                history={history}
                 changeSelectedProject={props.changeSelectedProject}
                 updateSlides={props.updateSlides}
                 darkState={props.darkState}
@@ -39,15 +42,15 @@ function SlideEditingView(props) {
             <Box style={{ margin:"auto", width:"90%" }}>
                 <Grid container rows spacing={4} style={{ marginTop:"0.5rem" }}>
                     <Grid item style={{width:"29rem", borderStyle:"hidden ridge hidden hidden", height:"35rem"}}>
-                        <ImageEditArea info={slide.image}/>
+                        <ImageEditArea info={slide.image} history={history}/>
                     </Grid>
 
                     <Grid item style={{ width:"29rem", borderStyle:"hidden ridge hidden hidden" }}>
-                        <InfoArea slide={slide}/>
+                        <InfoArea slide={slide} history={history}/>
                     </Grid>
 
                     <Grid item style={{ width:"29rem", height:"32rem", marginLeft:"1rem" }}>
-                        <OptionsArea options={options} slides={props.slides}/>
+                        <OptionsArea history={history} options={options} slides={props.slides}/>
                     </Grid>
                 </Grid>
 

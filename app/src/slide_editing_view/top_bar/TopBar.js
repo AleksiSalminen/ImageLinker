@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
 import { useTranslation } from 'react-i18next';
 
 import SettingsMenu from './settings_menu/SettingsMenu.js';
@@ -23,13 +22,9 @@ function TopBar(props) {
                 </Box>
                 
                 <Box style={{marginLeft:"auto", marginRight:"0rem", padding:"0.5rem"}}>                    
-                    <Button variant="outlined" style={{ margin:"0.25rem" }}>
-                        Undo
-                    </Button>
+                    <props.history.UndoButton/>
 
-                    <Button variant="outlined" style={{ margin:"0.25rem" }}>
-                        Redo
-                    </Button>
+                    <props.history.RedoButton/>
 
                     <SettingsMenu
                         font={props.font}
