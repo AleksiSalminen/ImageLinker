@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useHotkeys } from 'react-hotkeys-hook';
 import Button from '@material-ui/core/Button';
 
 import store from '../../state/reducers/mainReducers.js';
@@ -33,6 +34,11 @@ export const emptyHistory = () => {
  */
 export function UndoButton(props) {
     const { t } = useTranslation();
+
+    useHotkeys('ctrl+z', (event) => {
+        event.preventDefault();
+        undo();
+    });
 
     let undoStack = props.history.pastOperations.undoStack;
     let redoStack = props.history.futureOperations.redoStack;
@@ -70,6 +76,11 @@ export function UndoButton(props) {
  */
 export function RedoButton(props) {
     const { t } = useTranslation();
+
+    useHotkeys('ctrl+y', (event) => {
+        event.preventDefault();
+        redo();
+    });
 
     let undoStack = props.history.pastOperations.undoStack;
     let redoStack = props.history.futureOperations.redoStack;
