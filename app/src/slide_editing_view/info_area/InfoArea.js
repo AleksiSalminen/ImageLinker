@@ -15,6 +15,7 @@ function InfoArea(props) {
     const [description, setDescription] = useState(props.slide.description);
 
     const updateHeading = (event) => {
+        props.history.addOperation(setHeading, event.target.value, heading);
         setHeading(event.target.value);
     }
 

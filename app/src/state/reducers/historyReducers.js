@@ -43,7 +43,7 @@ const lastOperation = (state = initialLastOperation, action) => {
     switch (action.type) {
         case types.UPDATE_LAST_OPERATION:
             return {
-                lastOperation: action.newOperation
+                operation: action.newOperation
             };
         default:
             return state;
@@ -51,7 +51,7 @@ const lastOperation = (state = initialLastOperation, action) => {
 }
 
 const initialLastOperation = {
-    lastOperation: { operation: null, value: null }
+    operation: null
 }
 
 /* -------------------------- */

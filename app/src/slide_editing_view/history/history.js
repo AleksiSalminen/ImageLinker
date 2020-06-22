@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 
+import store from '../../state/reducers/mainReducers.js';
+import * as actions from '../../state/actions/historyActions.js';
 
-let undoStack = [];
-let redoStack = [];
-let lastOperation = {operation: null, value: null}
+
+const history = store.getState().operationsHistory;
+
+let undoStack = history.pastOperations.undoStack;
+let redoStack = history.futureOperations.redoStack;
+let lastOperation = history.lastOperation.operation;
 
 export const addOperation = (operation, newValue, oldValue) => {
     undoStack.push({operation: operation, value: oldValue});
-    lastOperation = {operation: operation, value: newValue}
+    store.dispatch(actions.updateUndoStack(undoStack));
+    lastOperation = {operation: operation, value: newValue};
+    store.dispatch(actions.updateLastOperation(lastOperation));
+    store.dispatch(actions.updateRedoStack([]));
 }
 
-const undo = () => {
-    redoStack.push(lastOperation);
-    lastOperation = undoStack.pop();
-    lastOperation.operation(lastOperation.value);
-}
-
-const redo = () => {
-    undoStack.push(lastOperation);
-    lastOperation = redoStack.pop();
-    lastOperation.operation(lastOperation.value);
+export const emptyHistory = () => {
+    store.dispatch(actions.updateUndoStack([]));
+    store.dispatch(actions.updateRedoStack([]));
+    store.dispatch(actions.updateLastOperation({operation: null, value: null}));
 }
 
 
@@ -29,9 +31,20 @@ const redo = () => {
  * @param {Object} props received parameters
  */
 export function UndoButton(props) {
+    const [disabled, setDisabled] = useState(undoStack.length === 0);
+
+    const undo = () => {
+        if(undoStack.length > 0) {
+            redoStack.push(lastOperation);
+            store.dispatch(actions.updateRedoStack(redoStack));
+            lastOperation = undoStack.pop();
+            store.dispatch(actions.updateLastOperation(lastOperation));
+            lastOperation.operation(lastOperation.value);
+        }
+    }
 
     return (
-        <Button variant="outlined" style={{ margin:"0.25rem" }} onClick={undo}>
+        <Button variant="outlined" disabled={false} style={{ margin:"0.25rem" }} onClick={undo}>
             Undo
         </Button>
     );
@@ -42,6 +55,16 @@ export function UndoButton(props) {
  * @param {Object} props received parameters
  */
 export function RedoButton(props) {
+
+    const redo = () => {
+        if(redoStack.length > 0) {
+            undoStack.push(lastOperation);
+            store.dispatch(actions.updateUndoStack(undoStack));
+            lastOperation = redoStack.pop();
+            store.dispatch(actions.updateLastOperation(lastOperation));
+            lastOperation.operation(lastOperation.value);
+        }
+    }
 
     return (
         <Button variant="outlined" style={{ margin:"0.25rem" }} onClick={redo}>
