@@ -20,10 +20,12 @@ function InfoArea(props) {
     }
 
     const updateReverting = () => {
-        setReverting(!reverting)
+        props.addOperation(setReverting, !reverting, reverting);
+        setReverting(!reverting);
     }
 
     const updateDescription = (event) => {
+        props.addOperation(setDescription, event.target.value, description);
         setDescription(event.target.value);
     }
 
