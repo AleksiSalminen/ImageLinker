@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import ReduxThunk from 'redux-thunk'
 import { projectList, addedProject, selectedProject, updatedProject, deletedProject } from "./projectsReducers.js";
+import { operationsHistory } from "./historyReducers.js";
 
 
 const rootReducer = combineReducers({
@@ -8,7 +9,8 @@ const rootReducer = combineReducers({
   addedProject,
   selectedProject,
   updatedProject,
-  deletedProject
+  deletedProject,
+  operationsHistory
 });
 
 const store = createStore(
