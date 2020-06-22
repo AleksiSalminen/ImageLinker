@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { useTranslation } from 'react-i18next';
 
 import SettingsMenu from './settings_menu/SettingsMenu.js';
+import { UndoButton, RedoButton } from '../history/history.js';
 
 
 /**
@@ -22,9 +23,9 @@ function TopBar(props) {
                 </Box>
                 
                 <Box style={{marginLeft:"auto", marginRight:"0rem", padding:"0.5rem"}}>                    
-                    <props.history.UndoButton/>
+                    <UndoButton history={props.history}/>
 
-                    <props.history.RedoButton/>
+                    <RedoButton history={props.history}/>
 
                     <SettingsMenu
                         font={props.font}

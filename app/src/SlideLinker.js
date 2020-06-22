@@ -96,6 +96,8 @@ function SlideLinker(props) {
         </Helmet>
   
         <SlideEditingView
+          history={props.history}
+
           setActiveView={setActiveView}
           MAIN_EDITING_VIEW={MAIN_EDITING_VIEW}
           SLIDE_EDITING_VIEW={SLIDE_EDITING_VIEW}

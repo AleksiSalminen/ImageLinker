@@ -17,7 +17,8 @@ function mapStateToProps(state) {
     projects: state.projectList.projects,
     selectedProjectInfo: state.selectedProject.selectedProjectInfo,
     slides: state.selectedProject.slideList.slides,
-    selectedSlide: state.selectedProject.selectedSlide.selected
+    selectedSlide: state.selectedProject.selectedSlide.selected,
+    history: state.operationsHistory
   };
 }
 

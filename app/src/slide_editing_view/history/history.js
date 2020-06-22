@@ -31,7 +31,18 @@ export const emptyHistory = () => {
  * @param {Object} props received parameters
  */
 export function UndoButton(props) {
+    let undoStack = props.history.pastOperations.undoStack;
+    let redoStack = props.history.futureOperations.redoStack;
+    let lastOperation = props.history.lastOperation.operation;
+
     const [disabled, setDisabled] = useState(undoStack.length === 0);
+
+    if(disabled && undoStack.length > 0) {
+        setDisabled(false);
+    }
+    else if(!disabled && undoStack.length === 0) {
+        setDisabled(true);
+    }
 
     const undo = () => {
         if(undoStack.length > 0) {
@@ -44,7 +55,7 @@ export function UndoButton(props) {
     }
 
     return (
-        <Button variant="outlined" disabled={false} style={{ margin:"0.25rem" }} onClick={undo}>
+        <Button variant="outlined" disabled={disabled} style={{ margin:"0.25rem" }} onClick={undo}>
             Undo
         </Button>
     );
@@ -55,6 +66,18 @@ export function UndoButton(props) {
  * @param {Object} props received parameters
  */
 export function RedoButton(props) {
+    let undoStack = props.history.pastOperations.undoStack;
+    let redoStack = props.history.futureOperations.redoStack;
+    let lastOperation = props.history.lastOperation.operation;
+
+    const [disabled, setDisabled] = useState(redoStack.length === 0);
+
+    if(disabled && redoStack.length > 0) {
+        setDisabled(false);
+    }
+    else if(!disabled && redoStack.length === 0) {
+        setDisabled(true);
+    }
 
     const redo = () => {
         if(redoStack.length > 0) {
@@ -67,7 +90,7 @@ export function RedoButton(props) {
     }
 
     return (
-        <Button variant="outlined" style={{ margin:"0.25rem" }} onClick={redo}>
+        <Button variant="outlined" disabled={disabled} style={{ margin:"0.25rem" }} onClick={redo}>
             Redo
         </Button>
     );
