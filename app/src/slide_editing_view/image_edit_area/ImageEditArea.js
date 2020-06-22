@@ -27,7 +27,7 @@ function ImageEditArea(props) {
 		ctx.clearRect(0, 0, w, h);
 		
 		ctx.save();
-		ctx.translate(vPos, hPos);
+		ctx.translate(hPos, vPos);
 		ctx.translate(w/2, h/2);
 		ctx.scale(zoom/100, zoom/100);
 		ctx.rotate(rotation/180*Math.PI);
@@ -71,10 +71,31 @@ function ImageEditArea(props) {
         if(file && (file.type === "image/jpeg" || file.type === "image/png" || file.type === "image/gif")) {
             let reader = new FileReader()
 			reader.onloadend = function(evt) {
+                props.addOperation(setImage, reader.result, image);
 				setImage(reader.result);
 			};
 			reader.readAsDataURL(file);
         }
+    }
+
+    const updateZoom = (event) => {
+        props.addOperation(setZoom, event.target.value, zoom);
+        setZoom(event.target.value)
+    }
+
+    const updateVerticalPosition = (event, value) => {
+        props.addOperation(setvPos, -value, vPos);
+        setvPos(-value);
+    }
+
+    const updateHorizontalPosition = (event, value) => {
+        props.addOperation(sethPos, value, hPos);
+        sethPos(value);
+    }
+
+    const updateRotation = (event) => {
+        props.addOperation(setRotation, event.target.value, rotation);
+        setRotation(event.target.value);
     }
     
 
@@ -91,12 +112,12 @@ function ImageEditArea(props) {
 
 			<Box display="flex" style={{"position": "relative", "top":"1rem", "width":"25rem", "height":"25rem" }}>
                 <Slider
-                    value={-hPos}
+                    value={-vPos}
                     orientation="vertical"
                     step={1}
                     min={-600}
                     max={600}
-                    onChange={(event, value) => sethPos(-value)}
+                    onChange={(event, value) => updateVerticalPosition(event, value)}
                 />
                 
 				<Box>
@@ -112,12 +133,12 @@ function ImageEditArea(props) {
 					/>
 					<Box>
                         <Slider
-                            value={vPos}
+                            value={hPos}
                             orientation="horizontal"
                             step={1}
                             min={-600}
                             max={600}
-                            onChange={(event, value) => setvPos(value)}
+                            onChange={(event, value) => updateHorizontalPosition(event, value)}
                         />
 					</Box>
 
@@ -125,7 +146,7 @@ function ImageEditArea(props) {
                         control={
                             <input
                                 value={zoom}
-                                onChange={(event) => setZoom(event.target.value)}
+                                onChange={updateZoom}
                                 type="number"
                                 style={{padding:"0.5rem", borderStyle:"solid", borderRadius:"0.3rem", borderWidth:"thin", borderColor:"grey"}}
                                 min={1}
@@ -140,7 +161,7 @@ function ImageEditArea(props) {
                         control={
                             <input
                                 value={rotation}
-                                onChange={(event) => setRotation(event.target.value)}
+                                onChange={updateRotation}
                                 type="number"
                                 style={{padding:"0.5rem", borderStyle:"solid", borderRadius:"0.3rem", borderWidth:"thin", borderColor:"grey"}}
                                 min={0}
