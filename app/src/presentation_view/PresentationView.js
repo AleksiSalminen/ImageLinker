@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 
 import PresentationImage from './PresentationImage.js';
+import OptionTable from './OptionTable.js';
+
 
 /**
  * Function that returns the presentation view
@@ -27,6 +29,7 @@ function PresentationView(props) {
 
     const [startSlide, setStartSlide] = useState(findStartSlide());
     const [currentSlide, setCurrentSlide] = useState(startSlide);
+    const [selectedOption, setSelectedOption] = useState(null);
 
     return (
         <Box style={{ width:"90%", margin:"auto" }}>
@@ -49,6 +52,12 @@ function PresentationView(props) {
                         rows={8}
                         rowsMax={8}
                         fullWidth
+                    />
+
+                    <OptionTable
+                        options={currentSlide.options}
+                        selectedOption={selectedOption}
+                        setSelectedOption={setSelectedOption}
                     />
                 </Grid>
             </Grid>
