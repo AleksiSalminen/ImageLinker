@@ -84,6 +84,9 @@
     "BottomArea": {
         "SaveButton": "Tallenna",
         "DeleteButton": "Poista",
-        "CancelButton": "Peruuta"
+        "CancelButton": "Peruuta",
+        "CancelChanges": "Haluatko varmasti perua muutokset?",
+        "Yes": "Kyllä",
+        "No": "Ei"
     }
 }

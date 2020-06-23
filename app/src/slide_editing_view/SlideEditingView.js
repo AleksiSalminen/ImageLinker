@@ -45,7 +45,6 @@ function SlideEditingView(props) {
                         <ImageEditArea
                             info={slide.image}
                             addOperation={addOperation}
-                            emptyHistory={emptyHistory}
                         />
                     </Grid>
 
@@ -53,14 +52,12 @@ function SlideEditingView(props) {
                         <InfoArea
                             slide={slide}
                             addOperation={addOperation}
-                            emptyHistory={emptyHistory}
                         />
                     </Grid>
 
                     <Grid item style={{ width:"29rem", height:"32rem", marginLeft:"1rem" }}>
                         <OptionsArea
                             addOperation={addOperation}
-                            emptyHistory={emptyHistory}
                             options={options}
                             slides={props.slides}
                         />
@@ -68,7 +65,14 @@ function SlideEditingView(props) {
                 </Grid>
 
                 <Box style={{ marginTop:"1.5rem", borderStyle:"ridge hidden hidden hidden", padding:"0.5rem" }}>
-                    <BottomArea/>
+                    <BottomArea
+                        selectSlide={props.selectSlide}
+                        setActiveView={props.setActiveView}
+                        MAIN_EDITING_VIEW={props.MAIN_EDITING_VIEW}
+                        SLIDE_EDITING_VIEW={props.SLIDE_EDITING_VIEW}
+                        PRESENTATION_VIEW={props.PRESENTATION_VIEW}
+                        emptyHistory={emptyHistory}
+                    />
                 </Box>
             </Box>
         </div>

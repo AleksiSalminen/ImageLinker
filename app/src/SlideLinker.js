@@ -24,7 +24,6 @@ function SlideLinker(props) {
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
 
-
   const theme = createMuiTheme({
     palette: {
       type: palletType,
@@ -103,6 +102,7 @@ function SlideLinker(props) {
           SLIDE_EDITING_VIEW={SLIDE_EDITING_VIEW}
           PRESENTATION_VIEW={PRESENTATION_VIEW}
 
+          selectSlide={props.selectSlide}
           selectedSlide={props.selectedSlide}
           slides={props.slides}
 

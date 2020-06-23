@@ -84,6 +84,9 @@
     "BottomArea": {
         "SaveButton": "Save",
         "DeleteButton": "Delete",
-        "CancelButton": "Cancel"
+        "CancelButton": "Cancel",
+        "CancelChanges": "Are you sure you want to cancel changes?",
+        "Yes": "Yes",
+        "No": "No"
     }
 }
