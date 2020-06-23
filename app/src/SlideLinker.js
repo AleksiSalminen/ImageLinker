@@ -143,6 +143,7 @@ function SlideLinker(props) {
           PRESENTATION_VIEW={PRESENTATION_VIEW}
 
           selectedProjectInfo={props.selectedProjectInfo}
+          slides={props.slides}
         />
       </ThemeProvider>
     );
