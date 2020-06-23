@@ -17,6 +17,11 @@ function MainEditingView(props) {
         return (
             <div>
                 <TopBar
+                    setActiveView={props.setActiveView}
+                    MAIN_EDITING_VIEW={props.MAIN_EDITING_VIEW}
+                    SLIDE_EDITING_VIEW={props.SLIDE_EDITING_VIEW}
+                    PRESENTATION_VIEW={props.PRESENTATION_VIEW}
+                    selectedProject={selectedProject}
                     changeSelectedProject={props.changeSelectedProject}
                     updateSlides={props.updateSlides}
                     darkState={props.darkState}

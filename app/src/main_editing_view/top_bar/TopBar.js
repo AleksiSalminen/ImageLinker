@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import ProjectTitleArea from './ProjectTitleArea.js';
 import OpenProjectButton from './OpenProjectButton.js';
+import PlayProjectButton from './PlayProjectButton.js';
 import SettingsMenu from './settings_menu/SettingsMenu.js';
 
 
@@ -34,7 +35,13 @@ function TopBar(props) {
                         updateSlides={props.updateSlides}
                     />
                     
-                    <Button variant="contained" color="primary" style={{margin:"0.25rem"}}>{t("TopBar.PlayButton")}</Button>
+                    <PlayProjectButton
+                        selectedProject={props.selectedProject}
+                        setActiveView={props.setActiveView}
+                        MAIN_EDITING_VIEW={props.MAIN_EDITING_VIEW}
+                        SLIDE_EDITING_VIEW={props.SLIDE_EDITING_VIEW}
+                        PRESENTATION_VIEW={props.PRESENTATION_VIEW}
+                    />
                     
                     <SettingsMenu
                         font={props.font}

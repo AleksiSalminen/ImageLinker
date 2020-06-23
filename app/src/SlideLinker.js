@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 
 import MainEditingView from './main_editing_view/MainEditingView.js';
 import SlideEditingView from './slide_editing_view/SlideEditingView.js';
+import PresentationView from './presentation_view/PresentationView.js';
 
 
 /**
@@ -126,7 +127,25 @@ function SlideLinker(props) {
     );
   }
   else if(activeView === PRESENTATION_VIEW) {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+  
+        <Helmet>
+          <meta charSet="utf-8"/>
+          <title>Slide Linker</title>
+        </Helmet>
+        
+        <PresentationView
+          setActiveView={setActiveView}
+          MAIN_EDITING_VIEW={MAIN_EDITING_VIEW}
+          SLIDE_EDITING_VIEW={SLIDE_EDITING_VIEW}
+          PRESENTATION_VIEW={PRESENTATION_VIEW}
 
+          selectedProjectInfo={props.selectedProjectInfo}
+        />
+      </ThemeProvider>
+    );
   }
 }
 
