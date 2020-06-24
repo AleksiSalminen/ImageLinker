@@ -8,6 +8,7 @@ import TextField from '@material-ui/core/TextField';
 
 import PresentationImage from './PresentationImage.js';
 import OptionTable from './OptionTable.js';
+import SettingsMenu from './settings_menu/SettingsMenu';
 
 
 /**
@@ -106,6 +107,21 @@ function PresentationView(props) {
 
                 <Grid item>
                     <Typography variant="h4">{currentSlide.heading}</Typography>
+                </Grid>
+
+                <Grid item>
+                    <SettingsMenu
+                        font={props.font}
+                        setFont={props.setFont}
+                        fontSize={props.fontSize}
+                        setFontSize={props.setFontSize}
+                        darkState={props.darkState}
+                        handleThemeChange={props.handleThemeChange}
+                        primaryColor={props.primaryColor}
+                        setPrimaryColor={props.setPrimaryColor}
+                        secondaryColor={props.secondaryColor}
+                        setSecondaryColor={props.setSecondaryColor}
+                    />
                 </Grid>
             </Grid>
 
