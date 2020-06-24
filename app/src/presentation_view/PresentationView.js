@@ -29,12 +29,14 @@ function PresentationView(props) {
     const [startSlide, setStartSlide] = useState(findSlide(props.slides, props.selectedProjectInfo.selected.start_slide_id));
     const [currentSlide, setCurrentSlide] = useState(startSlide);
     const [selectedOption, setSelectedOption] = useState(null);
+    const [previousSlides, setPreviousSlides] = useState([]);
 
     const moveToSelectedSlide = () => {
         if(selectedOption) {
             const slideID = selectedOption.endpoint_id;
             const slide = findSlide(props.slides, slideID);
             if(slide) {
+                setPreviousSlides(previousSlides.concat(currentSlide));
                 setCurrentSlide(slide);
                 setSelectedOption(null);
             }
@@ -44,9 +46,68 @@ function PresentationView(props) {
         }
     }
 
+    const returnToStart = () => {
+        setCurrentSlide(startSlide);
+        setSelectedOption(null);
+        setPreviousSlides([]);
+    }
+
+    const returnToPreviousSlide = () => {
+        if(previousSlides.length > 0) {
+            let prevSlides = previousSlides;
+            const previousSlide = prevSlides.pop();
+            setCurrentSlide(previousSlide);
+            setSelectedOption(null);
+            setPreviousSlides(prevSlides);
+        }
+    }
+
+    const returnToMainView = () => {
+        props.setActiveView(props.MAIN_EDITING_VIEW);
+        setStartSlide(null);
+        setCurrentSlide(null);
+        setSelectedOption(null);
+        setPreviousSlides([]);
+    }
+
+    function RevertingButtons(props) {
+        if(props.allowReverting) {
+            return (
+                <div>
+                    <Button variant="outlined" color="default" size="small" onClick={returnToStart}>
+                        Back to start
+                    </Button>
+
+                    <Button variant="outlined" color="default" size="small" onClick={returnToPreviousSlide}>
+                        Previous slide
+                    </Button>
+                </div>
+            );
+        }
+        else {
+            return (<div></div>);
+        }
+    }
+
     return (
         <Box style={{ width:"90%", margin:"auto" }}>
-            <Typography variant="h3">{currentSlide.heading}</Typography>
+            <Grid container spacing={3} style={{ marginTop:"0.5rem" }}>
+                <Grid item>
+                    <Button variant="outlined" color="primary" size="small" onClick={returnToMainView}>
+                        Home
+                    </Button>
+                </Grid>
+
+                <Grid item>
+                    <RevertingButtons
+                        allowReverting={currentSlide.reverting}
+                    />
+                </Grid>
+
+                <Grid item>
+                    <Typography variant="h4">{currentSlide.heading}</Typography>
+                </Grid>
+            </Grid>
 
             <Grid container spacing={3}>
                 <Grid item>
