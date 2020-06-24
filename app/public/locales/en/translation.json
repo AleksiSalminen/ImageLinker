@@ -88,5 +88,12 @@
         "CancelChanges": "Are you sure you want to cancel changes?",
         "Yes": "Yes",
         "No": "No"
+    },
+    "PresentationArea": {
+        "HomeButton": "Home",
+        "ToStartButton": "Back to start",
+        "PrevSlideButton": "Previous slide",
+        "ProceedButton": "Proceed",
+        "NoSlideWarning": "No slide related to the chosen option found"
     }
 }

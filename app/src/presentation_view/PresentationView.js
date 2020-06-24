@@ -42,7 +42,7 @@ function PresentationView(props) {
                 setSelectedOption(null);
             }
             else {
-                alert("No slide related to the chosen option found");
+                alert(t("PresentationArea.NoSlideWarning"));
             }
         }
     }
@@ -76,11 +76,11 @@ function PresentationView(props) {
             return (
                 <div>
                     <Button variant="outlined" color="default" size="small" onClick={returnToStart}>
-                        Back to start
+                        {t("PresentationArea.ToStartButton")}
                     </Button>
 
                     <Button variant="outlined" color="default" size="small" onClick={returnToPreviousSlide}>
-                        Previous slide
+                        {t("PresentationArea.PrevSlideButton")}
                     </Button>
                 </div>
             );
@@ -95,7 +95,7 @@ function PresentationView(props) {
             <Grid container spacing={3} style={{ marginTop:"0.5rem" }}>
                 <Grid item>
                     <Button variant="outlined" color="primary" size="small" onClick={returnToMainView}>
-                        Home
+                        {t("PresentationArea.HomeButton")}
                     </Button>
                 </Grid>
 
@@ -159,7 +159,7 @@ function PresentationView(props) {
                         color="primary"
                         style={{ marginTop:"1rem" }}
                     >
-                        Proceed
+                        {t("PresentationArea.ProceedButton")}
                     </Button>
                 </Grid>
             </Grid>

@@ -88,5 +88,12 @@
         "CancelChanges": "Haluatko varmasti perua muutokset?",
         "Yes": "Kyllä",
         "No": "Ei"
+    },
+    "PresentationArea": {
+        "HomeButton": "Koti",
+        "ToStartButton": "Takaisin alkuun",
+        "PrevSlideButton": "Edellinen dia",
+        "ProceedButton": "Etene",
+        "NoSlideWarning": "Valittuun vaihtoehtoon liittyvää diaa ei löytynyt"
     }
 }
