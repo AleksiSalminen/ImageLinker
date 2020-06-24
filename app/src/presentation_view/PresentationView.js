@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 
@@ -16,20 +17,32 @@ import OptionTable from './OptionTable.js';
 function PresentationView(props) {
     const { t } = useTranslation();
 
-    const findStartSlide = () => {
-        const startID = props.selectedProjectInfo.selected.start_slide_id;
-        
-        for(let i = 0;i < props.slides.length;i++) {
-            const slide = props.slides[i];
-            if(slide.id === startID) {
-                return slide;
+    const findSlide = (slidesArray, idToFind) => {
+        for(let i = 0; i < slidesArray.length; i++) {
+            if(slidesArray[i]['id'] === idToFind) {
+                return slidesArray[i];
+            }
+        }
+        return null;
+    }
+
+    const [startSlide, setStartSlide] = useState(findSlide(props.slides, props.selectedProjectInfo.selected.start_slide_id));
+    const [currentSlide, setCurrentSlide] = useState(startSlide);
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    const moveToSelectedSlide = () => {
+        if(selectedOption) {
+            const slideID = selectedOption.endpoint_id;
+            const slide = findSlide(props.slides, slideID);
+            if(slide) {
+                setCurrentSlide(slide);
+                setSelectedOption(null);
+            }
+            else {
+                alert("No slide related to the chosen option found");
             }
         }
     }
-
-    const [startSlide, setStartSlide] = useState(findStartSlide());
-    const [currentSlide, setCurrentSlide] = useState(startSlide);
-    const [selectedOption, setSelectedOption] = useState(null);
 
     return (
         <Box style={{ width:"90%", margin:"auto" }}>
@@ -42,23 +55,35 @@ function PresentationView(props) {
                     />
                 </Grid>
 
-                <Grid item style={{ width:"50%" }}>
+                <Grid item style={{ width:"25%" }}>
                     <TextField
                         disabled
                         value={currentSlide.description}
                         label={t("InfoArea.Description")}
                         variant="outlined"
                         multiline
-                        rows={8}
-                        rowsMax={8}
+                        rows={20}
+                        rowsMax={20}
                         fullWidth
                     />
+                </Grid>
 
+                <Grid item style={{ width:"25%" }}>
                     <OptionTable
                         options={currentSlide.options}
                         selectedOption={selectedOption}
                         setSelectedOption={setSelectedOption}
                     />
+
+                    <Button
+                        disabled={!selectedOption}
+                        onClick={moveToSelectedSlide}
+                        variant="contained"
+                        color="primary"
+                        style={{ marginTop:"1rem" }}
+                    >
+                        Proceed
+                    </Button>
                 </Grid>
             </Grid>
         </Box>

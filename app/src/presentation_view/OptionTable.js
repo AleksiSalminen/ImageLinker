@@ -44,7 +44,7 @@ function OptionsArea(props) {
 
     return (
         <Paper>
-            <TableContainer style={{ height: "32rem" }}>
+            <TableContainer style={{ height: "30rem" }}>
                 <Table style={{ borderStyle: "double hidden hidden hidden", borderColor: "lightgrey", borderWidth: "thin" }} stickyHeader aria-label="options table">
                     <TableHead>
                         <TableRow>
