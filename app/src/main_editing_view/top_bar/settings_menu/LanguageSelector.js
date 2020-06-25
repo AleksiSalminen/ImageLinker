@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
@@ -11,9 +11,11 @@ import Button from '@material-ui/core/Button';
  */
 function LanguageSelector(props) {
     const { t, i18n } = useTranslation();
-    const english = "en";
-    const finnish = "fi";
-    const [language, setLanguage] = useState(english);
+
+    const english = props.settings.english;
+    const finnish = props.settings.finnish;
+    const language = props.settings.language;
+    const setLanguage = props.settings.setLanguage;
 
     const changeLanguage = (newLang) => {
         i18n.changeLanguage(newLang);
