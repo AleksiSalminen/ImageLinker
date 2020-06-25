@@ -9,7 +9,7 @@ import Switch from '@material-ui/core/Switch';
  * Function that returns the light/dark mode selector
  * @param {Object} props received parameters 
  */
-function LightModeSelector(props) {
+const LightModeSelector = React.forwardRef((props, ref) => {
     const { t } = useTranslation();
 
     const darkState = props.settings.darkState;
@@ -29,6 +29,6 @@ function LightModeSelector(props) {
             {t("TopBar.Settings.Mode.DarkMode")}
         </Box>
     );
-}
+});
 
 export default LightModeSelector;

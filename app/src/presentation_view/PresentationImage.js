@@ -60,6 +60,7 @@ function PresentationImage(props) {
 
 			<img
                 onLoad={() => {setvPos(0);}}
+                alt=""
                 src={image}
                 ref={imageEl}
                 style={{"display": "none"}}

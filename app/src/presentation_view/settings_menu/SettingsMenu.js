@@ -50,7 +50,7 @@ function SettingsMenu(props) {
 
     return (
         <>
-            <Button variant="outlined" color={settingsAnchor ? "secondary" : "primary"} aria-controls="settings-menu" aria-haspopup="true" onClick={handleSettingsClick} style={{margin:"0.25rem"}}>
+            <Button variant="contained" color={settingsAnchor ? "secondary" : "primary"} aria-controls="settings-menu" aria-haspopup="true" onClick={handleSettingsClick} style={{margin:"0.25rem"}}>
                 {t("TopBar.Settings.SettingsButton")}
             </Button>
 
@@ -59,7 +59,8 @@ function SettingsMenu(props) {
                 getContentAnchorEl={null}
                 anchorEl={settingsAnchor}
                 anchorOrigin={{
-                    vertical: 'bottom'
+                    vertical: 'bottom',
+                    horizontal: 'left'
                 }}
                 keepMounted
                 open={Boolean(settingsAnchor)}

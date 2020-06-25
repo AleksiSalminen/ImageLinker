@@ -18,7 +18,7 @@ function ImageEditArea(props) {
     const [image, setImage] = useState(Logo);
     const [zoom, setZoom] = useState(props.info.size);
 	const [vPos, setvPos] = useState(props.info.vert_pos);
-	const [hPos, sethPos] = useState(props.info.horiz_pos);
+	const [hPos, sethPos] = useState(parseInt(props.info.horiz_pos));
     const [rotation, setRotation] = useState(props.info.angle);
     
     const canvasRef = useRef(null);
@@ -178,6 +178,7 @@ function ImageEditArea(props) {
 			</Box>
 			<img
                 onLoad={() => {setvPos(0);}}
+                alt=""
                 src={image}
                 ref={imageEl}
                 style={{"display": "none"}}

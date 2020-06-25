@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 function PlayProjectButton(props) {
     const { t } = useTranslation();
     
-    const [disabled, setDisabled] = useState(props.selectedProject == undefined);
+    const [disabled, setDisabled] = useState(props.selectedProject === undefined);
 
     const setActiveView = (props.activeViewSettings ? props.activeViewSettings.setActiveView : null);
     const PRESENTATION_VIEW = (props.activeViewSettings ? props.activeViewSettings.PRESENTATION_VIEW : null);

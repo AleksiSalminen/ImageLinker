@@ -59,7 +59,8 @@ function SettingsMenu(props) {
                 getContentAnchorEl={null}
                 anchorEl={settingsAnchor}
                 anchorOrigin={{
-                    vertical: 'bottom'
+                    vertical: 'bottom',
+                    horizontal: 'left'
                 }}
                 keepMounted
                 open={Boolean(settingsAnchor)}

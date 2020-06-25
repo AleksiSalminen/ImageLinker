@@ -14,7 +14,7 @@ function InfoArea(props) {
     const { t } = useTranslation();
     
     const [heading, setHeading] = useState(props.slide.heading);
-    const [reverting, setReverting] = useState(props.slide.reverting);
+    const [reverting, setReverting] = useState(props.slide.reverting === "true");
     const [description, setDescription] = useState(props.slide.description);
 
     const updateHeading = (event) => {

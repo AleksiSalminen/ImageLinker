@@ -31,7 +31,7 @@ function SlideEditingView(props) {
             />
 
             <Box style={{ margin:"auto", width:"90%" }}>
-                <Grid container rows spacing={4} style={{ marginTop:"0.5rem" }}>
+                <Grid container spacing={4} style={{ marginTop:"0.5rem" }}>
                     <Grid item style={{width:"29rem", borderStyle:"hidden ridge hidden hidden", height:"35rem"}}>
                         <ImageEditArea
                             info={slide.image}
