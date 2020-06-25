@@ -28,6 +28,9 @@ function SlidesTable(props) {
   const [filterHeading, setFilterHeading] = useState(null);
   const [filterDescription, setFilterDescription] = useState(null);
 
+  const setActiveView = props.activeViewSettings.setActiveView;
+  const SLIDE_EDITING_VIEW = props.activeViewSettings.SLIDE_EDITING_VIEW;
+
   let slides = [];
   if(props.slides && props.slides.length) {
     slides = props.slides
@@ -67,7 +70,7 @@ function SlidesTable(props) {
     const slide = findSlide(slides, id);
     if(slide) {
       props.selectSlide(slide);
-      props.setActiveView(props.SLIDE_EDITING_VIEW);
+      setActiveView(SLIDE_EDITING_VIEW);
     }
   }
 

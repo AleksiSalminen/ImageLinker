@@ -37,10 +37,7 @@ function TopBar(props) {
                     
                     <PlayProjectButton
                         selectedProject={props.selectedProject}
-                        setActiveView={props.setActiveView}
-                        MAIN_EDITING_VIEW={props.MAIN_EDITING_VIEW}
-                        SLIDE_EDITING_VIEW={props.SLIDE_EDITING_VIEW}
-                        PRESENTATION_VIEW={props.PRESENTATION_VIEW}
+                        activeViewSettings={props.activeViewSettings}
                     />
                     
                     <SettingsMenu

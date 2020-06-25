@@ -81,6 +81,12 @@ function SlideLinker(props) {
     }
   ];
 
+  const activeViewSettings = {
+    setActiveView: setActiveView,
+    MAIN_EDITING_VIEW: MAIN_EDITING_VIEW,
+    SLIDE_EDITING_VIEW: SLIDE_EDITING_VIEW,
+    PRESENTATION_VIEW: PRESENTATION_VIEW
+  }
 
   if(activeView === MAIN_EDITING_VIEW) {
     return (
@@ -93,10 +99,7 @@ function SlideLinker(props) {
         </Helmet>
   
         <MainEditingView
-          setActiveView={setActiveView}
-          MAIN_EDITING_VIEW={MAIN_EDITING_VIEW}
-          SLIDE_EDITING_VIEW={SLIDE_EDITING_VIEW}
-          PRESENTATION_VIEW={PRESENTATION_VIEW}
+          activeViewSettings={activeViewSettings}
 
           selectedProjectInfo={props.selectedProjectInfo}
           changeSelectedProject={props.changeSelectedProject}

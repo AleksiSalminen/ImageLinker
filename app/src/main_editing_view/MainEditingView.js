@@ -17,10 +17,8 @@ function MainEditingView(props) {
         return (
             <div>
                 <TopBar
-                    setActiveView={props.setActiveView}
-                    MAIN_EDITING_VIEW={props.MAIN_EDITING_VIEW}
-                    SLIDE_EDITING_VIEW={props.SLIDE_EDITING_VIEW}
-                    PRESENTATION_VIEW={props.PRESENTATION_VIEW}
+                    activeViewSettings={props.activeViewSettings}
+
                     selectedProject={selectedProject}
                     changeSelectedProject={props.changeSelectedProject}
                     updateSlides={props.updateSlides}
@@ -31,10 +29,7 @@ function MainEditingView(props) {
                 <br/><br/>
     
                 <SlidesTable
-                    setActiveView={props.setActiveView}
-                    MAIN_EDITING_VIEW={props.MAIN_EDITING_VIEW}
-                    SLIDE_EDITING_VIEW={props.SLIDE_EDITING_VIEW}
-                    PRESENTATION_VIEW={props.PRESENTATION_VIEW}
+                    activeViewSettings={props.activeViewSettings}
 
                     slides={props.slides}
                     updateSlides={props.updateSlides}

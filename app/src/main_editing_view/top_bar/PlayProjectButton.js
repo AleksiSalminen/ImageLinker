@@ -12,6 +12,9 @@ function PlayProjectButton(props) {
     
     const [disabled, setDisabled] = useState(props.selectedProject == undefined);
 
+    const setActiveView = (props.activeViewSettings ? props.activeViewSettings.setActiveView : null);
+    const PRESENTATION_VIEW = (props.activeViewSettings ? props.activeViewSettings.PRESENTATION_VIEW : null);
+
     if(disabled && props.selectedProject !== undefined) {
         setDisabled(false);
     }
@@ -21,7 +24,7 @@ function PlayProjectButton(props) {
 
     const playPresentation = () => {
         if(props.selectedProject !== undefined) {
-            props.setActiveView(props.PRESENTATION_VIEW);
+            setActiveView(PRESENTATION_VIEW);
         }
     }
 
