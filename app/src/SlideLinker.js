@@ -126,10 +126,7 @@ function SlideLinker(props) {
         <SlideEditingView
           history={props.history}
 
-          setActiveView={setActiveView}
-          MAIN_EDITING_VIEW={MAIN_EDITING_VIEW}
-          SLIDE_EDITING_VIEW={SLIDE_EDITING_VIEW}
-          PRESENTATION_VIEW={PRESENTATION_VIEW}
+          activeViewSettings={activeViewSettings}
 
           selectSlide={props.selectSlide}
           selectedSlide={props.selectedSlide}

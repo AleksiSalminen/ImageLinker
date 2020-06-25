@@ -16,6 +16,9 @@ function BottomArea(props) {
 
     const [dialogOpen, setDialogOpen] = useState(false);
 
+    const setActiveView = props.activeViewSettings.setActiveView;
+    const MAIN_EDITING_VIEW = props.activeViewSettings.MAIN_EDITING_VIEW;
+
     useHotkeys('ctrl+s', (event) => {
         event.preventDefault();
         saveChanges();
@@ -42,7 +45,7 @@ function BottomArea(props) {
     const cancelChanges = () => {
         handleCancelDialogClose();
         props.emptyHistory();
-        props.setActiveView(props.MAIN_EDITING_VIEW);
+        setActiveView(MAIN_EDITING_VIEW);
         props.selectSlide(null);
     }
 

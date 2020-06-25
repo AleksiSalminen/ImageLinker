@@ -58,10 +58,7 @@ function SlideEditingView(props) {
                 <Box style={{ marginTop:"1.5rem", borderStyle:"ridge hidden hidden hidden", padding:"0.5rem" }}>
                     <BottomArea
                         selectSlide={props.selectSlide}
-                        setActiveView={props.setActiveView}
-                        MAIN_EDITING_VIEW={props.MAIN_EDITING_VIEW}
-                        SLIDE_EDITING_VIEW={props.SLIDE_EDITING_VIEW}
-                        PRESENTATION_VIEW={props.PRESENTATION_VIEW}
+                        activeViewSettings={props.activeViewSettings}
                         emptyHistory={emptyHistory}
                     />
                 </Box>
