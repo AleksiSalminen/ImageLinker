@@ -22,6 +22,9 @@ function SlideLinker(props) {
   const [secondaryColor, setSecondaryColor] = useState("#D1AF74");
   const [font, setFont] = useState("Gabriola");
   const [fontSize, setFontSize] = useState(20);
+  const english = "en";
+  const finnish = "fi";
+  const [language, setLanguage] = useState(english);
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
 
@@ -44,6 +47,39 @@ function SlideLinker(props) {
   const handleThemeChange = () => {
     setDarkState(!darkState);
   };
+
+  const interfaceSettings = [
+    {
+      theme: {
+        darkState: darkState,
+        handleThemeChange: handleThemeChange
+      }
+    },
+    {
+      font: {
+        font: font,
+        setFont: setFont,
+        fontSize: fontSize,
+        setFontSize: setFontSize
+      }
+    },
+    {
+      language: {
+        english: english,
+        finnish: finnish,
+        language: language,
+        setLanguage: setLanguage
+      }
+    },
+    {
+      colors: {
+        primaryColor: primaryColor,
+        setPrimaryColor: setPrimaryColor,
+        secondaryColor: secondaryColor,
+        setSecondaryColor: setSecondaryColor
+      }
+    }
+  ];
 
 
   if(activeView === MAIN_EDITING_VIEW) {
@@ -76,6 +112,11 @@ function SlideLinker(props) {
           setFont={setFont}
           fontSize={fontSize}
           setFontSize={setFontSize}
+
+          english={english}
+          finnish={finnish}
+          language={language}
+          setLanguage={setLanguage}
           
           primaryColor={primaryColor}
           setPrimaryColor={setPrimaryColor}
@@ -117,6 +158,11 @@ function SlideLinker(props) {
           setFont={setFont}
           fontSize={fontSize}
           setFontSize={setFontSize}
+
+          english={english}
+          finnish={finnish}
+          language={language}
+          setLanguage={setLanguage}
           
           primaryColor={primaryColor}
           setPrimaryColor={setPrimaryColor}
@@ -145,18 +191,7 @@ function SlideLinker(props) {
           selectedProjectInfo={props.selectedProjectInfo}
           slides={props.slides}
 
-          darkState={darkState}
-          handleThemeChange={handleThemeChange}
-  
-          font={font}
-          setFont={setFont}
-          fontSize={fontSize}
-          setFontSize={setFontSize}
-          
-          primaryColor={primaryColor}
-          setPrimaryColor={setPrimaryColor}
-          secondaryColor={secondaryColor}
-          setSecondaryColor={setSecondaryColor}
+          interfaceSettings={interfaceSettings}
         />
       </ThemeProvider>
     );

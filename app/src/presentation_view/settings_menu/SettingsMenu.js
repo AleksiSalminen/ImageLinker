@@ -18,6 +18,28 @@ function SettingsMenu(props) {
     const { t } = useTranslation();
     const [settingsAnchor, setSettingsAnchor] = useState(null);
 
+    let themeSettings = null;
+    let fontSettings = null;
+    let languageSettings = null;
+    let colorsSettings = null;
+
+    for(let i = 0;i < props.interfaceSettings.length;i++) {
+        const setting = props.interfaceSettings[i];
+        
+        if(setting.theme) {
+            themeSettings = setting.theme;
+        }
+        else if(setting.font) {
+            fontSettings = setting.font;
+        }
+        else if(setting.language) {
+            languageSettings = setting.language;
+        }
+        else if(setting.colors) {
+            colorsSettings = setting.colors;
+        }
+    }
+
     const handleSettingsClick = (event) => {
         setSettingsAnchor(event.currentTarget);
     };
@@ -44,27 +66,23 @@ function SettingsMenu(props) {
                 onClose={handleSettingsClose}
             >
                 <LightModeSelector
-                    darkState={props.darkState}
-                    handleThemeChange={props.handleThemeChange}
+                    settings={themeSettings}
                 />
                 
                 <ColorsPicker
-                    primaryColor={props.primaryColor}
-                    setPrimaryColor={props.setPrimaryColor}
-                    secondaryColor={props.secondaryColor}
-                    setSecondaryColor={props.setSecondaryColor}
+                    settings={colorsSettings}
                 />
 
-                <LanguageSelector/>
+                <LanguageSelector
+                    settings={languageSettings}
+                />
 
                 <FontSelector
-                    font={props.font}
-                    setFont={props.setFont}
+                    settings={fontSettings}
                 />
 
                 <FontSizeSelector
-                    fontSize={props.fontSize}
-                    setFontSize={props.setFontSize}
+                    settings={fontSettings}
                 />
             </Menu>
         </>

@@ -111,16 +111,7 @@ function PresentationView(props) {
 
                 <Grid item>
                     <SettingsMenu
-                        font={props.font}
-                        setFont={props.setFont}
-                        fontSize={props.fontSize}
-                        setFontSize={props.setFontSize}
-                        darkState={props.darkState}
-                        handleThemeChange={props.handleThemeChange}
-                        primaryColor={props.primaryColor}
-                        setPrimaryColor={props.setPrimaryColor}
-                        secondaryColor={props.secondaryColor}
-                        setSecondaryColor={props.setSecondaryColor}
+                        interfaceSettings={props.interfaceSettings}
                     />
                 </Grid>
             </Grid>

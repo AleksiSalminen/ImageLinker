@@ -11,6 +11,9 @@ import Switch from '@material-ui/core/Switch';
  */
 function LightModeSelector(props) {
     const { t } = useTranslation();
+
+    const darkState = props.settings.darkState;
+    const handleThemeChange = props.settings.handleThemeChange;
     
     return (
         <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"hidden hidden hidden hidden"}}>
@@ -18,9 +21,9 @@ function LightModeSelector(props) {
             &nbsp;&nbsp;
             {t("TopBar.Settings.Mode.LightMode")}
             <Switch
-                checked={props.darkState}
+                checked={darkState}
                 color="primary"
-                onChange={props.handleThemeChange}
+                onChange={handleThemeChange}
                 inputProps={{ 'aria-label': 'light dark mode selection' }}
             />
             {t("TopBar.Settings.Mode.DarkMode")}
