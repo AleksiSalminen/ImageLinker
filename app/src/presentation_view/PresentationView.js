@@ -32,6 +32,9 @@ function PresentationView(props) {
     const [selectedOption, setSelectedOption] = useState(null);
     const [previousSlides, setPreviousSlides] = useState([]);
 
+    const setActiveView = props.activeViewSettings.setActiveView;
+    const MAIN_EDITING_VIEW = props.activeViewSettings.MAIN_EDITING_VIEW;
+
     const moveToSelectedSlide = () => {
         if(selectedOption) {
             const slideID = selectedOption.endpoint_id;
@@ -64,7 +67,7 @@ function PresentationView(props) {
     }
 
     const returnToMainView = () => {
-        props.setActiveView(props.MAIN_EDITING_VIEW);
+        setActiveView(MAIN_EDITING_VIEW);
         setStartSlide(null);
         setCurrentSlide(null);
         setSelectedOption(null);

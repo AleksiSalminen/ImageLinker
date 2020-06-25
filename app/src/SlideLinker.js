@@ -48,6 +48,7 @@ function SlideLinker(props) {
     setDarkState(!darkState);
   };
 
+
   const interfaceSettings = [
     {
       theme: {
@@ -88,6 +89,7 @@ function SlideLinker(props) {
     PRESENTATION_VIEW: PRESENTATION_VIEW
   }
 
+  
   if(activeView === MAIN_EDITING_VIEW) {
     return (
       <ThemeProvider theme={theme}>
@@ -151,10 +153,7 @@ function SlideLinker(props) {
         </Helmet>
         
         <PresentationView
-          setActiveView={setActiveView}
-          MAIN_EDITING_VIEW={MAIN_EDITING_VIEW}
-          SLIDE_EDITING_VIEW={SLIDE_EDITING_VIEW}
-          PRESENTATION_VIEW={PRESENTATION_VIEW}
+          activeViewSettings={activeViewSettings}
 
           selectedProjectInfo={props.selectedProjectInfo}
           slides={props.slides}
