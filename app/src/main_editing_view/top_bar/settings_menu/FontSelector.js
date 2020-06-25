@@ -15,6 +15,9 @@ import fonts from './fonts.js';
 function FontSelector(props) {
     const { t } = useTranslation();
 
+    const font = props.settings.font;
+    const setFont = props.settings.setFont;
+
     return (
         <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"ridge hidden hidden hidden"}}>
             <Typography>{t("TopBar.Settings.Font")}:</Typography>
@@ -22,8 +25,8 @@ function FontSelector(props) {
 
             <Autocomplete
                 id="font-select"
-                value={props.font}
-                onChange={(event, newFont) => {props.setFont(newFont)}}
+                value={font}
+                onChange={(event, newFont) => {setFont(newFont)}}
                 options={fonts}
                 size="small"
                 disableClearable={true}

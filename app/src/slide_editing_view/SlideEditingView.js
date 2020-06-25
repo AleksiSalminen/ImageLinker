@@ -26,17 +26,8 @@ function SlideEditingView(props) {
                 history={props.history}
                 changeSelectedProject={props.changeSelectedProject}
                 updateSlides={props.updateSlides}
-                darkState={props.darkState}
-                handleThemeChange={props.handleThemeChange}
-                font={props.font}
-                setFont={props.setFont}
-                fontSize={props.fontSize}
-                setFontSize={props.setFontSize}
                 projectName={project.name}
-                primaryColor={props.primaryColor}
-                setPrimaryColor={props.setPrimaryColor}
-                secondaryColor={props.secondaryColor}
-                setSecondaryColor={props.setSecondaryColor}
+                interfaceSettings={props.interfaceSettings}
             />
 
             <Box style={{ margin:"auto", width:"90%" }}>

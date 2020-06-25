@@ -105,23 +105,7 @@ function SlideLinker(props) {
           updateSlides={props.updateSlides}
           selectSlide={props.selectSlide}
   
-          darkState={darkState}
-          handleThemeChange={handleThemeChange}
-  
-          font={font}
-          setFont={setFont}
-          fontSize={fontSize}
-          setFontSize={setFontSize}
-
-          english={english}
-          finnish={finnish}
-          language={language}
-          setLanguage={setLanguage}
-          
-          primaryColor={primaryColor}
-          setPrimaryColor={setPrimaryColor}
-          secondaryColor={secondaryColor}
-          setSecondaryColor={setSecondaryColor}
+          interfaceSettings={interfaceSettings}
         />
       </ThemeProvider>
     );
@@ -151,23 +135,7 @@ function SlideLinker(props) {
           selectedProjectInfo={props.selectedProjectInfo}
           changeSelectedProject={props.changeSelectedProject}
 
-          darkState={darkState}
-          handleThemeChange={handleThemeChange}
-  
-          font={font}
-          setFont={setFont}
-          fontSize={fontSize}
-          setFontSize={setFontSize}
-
-          english={english}
-          finnish={finnish}
-          language={language}
-          setLanguage={setLanguage}
-          
-          primaryColor={primaryColor}
-          setPrimaryColor={setPrimaryColor}
-          secondaryColor={secondaryColor}
-          setSecondaryColor={setSecondaryColor}
+          interfaceSettings={interfaceSettings}
         />
       </ThemeProvider>
     );

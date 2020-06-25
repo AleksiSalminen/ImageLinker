@@ -13,12 +13,17 @@ import ColorPicker from 'material-ui-color-picker'
 function ColorsPicker(props) {
     const { t } = useTranslation();
 
+    const primaryColor = props.settings.primaryColor;
+    const setPrimaryColor = props.settings.setPrimaryColor;
+    const secondaryColor = props.settings.secondaryColor;
+    const setSecondaryColor = props.settings.setSecondaryColor;
+
     const changePrimaryColor = (newColor) => {
-        props.setPrimaryColor(newColor);
+        setPrimaryColor(newColor);
     }
 
     const changeSecondaryColor = (newColor) => {
-        props.setSecondaryColor(newColor);
+        setSecondaryColor(newColor);
     }
 
     return (
@@ -28,10 +33,10 @@ function ColorsPicker(props) {
             <Grid container spacing={3}>
                 <Grid item>
                     {t("TopBar.Settings.Colors.PrimaryColor")}:
-                    <Box style={{backgroundColor:props.primaryColor, width:"7.0rem", borderRadius:"0.3rem"}}>
+                    <Box style={{backgroundColor:primaryColor, width:"7.0rem", borderRadius:"0.3rem"}}>
                         <ColorPicker
                             defaultValue='#000'
-                            value={props.primaryColor}
+                            value={primaryColor}
                             onChange={(color) => {changePrimaryColor(color)}}
                         />
                     </Box>
@@ -39,10 +44,10 @@ function ColorsPicker(props) {
 
                 <Grid item>
                     {t("TopBar.Settings.Colors.SecondaryColor")}:
-                    <Box style={{backgroundColor:props.secondaryColor, width:"7.0rem", borderRadius:"0.3rem"}}>
+                    <Box style={{backgroundColor:secondaryColor, width:"7.0rem", borderRadius:"0.3rem"}}>
                         <ColorPicker
                             defaultValue='#000'
-                            value={props.secondaryColor}
+                            value={secondaryColor}
                             onChange={(color) => {changeSecondaryColor(color)}}
                         />
                     </Box>

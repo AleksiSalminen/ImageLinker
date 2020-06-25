@@ -24,17 +24,8 @@ function MainEditingView(props) {
                     selectedProject={selectedProject}
                     changeSelectedProject={props.changeSelectedProject}
                     updateSlides={props.updateSlides}
-                    darkState={props.darkState}
-                    handleThemeChange={props.handleThemeChange}
-                    font={props.font}
-                    setFont={props.setFont}
-                    fontSize={props.fontSize}
-                    setFontSize={props.setFontSize}
                     projectName={selectedProject.name}
-                    primaryColor={props.primaryColor}
-                    setPrimaryColor={props.setPrimaryColor}
-                    secondaryColor={props.secondaryColor}
-                    setSecondaryColor={props.setSecondaryColor}
+                    interfaceSettings={props.interfaceSettings}
                 />
     
                 <br/><br/>
@@ -60,16 +51,7 @@ function MainEditingView(props) {
                 <TopBar
                     changeSelectedProject={props.changeSelectedProject}
                     updateSlides={props.updateSlides}
-                    darkState={props.darkState}
-                    handleThemeChange={props.handleThemeChange}
-                    font={props.font}
-                    setFont={props.setFont}
-                    fontSize={props.fontSize}
-                    setFontSize={props.setFontSize}
-                    primaryColor={props.primaryColor}
-                    setPrimaryColor={props.setPrimaryColor}
-                    secondaryColor={props.secondaryColor}
-                    setSecondaryColor={props.setSecondaryColor}
+                    interfaceSettings={props.interfaceSettings}
                 />
     
                 <br/><br/><br/>
