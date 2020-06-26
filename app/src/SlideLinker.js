@@ -40,7 +40,7 @@ function SlideLinker(props) {
     },
     typography: {
       fontFamily: font,
-      fontSize: fontSize
+      fontSize: parseInt(fontSize)
     },
   });
 

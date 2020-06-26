@@ -86,7 +86,7 @@ function SlidesTableFilterDialog(props) {
                     />
                     <TextField
                         disabled={!filterHeading}
-                        value={headingFilter}
+                        value={headingFilter ? headingFilter : ""}
                         onChange={changeHeadingFilter}
                     />
                 </FormGroup>
@@ -105,7 +105,7 @@ function SlidesTableFilterDialog(props) {
                     />
                     <TextField
                         disabled={!filterDescription}
-                        value={descriptionFilter}
+                        value={descriptionFilter ? descriptionFilter : ""}
                         onChange={changeDescriptionFilter}
                     />
                 </FormGroup>
