@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
 import SettingsMenu from './settings_menu/SettingsMenu.js';
-import { UndoButton, RedoButton } from '../history/history.js';
+import { UndoButton, RedoButton } from '../history/HistoryButtons.js';
 
 
 /**

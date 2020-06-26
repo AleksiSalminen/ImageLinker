@@ -126,8 +126,6 @@ function SlideLinker(props) {
         </Helmet>
   
         <SlideEditingView
-          history={props.history}
-
           activeViewSettings={activeViewSettings}
 
           selectSlide={props.selectSlide}

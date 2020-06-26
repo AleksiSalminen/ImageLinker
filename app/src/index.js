@@ -18,7 +18,6 @@ function mapStateToProps(state) {
     selectedProjectInfo: state.selectedProject.selectedProjectInfo,
     slides: state.selectedProject.slideList.slides,
     selectedSlide: state.selectedProject.selectedSlide.selected,
-    history: state.operationsHistory
   };
 }
 

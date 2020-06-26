@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 
@@ -7,8 +7,6 @@ import ImageEditArea from './image_edit_area/ImageEditArea.js';
 import InfoArea from './info_area/InfoArea.js';
 import OptionsArea from './options_area/OptionsArea.js';
 import BottomArea from './bottom_area/BottomArea.js';
-
-import { addOperation, emptyHistory } from './history/history.js';
 
 
 /**
@@ -20,10 +18,35 @@ function SlideEditingView(props) {
     const project = props.selectedProjectInfo.selected;
     let options = slide.options;
     
+    const [undoStack, setUndoStack] = useState([]);
+    const [redoStack, setRedoStack] = useState([]);
+    const [lastOperation, setLastOperation] = useState(null);
+
+    const addOperation = async (operation, newValue, oldValue) => {
+        setUndoStack(undoStack.concat({operation: operation, value: oldValue}));
+        setLastOperation({operation: operation, value: newValue});
+        setRedoStack([]);
+    }
+    
+    const emptyHistory = async () => {
+        setUndoStack([]);
+        setRedoStack([]);
+        setLastOperation(null);
+    }
+
+    const history = {
+        undoStack: undoStack,
+        setUndoStack: setUndoStack,
+        redoStack: redoStack,
+        setRedoStack: setRedoStack,
+        lastOperation: lastOperation,
+        setLastOperation: setLastOperation
+    }
+    
     return (
         <div>
             <TopBar
-                history={props.history}
+                history={history}
                 changeSelectedProject={props.changeSelectedProject}
                 updateSlides={props.updateSlides}
                 projectName={project.name}
