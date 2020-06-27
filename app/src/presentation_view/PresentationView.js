@@ -75,7 +75,7 @@ function PresentationView(props) {
     }
 
     function RevertingButtons(props) {
-        if(props.allowReverting) {
+        if(props.allowReverting === "true") {
             return (
                 <div>
                     <Button variant="outlined" color="default" size="small" onClick={returnToStart}>

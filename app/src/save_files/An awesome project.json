@@ -46,7 +46,16 @@
 				"angle": "20"
 			},
 			"options": [
-				
+				{
+					"id": "1",
+					"title": "Incredibly happy!",
+					"endpoint_id": "5"
+				},
+				{
+					"id": "2",
+					"title": "Quite happy",
+					"endpoint_id": "6"
+				}
 			]
 		},
 		{
@@ -79,6 +88,46 @@
 			},
 			"options": [
 				
+			]
+		},
+		{
+			"id": "5",
+			"heading": "That is great to hear!",
+			"reverting": "false",
+			"description": "",
+			"image": {
+				"loc": "",
+				"horiz_pos": "0",
+				"vert_pos": "0",
+				"size": "100",
+				"angle": "0"
+			},
+			"options": [
+				{
+					"id": "1",
+					"title": "Back to start",
+					"endpoint_id": "1"
+				}
+			]
+		},
+		{
+			"id": "6",
+			"heading": "That's good!",
+			"reverting": "false",
+			"description": "",
+			"image": {
+				"loc": "",
+				"horiz_pos": "0",
+				"vert_pos": "0",
+				"size": "100",
+				"angle": "0"
+			},
+			"options": [
+				{
+					"id": "1",
+					"title": "Back to start",
+					"endpoint_id": "1"
+				}
 			]
 		}
 	]
