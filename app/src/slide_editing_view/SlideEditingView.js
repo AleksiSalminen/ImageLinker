@@ -21,11 +21,17 @@ function SlideEditingView(props) {
     const [undoStack, setUndoStack] = useState([]);
     const [redoStack, setRedoStack] = useState([]);
     const [lastOperation, setLastOperation] = useState(null);
+    const [historyLength, setHistoryLength] = useState(50);
 
     const addOperation = async (operation, newValue, oldValue) => {
-        setUndoStack(undoStack.concat({operation: operation, value: oldValue}));
         setLastOperation({operation: operation, value: newValue});
         setRedoStack([]);
+
+        undoStack.push({operation: operation, value: oldValue});
+        while(undoStack.length > historyLength) {
+            undoStack.shift();
+        }
+        setUndoStack(undoStack);
     }
     
     const emptyHistory = async () => {
