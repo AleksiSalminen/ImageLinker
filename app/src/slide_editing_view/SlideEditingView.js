@@ -79,7 +79,7 @@ function SlideEditingView(props) {
                         />
                     </Grid>
 
-                    <Grid item style={{ width:"29rem", height:"32rem", marginLeft:"1rem" }}>
+                    <Grid item style={{ width:"28rem", height:"32rem", marginLeft:"1rem" }}>
                         <OptionsArea
                             addOperation={addOperation}
                             options={options}

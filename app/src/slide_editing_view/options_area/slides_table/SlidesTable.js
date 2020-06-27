@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -21,19 +20,14 @@ import SlidesTableFilterButton from './SlidesTableFilterButton';
  */
 function SlidesTable(props) {
   const { t } = useTranslation();
+  const [slideArray, setSlides] = useState(props.slides ? props.slides : []);
   const [page, setPage] = useState(0);
   const [slidesPerPage, setSlidesPerPage] = useState(5);
 
   /* Filtering settings */
   const [filterHeading, setFilterHeading] = useState(null);
 
-  const setActiveView = props.activeViewSettings.setActiveView;
-  const SLIDE_EDITING_VIEW = props.activeViewSettings.SLIDE_EDITING_VIEW;
-
-  let slides = [];
-  if(props.slides && props.slides.length) {
-    slides = props.slides
-  }
+  let slides = slideArray;
 
   /* Apply filters */
 
@@ -53,6 +47,11 @@ function SlidesTable(props) {
     setPage(0);
   };
 
+  /** Function that updates the slides */
+  const updateSlides = (slides) => {
+    setSlides(slides);
+  }
+
   /** Function that finds a slide with a certain ID.
   If no match is found, returns null */
   const findSlide = (slideArray, idToFind) => {
@@ -69,20 +68,19 @@ function SlidesTable(props) {
   const selectSlide = (id) => {
     const slide = findSlide(slides, id);
     if(slide) {
-      props.selectSlide(slide);
-      setActiveView(SLIDE_EDITING_VIEW);
+      props.setEndPoint(slide);
     }
   }
 
   return (
     <div style={{width:"90%", margin:"auto", paddingTop:"1.0rem", paddingBottom:"1.0rem", borderStyle:"double", borderWidth:"thin", borderRadius:"1.0rem", borderColor:"lightgrey"}}>
-
+      
       <Box>
         &nbsp;&nbsp;&nbsp;&nbsp;
 
         <SlidesTableSortButton
-          slides={props.slides}
-          updateSlides={props.updateSlides}
+          slides={slides}
+          updateSlides={updateSlides}
         />
         &nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -96,17 +94,14 @@ function SlidesTable(props) {
       <Box>
         <Paper>
           <TableContainer>
-            <Table style={{borderStyle:"double hidden hidden hidden", borderColor:"lightgrey", borderWidth:"thin"}} stickyHeader aria-label="slides table">
-              <TableHead>
+            <Table size="small" style={{borderStyle:"double hidden hidden hidden", borderColor:"lightgrey", borderWidth:"thin"}} stickyHeader aria-label="slides table">
+              <TableHead> 
                 <TableRow>
                   <TableCell>
-                    <Button variant="outlined" size="small">+</Button>
+                    <p></p>
                   </TableCell>
                   <TableCell>
                     {t("SlidesTable.Heading")}
-                  </TableCell>
-                  <TableCell>
-                    {t("SlidesTable.Description")}
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -118,9 +113,6 @@ function SlidesTable(props) {
                     </TableCell>
                     <TableCell>
                       {row.heading}
-                    </TableCell>
-                    <TableCell>
-                      {row.description}
                     </TableCell>
                   </TableRow>
                 ))}

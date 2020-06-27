@@ -20,9 +20,7 @@ function SlidesTableFilterDialog(props) {
     /** Settings for the filtering */
     const [filterHeading, setFilterHeading] = useState(props.filterHeading !== null);
     const [headingFilter, setHeadingFilter] = useState(props.filterHeading);
-    const [filterDescription, setFilterDescription] = useState(props.filterDescription !== null);
-    const [descriptionFilter, setDescriptionFilter] = useState(props.filterDescription);
-
+    
     /** Function that changes whether the heading should be filtered or not */
     const changeFilterHeading = () => {
         setFilterHeading(!filterHeading);
@@ -31,16 +29,6 @@ function SlidesTableFilterDialog(props) {
     /** Function that changes the filter for headings */
     const changeHeadingFilter = (event) => {
         setHeadingFilter(event.target.value);
-    }
-
-    /** Function that changes whether the description should be filtered or not */
-    const changeFilterDescription = () => {
-        setFilterDescription(!filterDescription);
-    }
-
-    /** Function that changes the filter for descriptions */
-    const changeDescriptionFilter = (event) => {
-        setDescriptionFilter(event.target.value);
     }
 
     /** Function that closes the dialog and saves the filtering settings */
@@ -54,14 +42,6 @@ function SlidesTableFilterDialog(props) {
             props.setFilterHeading(null);
             setHeadingFilter(null);
         }
-
-        if(filterDescription) {
-            props.setFilterDescription(descriptionFilter);
-        }
-        else {
-            props.setFilterDescription(null);
-            setDescriptionFilter(null);
-        }
     }
 
     /** Function that cancels the changes made to filtering settings */
@@ -70,8 +50,6 @@ function SlidesTableFilterDialog(props) {
 
         setFilterHeading(props.filterHeading !== null);
         setHeadingFilter(props.filterHeading);
-        setFilterDescription(props.filterDescription !== null);
-        setDescriptionFilter(props.filterDescription);
     }
     
 
@@ -96,25 +74,6 @@ function SlidesTableFilterDialog(props) {
                         disabled={!filterHeading}
                         value={headingFilter ? headingFilter : ""}
                         onChange={changeHeadingFilter}
-                    />
-                </FormGroup>
-
-                <FormGroup row>
-                    <FormControlLabel
-                        control={
-                            <Checkbox
-                                checked={filterDescription}
-                                color="primary"
-                                onChange={changeFilterDescription}
-                                inputProps={{ 'aria-label': 'description filtering checkbox' }}
-                            />
-                        }
-                        label={t("SlidesTable.Filtering.DescriptionFilter")}
-                    />
-                    <TextField
-                        disabled={!filterDescription}
-                        value={descriptionFilter ? descriptionFilter : ""}
-                        onChange={changeDescriptionFilter}
                     />
                 </FormGroup>
 
