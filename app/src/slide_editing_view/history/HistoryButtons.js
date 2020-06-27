@@ -29,6 +29,7 @@ export function UndoButton(props) {
         setDisabled(true);
     }
 
+    /** Function that performs the undo operation */
     const undo = () => {
         if(undoStack.length > 0) {
             props.history.setRedoStack(redoStack.concat(lastOperation));
@@ -69,6 +70,7 @@ export function RedoButton(props) {
         setDisabled(true);
     }
 
+    /** Function that performs the redo operation */
     const redo = () => {
         if(redoStack.length > 0) {
             props.history.setUndoStack(undoStack.concat(lastOperation));

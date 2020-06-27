@@ -34,14 +34,18 @@ function BottomArea(props) {
         cancelChanges();
     });
 
+    /** Function that saves the changes made to the slide */
     const saveChanges = () => {
         alert("Saved");
     }
 
+    /** Function that deletes the slide */
     const deleteSlide = () => {
         alert("Deleted");
     }
 
+    /** Function that cancels the changes made to the slide, and
+    activates the main editing view */
     const cancelChanges = () => {
         handleCancelDialogClose();
         props.emptyHistory();
@@ -49,13 +53,16 @@ function BottomArea(props) {
         props.selectSlide(null);
     }
 
+    /** Function that sets the cancel alert dialog open */
     const alertCancel = () => {
         setDialogOpen(true);
     }
 
+    /** Function that closes the cancel alert dialog */
     const handleCancelDialogClose = () => {
         setDialogOpen(false);
     }
+
 
     return (
         <div>

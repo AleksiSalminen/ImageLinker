@@ -15,6 +15,7 @@ import Logo from './Logo.png';
 function ImageEditArea(props) {
     const { t } = useTranslation();
 
+    /** Image settings */
     const [image, setImage] = useState(Logo);
     const [zoom, setZoom] = useState(props.info.size);
 	const [vPos, setvPos] = useState(props.info.vert_pos);
@@ -28,7 +29,8 @@ function ImageEditArea(props) {
 		let ctx = canvasRef.current.getContext('2d');
 		let [w, h] = [canvasRef.current.width, canvasRef.current.height];
 		ctx.clearRect(0, 0, w, h);
-		
+        
+        /** Transform the canvas according to the image settings */
 		ctx.save();
 		ctx.translate(hPos, vPos);
 		ctx.translate(w/2, h/2);
@@ -39,6 +41,7 @@ function ImageEditArea(props) {
         const imageWidth = imageEl.current.width;
         const imageHeight = imageEl.current.height;
 
+        /** Draw the image to the canvas */
         if(imageWidth >= imageHeight) {
             const ratio = imageHeight / imageWidth;
             ctx.drawImage(imageEl.current, 0, (h/2 - (ratio*h/2)), w, (ratio * h));
@@ -51,6 +54,7 @@ function ImageEditArea(props) {
         ctx.restore();
     });
 
+    /** Function that handles event when image is dragged to the canvas */
 	const imageDragEnter = (event) => {
 		event.preventDefault();
         let file = event.dataTransfer.files[0];
@@ -59,17 +63,20 @@ function ImageEditArea(props) {
 		}
     }
     
+    /** Function that handles event when image is being dragged over the canvas */
 	const imageDragOver = (event) => {
 		event.preventDefault();
 		event.dataTransfer.dropEffect = "copy"
     }
     
+    /** Function that changes the image when an image is dropped over the canvas */
     const imageOnDrop = (event) => {
 		event.preventDefault();
 		let file = event.dataTransfer.files[0];
 		changeImage(file);
     }
     
+    /** Function that reads image from a file, and sets it to be the canvas image */
     const changeImage = (file) => {
         if(file && (file.type === "image/jpeg" || file.type === "image/png" || file.type === "image/gif")) {
             let reader = new FileReader()
@@ -81,21 +88,25 @@ function ImageEditArea(props) {
         }
     }
 
+    /** Function that updates the zoom value of the canvas image */
     const updateZoom = (event) => {
         props.addOperation(setZoom, event.target.value, zoom);
         setZoom(event.target.value)
     }
 
+    /** Function that updates the vertical position of the canvas image */
     const updateVerticalPosition = (event, value) => {
         props.addOperation(setvPos, -value, vPos);
         setvPos(-value);
     }
 
+    /** Function that updates the horizontal position of the canvas image */
     const updateHorizontalPosition = (event, value) => {
         props.addOperation(sethPos, value, hPos);
         sethPos(value);
     }
 
+    /** Function that updates the rotation angle of the canvas image */
     const updateRotation = (event) => {
         props.addOperation(setRotation, event.target.value, rotation);
         setRotation(event.target.value);
