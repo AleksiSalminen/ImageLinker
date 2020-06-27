@@ -54,7 +54,7 @@ function SettingsMenu(props) {
     return (
         <>
             <Button
-                variant="contained" 
+                variant="outlined" 
                 color={settingsAnchor ? "secondary" : "primary"} 
                 aria-controls="settings-menu" 
                 aria-haspopup="true" 

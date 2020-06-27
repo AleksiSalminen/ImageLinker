@@ -25,7 +25,8 @@ function PresentationImage(props) {
 		let ctx = canvasRef.current.getContext('2d');
 		let [w, h] = [canvasRef.current.width, canvasRef.current.height];
 		ctx.clearRect(0, 0, w, h);
-		
+        
+        /** Transform the canvas according to the image settings */
 		ctx.save();
 		ctx.translate(hPos, vPos);
 		ctx.translate(w/2, h/2);
@@ -36,6 +37,7 @@ function PresentationImage(props) {
         const imageWidth = imageEl.current.width;
         const imageHeight = imageEl.current.height;
 
+        /** Draw the image to the canvas */
         if(imageWidth >= imageHeight) {
             const ratio = imageHeight / imageWidth;
             ctx.drawImage(imageEl.current, 0, (h/2 - (ratio*h/2)), w, (ratio * h));

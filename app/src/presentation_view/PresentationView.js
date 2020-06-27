@@ -18,6 +18,7 @@ import SettingsMenu from './settings_menu/SettingsMenu';
 function PresentationView(props) {
     const { t } = useTranslation();
 
+    /** Function that finds a slide with a certain ID */
     const findSlide = (slidesArray, idToFind) => {
         for(let i = 0; i < slidesArray.length; i++) {
             if(slidesArray[i]['id'] === idToFind) {
@@ -35,6 +36,7 @@ function PresentationView(props) {
     const setActiveView = props.activeViewSettings.setActiveView;
     const MAIN_EDITING_VIEW = props.activeViewSettings.MAIN_EDITING_VIEW;
 
+    /** Function that changes the selected slide according to the selected option */
     const moveToSelectedSlide = () => {
         if(selectedOption) {
             const slideID = selectedOption.endpoint_id;
@@ -50,12 +52,14 @@ function PresentationView(props) {
         }
     }
 
+    /** Function that sets the active slide to the first slide */
     const returnToStart = () => {
         setCurrentSlide(startSlide);
         setSelectedOption(null);
         setPreviousSlides([]);
     }
 
+    /** Function that sets the active slide to be the previous active slide */
     const returnToPreviousSlide = () => {
         if(previousSlides.length > 0) {
             let prevSlides = previousSlides;
@@ -66,6 +70,7 @@ function PresentationView(props) {
         }
     }
 
+    /** Function that sets the main editing view active */
     const returnToMainView = () => {
         setActiveView(MAIN_EDITING_VIEW);
         setStartSlide(null);
@@ -74,6 +79,10 @@ function PresentationView(props) {
         setPreviousSlides([]);
     }
 
+    /**
+     * Function that returns the buttons for revert actions
+     * @param {Object} props received parameters
+     */
     function RevertingButtons(props) {
         if(props.allowReverting === "true") {
             return (
@@ -92,6 +101,7 @@ function PresentationView(props) {
             return (<div></div>);
         }
     }
+    
 
     return (
         <Box style={{ width:"90%", margin:"auto" }}>

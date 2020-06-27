@@ -16,16 +16,17 @@ import TableRow from '@material-ui/core/TableRow';
 function OptionsArea(props) {
     const { t } = useTranslation();
 
+    /** Function that returns different styles for differently valued options */
     const getRowStyles = (row) => {
         if(props.selectedOption) {
             if(row.id === props.selectedOption.id) {
                 return { backgroundColor: "lightgrey" };
             }
         }
-
         return { };
     }
 
+    /** Function that finds the option with a certain ID */
     const findOption = (optionsArray, idToFind) => {
         for(let i = 0; i < optionsArray.length; i++) {
             if(optionsArray[i]['id'] === idToFind) {
@@ -35,6 +36,7 @@ function OptionsArea(props) {
         return null;
     }
 
+    /** Function that updates the selected option */
     const selectOption = (id) => {
         const option = findOption(props.options, id);
         if(option) {
