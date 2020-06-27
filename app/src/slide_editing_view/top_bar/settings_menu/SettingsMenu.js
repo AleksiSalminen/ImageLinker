@@ -23,6 +23,7 @@ function SettingsMenu(props) {
     let languageSettings = null;
     let colorsSettings = null;
 
+    /** Set the settings objects for the interface parameters */
     for(let i = 0;i < props.interfaceSettings.length;i++) {
         const setting = props.interfaceSettings[i];
         
@@ -40,17 +41,26 @@ function SettingsMenu(props) {
         }
     }
 
+    /** When "Settings"-button is clicked, set the anchor for the settings menu */
     const handleSettingsClick = (event) => {
         setSettingsAnchor(event.currentTarget);
     };
     
+    /** When the settings menu gets closed, remove the menu anchor */
     const handleSettingsClose = () => {
         setSettingsAnchor(null);
     };
 
     return (
         <>
-            <Button variant="contained" color={settingsAnchor ? "secondary" : "primary"} aria-controls="settings-menu" aria-haspopup="true" onClick={handleSettingsClick} style={{margin:"0.25rem"}}>
+            <Button
+                variant="contained" 
+                color={settingsAnchor ? "secondary" : "primary"} 
+                aria-controls="settings-menu" 
+                aria-haspopup="true" 
+                onClick={handleSettingsClick} 
+                style={{margin:"0.25rem"}}
+            >
                 {t("TopBar.Settings.SettingsButton")}
             </Button>
 

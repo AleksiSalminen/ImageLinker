@@ -10,6 +10,8 @@ import { useTranslation } from 'react-i18next';
 function OpenProjectButton(props) {
     const { t } = useTranslation();
 
+    /** Function that reads a project from a file, and sets
+    the project to be the selected project */
     const changeProject = (file) => {
         if(file) {
             let reader = new FileReader();

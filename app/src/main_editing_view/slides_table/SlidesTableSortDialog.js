@@ -23,30 +23,35 @@ function SlidesTableSortDialog(props) {
     const [sortValue, setSortValue] = useState(OLDEST_FIRST);
 
 
+    /** Function that sorts the slides from oldest to newest */
     const sortOldestFirst = (slides) => {
         slides.sort((slide1, slide2) => parseFloat(slide1.id) - parseFloat(slide2.id));
         const newSlides = JSON.parse(JSON.stringify(slides));
         return newSlides;
     }
 
+    /** Function that sorts the slides from newest to oldest */
     const sortNewestFirst = (slides) => {
         slides.sort((slide1, slide2) => parseFloat(slide2.id) - parseFloat(slide1.id));
         const newSlides = JSON.parse(JSON.stringify(slides));
         return newSlides;
     }
 
+    /** Function that sorts the slides to ascending alphabetical order */
     const sortAlphabetAsc = (slides) => {
         slides.sort((slide1, slide2) => (slide1.heading > slide2.heading ? 1 : -1));
         const newSlides = JSON.parse(JSON.stringify(slides));
         return newSlides;
     }
 
+    /** Function that sorts the slides to descending alphabetical order */
     const sortAlphabetDesc = (slides) => {
         slides.sort((slide1, slide2) => (slide1.heading < slide2.heading ? 1 : -1));
         const newSlides = JSON.parse(JSON.stringify(slides));
         return newSlides;
     }
 
+    /** Function that sorts the slides according to the chosen sorting value */
     const sortSlides = (slides, newSortValue) => {
         let sortedSlides = [];
 
@@ -66,6 +71,7 @@ function SlidesTableSortDialog(props) {
         return sortedSlides;
     }
 
+    /** Function that changes the chosen sorting value, sorts and updates the slides */
     const changeSorting = (event) => {
         const newSortValue = event.target.value;
         setSortValue(newSortValue);

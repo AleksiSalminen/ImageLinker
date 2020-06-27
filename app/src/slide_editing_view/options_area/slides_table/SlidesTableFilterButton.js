@@ -32,6 +32,8 @@ function SlidesTableFilterButton(props) {
                 closeDialog={closeDialog}
                 filterHeading={props.filterHeading}
                 setFilterHeading={props.setFilterHeading}
+                filterDescription={props.filterDescription}
+                setFilterDescription={props.setFilterDescription}
             />
         </>
     );

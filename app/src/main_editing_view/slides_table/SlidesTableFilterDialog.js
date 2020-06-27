@@ -17,27 +17,33 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 function SlidesTableFilterDialog(props) {
     const { t } = useTranslation();
 
+    /** Settings for the filtering */
     const [filterHeading, setFilterHeading] = useState(props.filterHeading !== null);
     const [headingFilter, setHeadingFilter] = useState(props.filterHeading);
     const [filterDescription, setFilterDescription] = useState(props.filterDescription !== null);
     const [descriptionFilter, setDescriptionFilter] = useState(props.filterDescription);
 
+    /** Function that changes whether the heading should be filtered or not */
     const changeFilterHeading = () => {
         setFilterHeading(!filterHeading);
     }
 
+    /** Function that changes the filter for headings */
     const changeHeadingFilter = (event) => {
         setHeadingFilter(event.target.value);
     }
 
+    /** Function that changes whether the description should be filtered or not */
     const changeFilterDescription = () => {
         setFilterDescription(!filterDescription);
     }
 
+    /** Function that changes the filter for descriptions */
     const changeDescriptionFilter = (event) => {
         setDescriptionFilter(event.target.value);
     }
 
+    /** Function that closes the dialog and saves the filtering settings */
     const saveChanges = () => {
         props.closeDialog();
 
@@ -58,6 +64,7 @@ function SlidesTableFilterDialog(props) {
         }
     }
 
+    /** Function that cancels the changes made to filtering settings */
     const cancelChanges = () => {
         props.closeDialog();
 
@@ -66,6 +73,7 @@ function SlidesTableFilterDialog(props) {
         setFilterDescription(props.filterDescription !== null);
         setDescriptionFilter(props.filterDescription);
     }
+    
 
     return (
         <Dialog open={props.open}>

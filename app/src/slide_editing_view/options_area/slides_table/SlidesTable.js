@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -20,14 +21,19 @@ import SlidesTableFilterButton from './SlidesTableFilterButton';
  */
 function SlidesTable(props) {
   const { t } = useTranslation();
-  const [slideArray, setSlides] = useState(props.slides ? props.slides : []);
   const [page, setPage] = useState(0);
   const [slidesPerPage, setSlidesPerPage] = useState(5);
 
-  let slides = slideArray;
-
   /* Filtering settings */
   const [filterHeading, setFilterHeading] = useState(null);
+
+  const setActiveView = props.activeViewSettings.setActiveView;
+  const SLIDE_EDITING_VIEW = props.activeViewSettings.SLIDE_EDITING_VIEW;
+
+  let slides = [];
+  if(props.slides && props.slides.length) {
+    slides = props.slides
+  }
 
   /* Apply filters */
 
@@ -35,22 +41,20 @@ function SlidesTable(props) {
     slides = slides.filter(slide => slide.heading.includes(filterHeading));
   }
 
-  /* Table page handling */
-
+  
+  /** Function that changes the page of the table */
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
+  /** Function that changes the number of slides shown per page */
   const handleChangeRowsPerPage = (event) => {
     setSlidesPerPage(+event.target.value);
     setPage(0);
   };
 
-
-  const updateSlides = (slides) => {
-    setSlides(slides);
-  }
-
+  /** Function that finds a slide with a certain ID.
+  If no match is found, returns null */
   const findSlide = (slideArray, idToFind) => {
     for(let i = 0; i < slideArray.length; i++) {
       if(slideArray[i]['id'] === idToFind) {
@@ -60,42 +64,51 @@ function SlidesTable(props) {
     return null;
   }
 
+  /** Function that sets the selected slide to be the slide chosen
+  and changes the slide editing view to be active */
   const selectSlide = (id) => {
     const slide = findSlide(slides, id);
     if(slide) {
-      props.setEndPoint(slide);
+      props.selectSlide(slide);
+      setActiveView(SLIDE_EDITING_VIEW);
     }
   }
 
   return (
-    <div style={{ margin:"auto", marginTop:"1.0rem", paddingTop:"1.0rem", paddingBottom:"1.0rem", borderStyle:"double", borderWidth:"thin", borderRadius:"1.0rem", borderColor:"lightgrey"}}>
+    <div style={{width:"90%", margin:"auto", paddingTop:"1.0rem", paddingBottom:"1.0rem", borderStyle:"double", borderWidth:"thin", borderRadius:"1.0rem", borderColor:"lightgrey"}}>
 
       <Box>
         &nbsp;&nbsp;&nbsp;&nbsp;
 
         <SlidesTableSortButton
-          slides={slides}
-          updateSlides={updateSlides}
+          slides={props.slides}
+          updateSlides={props.updateSlides}
         />
         &nbsp;&nbsp;&nbsp;&nbsp;
 
         <SlidesTableFilterButton
           filterHeading={filterHeading}
           setFilterHeading={setFilterHeading}
+          filterDescription={filterDescription}
+          setFilterDescription={setFilterDescription}
         />
       </Box>
       <br/>
+      
       <Box>
         <Paper>
           <TableContainer>
-            <Table size="small" style={{borderStyle:"double hidden hidden hidden", borderColor:"lightgrey", borderWidth:"thin"}} stickyHeader aria-label="slides table">
+            <Table style={{borderStyle:"double hidden hidden hidden", borderColor:"lightgrey", borderWidth:"thin"}} stickyHeader aria-label="slides table">
               <TableHead>
                 <TableRow>
                   <TableCell>
-                    <p></p>
+                    <Button variant="outlined" size="small">+</Button>
                   </TableCell>
                   <TableCell>
                     {t("SlidesTable.Heading")}
+                  </TableCell>
+                  <TableCell>
+                    {t("SlidesTable.Description")}
                   </TableCell>
                 </TableRow>
               </TableHead>
@@ -107,6 +120,9 @@ function SlidesTable(props) {
                     </TableCell>
                     <TableCell>
                       {row.heading}
+                    </TableCell>
+                    <TableCell>
+                      {row.description}
                     </TableCell>
                   </TableRow>
                 ))}

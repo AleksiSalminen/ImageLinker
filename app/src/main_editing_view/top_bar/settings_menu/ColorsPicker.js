@@ -18,17 +18,21 @@ function ColorsPicker(props) {
     const secondaryColor = props.settings.secondaryColor;
     const setSecondaryColor = props.settings.setSecondaryColor;
 
+    /** Function that changes the primary color of the interface */
     const changePrimaryColor = (newColor) => {
         setPrimaryColor(newColor);
     }
 
+    /** Function that changes the secondary color of the interface */
     const changeSecondaryColor = (newColor) => {
         setSecondaryColor(newColor);
     }
 
     return (
         <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"ridge hidden hidden hidden"}}>
-            <Typography>{t("TopBar.Settings.Colors.Heading")}</Typography>
+            <Typography>
+                {t("TopBar.Settings.Colors.Heading")}
+            </Typography>
 
             <Grid container spacing={3}>
                 <Grid item>

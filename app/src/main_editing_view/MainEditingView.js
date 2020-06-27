@@ -12,8 +12,9 @@ import SlidesTable from './slides_table/SlidesTable.js';
 function MainEditingView(props) {
     const selectedProject = props.selectedProjectInfo.selected;
     
+    /** If the user has already opened a project, then return the editing view.
+    Otherwise, return the welcome view */
     if(selectedProject) {
-
         return (
             <div>
                 <TopBar
@@ -23,6 +24,7 @@ function MainEditingView(props) {
                     changeSelectedProject={props.changeSelectedProject}
                     updateSlides={props.updateSlides}
                     projectName={selectedProject.name}
+
                     interfaceSettings={props.interfaceSettings}
                 />
     
@@ -40,7 +42,6 @@ function MainEditingView(props) {
         );
     }
     else {
-
         return(
             <div>
                 <TopBar

@@ -17,6 +17,7 @@ function LanguageSelector(props) {
     const language = props.settings.language;
     const setLanguage = props.settings.setLanguage;
 
+    /** Function that changes the language */
     const changeLanguage = (newLang) => {
         i18n.changeLanguage(newLang);
         setLanguage(newLang);
@@ -24,11 +25,28 @@ function LanguageSelector(props) {
 
     return (
         <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"ridge hidden hidden hidden"}}>
-            <Typography>{t("TopBar.Settings.Language")}:</Typography>
+            <Typography>
+                {t("TopBar.Settings.Language")}:
+            </Typography>
             &nbsp;&nbsp;
-            <Button onClick={() => {changeLanguage(english)}} variant="contained" color={language === english ? "primary" : "default"}>English</Button>
+
+            <Button 
+                onClick={() => {changeLanguage(english)}} 
+                variant="contained" 
+                color={language === english ? "primary" : "default"}
+            >
+                English
+            </Button>
+
             &nbsp;&nbsp;
-            <Button onClick={() => {changeLanguage(finnish)}} variant="contained" color={language === finnish ? "primary" : "default"}>Suomi</Button>
+
+            <Button 
+                onClick={() => {changeLanguage(finnish)}} 
+                variant="contained" 
+                color={language === finnish ? "primary" : "default"}
+            >
+                Suomi
+            </Button>
         </Box>
     );
 }

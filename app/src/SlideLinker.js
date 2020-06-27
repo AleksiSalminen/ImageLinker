@@ -13,11 +13,14 @@ import PresentationView from './presentation_view/PresentationView.js';
  * @param {Object} props received parameters
  */
 function SlideLinker(props) {
+
+  /** Active view settings are defined here */
   const MAIN_EDITING_VIEW = "Main editing view";
   const SLIDE_EDITING_VIEW = "Slide editing view";
   const PRESENTATION_VIEW = "Presentation view";
   const [activeView, setActiveView] = useState(MAIN_EDITING_VIEW);
 
+  /** Settings for the user interface are defined here */
   const [primaryColor, setPrimaryColor] = useState("#977F55");
   const [secondaryColor, setSecondaryColor] = useState("#D1AF74");
   const [font, setFont] = useState("Gabriola");
@@ -28,6 +31,7 @@ function SlideLinker(props) {
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
 
+  /** Here the theme used in the user interface is defined */
   const theme = createMuiTheme({
     palette: {
       type: palletType,
@@ -44,11 +48,13 @@ function SlideLinker(props) {
     },
   });
 
+  /** Function that changes the theme state from light->dark or dark->light */
   const handleThemeChange = () => {
     setDarkState(!darkState);
   };
 
 
+  /** This is used to group all the interface settings into one object */
   const interfaceSettings = [
     {
       theme: {
@@ -82,6 +88,7 @@ function SlideLinker(props) {
     }
   ];
 
+  /** This is used to group all active view settings into one object */
   const activeViewSettings = {
     setActiveView: setActiveView,
     MAIN_EDITING_VIEW: MAIN_EDITING_VIEW,
@@ -90,6 +97,8 @@ function SlideLinker(props) {
   }
 
   
+  /** This is where the actual active view is returned 
+  based on what view is currently active */
   if(activeView === MAIN_EDITING_VIEW) {
     return (
       <ThemeProvider theme={theme}>

@@ -46,17 +46,20 @@ function SlidesTable(props) {
     slides = slides.filter(slide => slide.description.includes(filterDescription));
   }
 
-  /* Table page handling */
-
+  
+  /** Function that changes the page of the table */
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
 
+  /** Function that changes the number of slides shown per page */
   const handleChangeRowsPerPage = (event) => {
     setSlidesPerPage(+event.target.value);
     setPage(0);
   };
 
+  /** Function that finds a slide with a certain ID.
+  If no match is found, returns null */
   const findSlide = (slideArray, idToFind) => {
     for(let i = 0; i < slideArray.length; i++) {
       if(slideArray[i]['id'] === idToFind) {
@@ -66,6 +69,8 @@ function SlidesTable(props) {
     return null;
   }
 
+  /** Function that sets the selected slide to be the slide chosen
+  and changes the slide editing view to be active */
   const selectSlide = (id) => {
     const slide = findSlide(slides, id);
     if(slide) {
@@ -94,6 +99,7 @@ function SlidesTable(props) {
         />
       </Box>
       <br/>
+      
       <Box>
         <Paper>
           <TableContainer>

@@ -22,6 +22,7 @@ function PlayProjectButton(props) {
         setDisabled(true);
     }
 
+    /** Function that sets the presentation view to be active */
     const playPresentation = () => {
         if(props.selectedProject !== undefined) {
             setActiveView(PRESENTATION_VIEW);
