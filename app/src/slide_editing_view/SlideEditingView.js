@@ -18,11 +18,13 @@ function SlideEditingView(props) {
     const project = props.selectedProjectInfo.selected;
     let options = slide.options;
     
+    /** Operations history, undo, redo settings */
     const [undoStack, setUndoStack] = useState([]);
     const [redoStack, setRedoStack] = useState([]);
     const [lastOperation, setLastOperation] = useState(null);
     const [historyLength, setHistoryLength] = useState(50);
 
+    /** Function that adds an operation to the history stack */
     const addOperation = async (operation, newValue, oldValue) => {
         setLastOperation({operation: operation, value: newValue});
         setRedoStack([]);
@@ -34,12 +36,14 @@ function SlideEditingView(props) {
         setUndoStack(undoStack);
     }
     
+    /** Function that empties the operations history */
     const emptyHistory = async () => {
         setUndoStack([]);
         setRedoStack([]);
         setLastOperation(null);
     }
 
+    /** Operations history settings combined to one object */
     const history = {
         undoStack: undoStack,
         setUndoStack: setUndoStack,

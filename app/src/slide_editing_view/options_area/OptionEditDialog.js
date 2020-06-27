@@ -19,6 +19,7 @@ function OptionEditDialog(props) {
     const [title, setTitle] = useState(null);
     const [endPoint, setEndPoint] = useState(null);
 
+    /** Function that finds a slide with a certain ID */
     const findSlide = (slideArray, endPointToFind) => {
         for(let i = 0; i < slideArray.length; i++) {
             if(slideArray[i]['id'] === endPointToFind) {
@@ -28,6 +29,8 @@ function OptionEditDialog(props) {
         return null;
     }
 
+    /** If title and/or end point are not set, and an option was received,
+    then set the title and end point according to the option's attributes */
     if((title === null || endPoint === null) && props.option) {
         setTitle(props.option.title);
 
@@ -35,10 +38,12 @@ function OptionEditDialog(props) {
         setEndPoint(endPointSlide);
     }
 
+    /** Function that updates the option title */
     const updateTitle = (event) => {
         setTitle(event.target.value);
     }
 
+    /** Function that cancels the changes made to option settings, and closes the edit dialog */
     const cancelChanges = () => {
         props.closeDialog();
         
@@ -47,6 +52,7 @@ function OptionEditDialog(props) {
         const endPointSlide = findSlide(props.slides, props.option.endpoint_id);
         setEndPoint(endPointSlide);
     }
+    
 
     return (
         <Dialog open={props.open} style={{ padding: "0.5rem" }}>

@@ -22,6 +22,7 @@ function OptionsArea(props) {
     const [selectedOption, setSelectedOption] = useState(null);
     const [editDialogOpen, setEditDialogOpen] = useState(false);
 
+    /** Function that finds an option that has a certain ID */
     const findOption = (optionsArray, idToFind) => {
         for(let i = 0; i < optionsArray.length; i++) {
             if(optionsArray[i]['id'] === idToFind) {
@@ -31,6 +32,8 @@ function OptionsArea(props) {
         return null;
     }
 
+    /** Function that sets the selected option to be the chosen option,
+    and opens the option edit dialog */
     const selectOption = (id) => {
         const option = findOption(props.options, id);
         if(option) {
@@ -39,6 +42,7 @@ function OptionsArea(props) {
         }
     }
 
+    /** Function that closes the option editing dialog */
     const closeDialog = () => {
         setEditDialogOpen(false);
         setSelectedOption(null);

@@ -17,16 +17,19 @@ function InfoArea(props) {
     const [reverting, setReverting] = useState(props.slide.reverting === "true");
     const [description, setDescription] = useState(props.slide.description);
 
+    /** Function that updates the slide heading */
     const updateHeading = (event) => {
         props.addOperation(setHeading, event.target.value, heading);
         setHeading(event.target.value);
     }
 
+    /** Function that updates whether reverting is allowed */
     const updateReverting = () => {
         props.addOperation(setReverting, !reverting, reverting);
         setReverting(!reverting);
     }
 
+    /** Function that updates the slide description */
     const updateDescription = (event) => {
         props.addOperation(setDescription, event.target.value, description);
         setDescription(event.target.value);

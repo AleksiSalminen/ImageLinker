@@ -89,8 +89,6 @@ function SlidesTable(props) {
         <SlidesTableFilterButton
           filterHeading={filterHeading}
           setFilterHeading={setFilterHeading}
-          filterDescription={filterDescription}
-          setFilterDescription={setFilterDescription}
         />
       </Box>
       <br/>
