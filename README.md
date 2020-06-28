@@ -1,5 +1,7 @@
 # Slide Linker
-Program to create presentations of slides linked to other slides
+Program to create presentations of slides linked to other slides.
+
+Also used this project for one of my programming course's project work.
 
 ## Used Tools
 The application was developed using React, Material-UI, and Redux Thunk.
