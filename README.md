@@ -117,6 +117,44 @@ Also, the react-i18next object is initialized here. react-i18next enables intern
 
 i18n.js file includes the initialization settings for react-i18next.
 
+### Redux structure and implementation
+Redux store’s state and actions are mapped to interface components in the file index.js
+
+Redux store implementation is found in folder /src/state
+- The action type definitions are found in file /src/state/action_types/projectsTypes.js
+- The action definitions are found in file /src/state/actions/projectsActions.js
+- The project reducers are found in file /src/state/reducers/projectsReducers.js
+- The store’s root reducer is found in file /src/state/reducers/mainReducers.js
+
+State (reducers’) structure:
+
+{
+          projectList: {},
+          addedProject: {},
+          selectedProject: {
+                    selectedProjectInfo: {},
+                    slideList: {},
+                    addedSlide: {},
+                    selectedSlide: {},
+                    updatedSlide: {},
+                    deletedSlide: {}
+          },
+          updatedProject: {},
+          deletedProject: {}
+}
+
+### Important resource files
+react-i18next loads the translations from folder /public/locales
+English translations are loaded from file /public/locales/en/translation.json
+Finnish translations are loaded from file /public/locales/fi/translation.json
+
+The project files can be found in folder /src/save_files
+Two default project files are provided:
+	An awesome project.json
+	Hello project.json
+The images related to the projects are found in folder /src/save_files/images
+In this version of the application, the application cannot load the images automatically, but they could be used to test the drag-n-drop or other image features, for example.
+
 ### Interface components’ structure
 The following structure expresses the parent/child relations between the interface components. 
 
@@ -171,43 +209,3 @@ Slide Linker
                       │           └── (fonts)
                       ├── FontSizeSelector
                       └── ColorsPicker
-
-### Redux structure and implementation
-Redux store’s state and actions are mapped to interface components in the file index.js
-
-Redux store implementation is found in folder /src/state
-- The action type definitions are found in file /src/state/action_types/projectsTypes.js
-- The action definitions are found in file /src/state/actions/projectsActions.js
-- The project reducers are found in file /src/state/reducers/projectsReducers.js
-- The store’s root reducer is found in file /src/state/reducers/mainReducers.js
-
-State (reducers’) structure:
-
-{
-          projectList: {},
-          addedProject: {},
-          selectedProject: {
-                    selectedProjectInfo: {},
-                    slideList: {},
-                    addedSlide: {},
-                    selectedSlide: {},
-                    updatedSlide: {},
-                    deletedSlide: {}
-          },
-          updatedProject: {},
-          deletedProject: {}
-}
-
-### Important resource files
-react-i18next loads the translations from folder /public/locales
-English translations are loaded from file /public/locales/en/translation.json
-Finnish translations are loaded from file /public/locales/fi/translation.json
-
-The project files can be found in folder /src/save_files
-Two default project files are provided:
-	An awesome project.json
-	Hello project.json
-The images related to the projects are found in folder /src/save_files/images
-In this version of the application, the application cannot load the images automatically, but they could be used to test the drag-n-drop or other image features, for example.
-
-
