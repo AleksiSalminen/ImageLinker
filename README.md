@@ -3,24 +3,16 @@ Program to create presentations of slides linked to other slides.
 
 Also used this project for one of my programming course's project work.
 
+UPDATE: Now uses Vite instead of Create-React-App. Updated dependencies and code. Some features missing.
+
 ## Used Tools
 The application was developed using React, Material-UI, and Redux Thunk.
-
-Material-UI packages used:
--	material-ui/core
--	material-ui/icons
--	material-ui/lab
--	material-ui-color-picker
 
 react-i18next was used for internationalization and translations.
 
 React Helmet was used to manually set the application’s name. Could be used to define other meta data as well.
 
 react-hotkeys-hook was used to define the keyboard shortcuts used in the application.
-
-NOTE:
-An old version of react-scripts was used, because I could not even start the application with any of the react-scripts versions beyond 2.1.8
-Because of this, there might appear a lot of warnings when installing the dependencies. You can try if the application works with the newest react-scripts, but I haven’t been able to get it to work.
 
 ## Introduction
 Slide Linker makes it possible to create “presentations” where an individual slide 
