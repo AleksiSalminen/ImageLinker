@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-import * as types from "../action_types/projectsTypes.js";
+import * as types from "../action_types/projectsTypes";
 
 /*
 * This is where the reducers related to projects and projects' slides'

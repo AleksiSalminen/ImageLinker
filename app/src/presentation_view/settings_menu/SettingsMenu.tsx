@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 
-import LightModeSelector from './LightModeSelector.jsx';
-import ColorsPicker from './ColorsPicker.jsx';
-import LanguageSelector from './LanguageSelector.jsx';
-import FontSelector from './FontSelector.jsx';
-import FontSizeSelector from './FontSizeSelector.jsx';
+import LightModeSelector from './LightModeSelector.js';
+import ColorsPicker from './ColorsPicker.js';
+import LanguageSelector from './LanguageSelector.js';
+import FontSelector from './FontSelector.js';
+import FontSizeSelector from './FontSizeSelector.js';
 
 
 /**
@@ -54,7 +54,7 @@ function SettingsMenu(props) {
     return (
         <>
             <Button
-                variant="contained"
+                variant="outlined"
                 aria-controls="settings-menu" 
                 aria-haspopup="true" 
                 onClick={handleSettingsClick} 

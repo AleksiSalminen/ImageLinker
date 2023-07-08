@@ -9,7 +9,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-import OptionEditDialog from './OptionEditDialog.jsx';
+import OptionEditDialog from './OptionEditDialog.js';
 
 
 /**

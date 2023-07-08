@@ -1,4 +1,4 @@
-import * as types from "../action_types/projectsTypes.js";
+import * as types from "../action_types/projectsTypes";
 
 /*
 * Here the actions for projects and projects' slides are defined

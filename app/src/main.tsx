@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import SlideLinker from './SlideLinker.jsx';
-import store from './state/reducers/mainReducers.js';
-import * as actions from './state/actions/projectsActions.js';
+import store from './state/reducers/mainReducers';
+import * as actions from './state/actions/projectsActions';
 import { connect, Provider } from 'react-redux';
-import './i18n.jsx';
+import './i18n';
 
 
 /*

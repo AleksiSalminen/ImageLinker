@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import SlidesTable from './slides_table/SlidesTable.jsx';
+import SlidesTable from './slides_table/SlidesTable.js';
 
 
 /**
