@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 
-import LightModeSelector from './LightModeSelector.js';
-import ColorsPicker from './ColorsPicker.js';
-import LanguageSelector from './LanguageSelector.js';
-import FontSelector from './FontSelector.js';
-import FontSizeSelector from './FontSizeSelector.js';
+import LightModeSelector from './LightModeSelector';
+import ColorsPicker from './ColorsPicker';
+import LanguageSelector from './LanguageSelector';
+import FontSelector from './FontSelector';
+import FontSizeSelector from './FontSizeSelector';
 
 
 /**

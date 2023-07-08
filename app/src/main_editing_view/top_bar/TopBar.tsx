@@ -5,10 +5,10 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 
-import ProjectTitleArea from './ProjectTitleArea.js';
-import OpenProjectButton from './OpenProjectButton.js';
-import PlayProjectButton from './PlayProjectButton.js';
-import SettingsMenu from './settings_menu/SettingsMenu.js';
+import ProjectTitleArea from './ProjectTitleArea';
+import OpenProjectButton from './OpenProjectButton';
+import PlayProjectButton from './PlayProjectButton';
+import SettingsMenu from './settings_menu/SettingsMenu';
 
 
 /**
