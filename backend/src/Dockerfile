@@ -1,4 +1,4 @@
-# Use an official Node runtime as the base image
+# Official Node runtime as the base image (Alpine version)
 FROM node:alpine3.19
 
 # Create an application directory
@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 7777
 
 # Start the app
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
