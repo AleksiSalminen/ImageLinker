@@ -1,0 +1,28 @@
+version: "3"
+services:
+  frontend:
+    build: ./frontend/src
+    volumes:
+     - ./frontend/src:/frontend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - backend
+      - db
+   
+  backend:
+    build: ./backend/src
+    volumes:
+     - ./backend/src:/backend
+    ports:
+      - "7777:7777"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: slidelinker
+    ports:
+      - "3306:3306"
