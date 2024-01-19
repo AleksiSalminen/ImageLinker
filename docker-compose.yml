@@ -1,38 +1,46 @@
 version: "3"
 services:
-  frontend:
-    build: ./frontend/src
-    env_file:
-      - ./.env
-    volumes:
-      - ./frontend/src:/frontend
-    ports:
-      - "5000:5000"
-    depends_on:
-      - backend
-      - db
+    frontend:
+        container_name: frontend
+        hostname: frontend
+        build: ./frontend/src
+        env_file:
+            - ./.env
+        volumes:
+            - ./frontend/src:/frontend
+            - /frontend/node_modules # Exclude the node_modules directory
+        ports:
+            - "5000:5173"
+        depends_on:
+            - backend
+            - db
 
-  backend:
-    build: ./backend/src
-    env_file:
-      - ./.env
-    volumes:
-      - ./backend/src:/backend
-    ports:
-      - "7777:7777"
-    depends_on:
-      - db
+    backend:
+        container_name: backend
+        hostname: backend
+        build: ./backend/src
+        env_file:
+            - ./.env
+        volumes:
+            - ./backend/src:/backend
+            - /backend/node_modules # Exclude the node_modules directory
+        ports:
+            - "7777:7777"
+        depends_on:
+            - db
 
-  db:
-    image: mysql:8.0
-    command: --init-file /data/application/init.sql
-    env_file:
-      - ./.env
-    volumes:
-      - ./db-data:/var/lib/mysql
-      - ./database/init.sql:/data/application/init.sql
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-    ports:
-      - "3306:3306"
+    db:
+        container_name: database
+        hostname: database
+        image: mysql:8.0
+        command: --init-file /data/application/init.sql
+        env_file:
+            - ./.env
+        volumes:
+            - ./db-data:/var/lib/mysql
+            - ./database/init.sql:/data/application/init.sql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+        ports:
+            - "3306:3306"

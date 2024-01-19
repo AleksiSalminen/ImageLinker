@@ -2,10 +2,10 @@
 FROM node:alpine3.19
 
 # Create an application directory
-RUN mkdir -p /backend
+RUN mkdir -p /frontend
 
-# Change the working directory to /backend
-WORKDIR /backend
+# Change the working directory to /frontend
+WORKDIR /frontend
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -17,7 +17,7 @@ RUN npm install
 COPY . .
 
 # Make the app accessible outside the container
-EXPOSE 5000
+EXPOSE 5173
 
 # Start the app
 CMD ["npm", "run", "dev"]
