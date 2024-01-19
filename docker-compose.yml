@@ -1,5 +1,18 @@
 version: "3"
 services:
+    nginx:
+        container_name: nginx
+        hostname: nginx
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+        depends_on:
+            - frontend
+            - backend
+            - db
+
     frontend:
         container_name: frontend
         hostname: frontend
@@ -9,8 +22,6 @@ services:
         volumes:
             - ./frontend/src:/frontend
             - /frontend/node_modules # Exclude the node_modules directory
-        ports:
-            - "5000:5173"
         depends_on:
             - backend
             - db
@@ -24,8 +35,6 @@ services:
         volumes:
             - ./backend/src:/backend
             - /backend/node_modules # Exclude the node_modules directory
-        ports:
-            - "7777:7777"
         depends_on:
             - db
 

@@ -2,9 +2,14 @@ const express = require("express")
 const app = express()
 const helmet = require("helmet")
 
-const ip = "localhost"
+const ip = "0.0.0.0"
 const port = 7777
 
 app.use(helmet())
 
-app.listen(port, ip, () => console.log(`App listening on ${ip}:${port}\n`))
+/* Set up routers */
+require("./router.js")(app)
+
+app.listen(port, ip, () =>
+    console.log(`\nREST API listening on ${ip}:${port}\n`)
+)

@@ -16,8 +16,5 @@ RUN npm install
 # Copy the rest of the application
 COPY . .
 
-# Make the app accessible outside the container
-EXPOSE 7777
-
 # Start the app
 CMD ["npm", "run", "dev"]
