@@ -1,0 +1,55 @@
+version: "3"
+services:
+    nginx:
+        container_name: nginx
+        hostname: nginx
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+        depends_on:
+            - frontend
+            - backend
+            - db
+
+    frontend:
+        container_name: frontend
+        hostname: frontend
+        build: ./frontend/src
+        env_file:
+            - ./.env
+        volumes:
+            - ./frontend/src:/frontend
+            - /frontend/node_modules # Exclude the node_modules directory
+        depends_on:
+            - backend
+            - db
+
+    backend:
+        container_name: backend
+        hostname: backend
+        build: ./backend/src
+        env_file:
+            - ./.env
+        volumes:
+            - ./backend/src:/backend
+            - /backend/node_modules # Exclude the node_modules directory
+        depends_on:
+            - db
+
+    db:
+        container_name: database
+        hostname: database
+        image: mysql:8.0
+        command: --init-file /data/application/init.sql
+        env_file:
+            - ./.env
+        volumes:
+            - ./db-data:/var/lib/mysql
+            - ./database/init.sql:/data/application/init.sql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+        ports:
+            - "3306:3306"

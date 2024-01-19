@@ -1,3 +1,9 @@
+# Environment variables
+.env
+
+# Database data
+db-data
+
 # Logs
 logs
 *.log
@@ -12,10 +18,7 @@ dist
 dist-ssr
 *.local
 
-src/node_modules
-
 # Editor directories and files
-.vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
