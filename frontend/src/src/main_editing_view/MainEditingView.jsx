@@ -10,7 +10,7 @@ import SlidesTable from './slides_table/SlidesTable';
  * @param {Object} props received parameters
  */
 function MainEditingView(props) {
-    const selectedProject = props.selectedProjectInfo.selected;
+    const selectedProject = props.selectedProjectInfo?.selected;
     
     /** If the user has already opened a project, then return the editing view.
     Otherwise, return the welcome view */

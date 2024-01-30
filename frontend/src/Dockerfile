@@ -17,4 +17,4 @@ RUN npm install
 COPY . .
 
 # Start the app
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "storybook"]

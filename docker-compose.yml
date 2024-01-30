@@ -8,14 +8,6 @@ services:
             - ./.env
         ports:
             - "80:80"
-            - "443:443"
-        environment:
-            COUNTRY_NAME: ${COUNTRY_NAME}
-            STATE_OR_PROVINCE: ${STATE_OR_PROVINCE}
-            LOCALITY: ${LOCALITY}
-            ORGANIZATION: ${ORGANIZATION}
-            ORGANIZATIONAL_UNIT: ${ORGANIZATIONAL_UNIT}
-            COMMON_NAME: ${COMMON_NAME}
         volumes:
             - ./nginx:/etc/nginx/conf.d
         depends_on:
