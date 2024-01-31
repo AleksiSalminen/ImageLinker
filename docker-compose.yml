@@ -4,6 +4,7 @@ services:
         container_name: nginx
         hostname: nginx
         build: ./nginx
+        image: slidelinker-nginx
         env_file:
             - ./.env
         ports:
@@ -19,6 +20,7 @@ services:
         container_name: frontend
         hostname: frontend
         build: ./frontend/src
+        image: slidelinker-frontend
         env_file:
             - ./.env
         volumes:
@@ -32,6 +34,7 @@ services:
         container_name: backend
         hostname: backend
         build: ./backend/src
+        image: slidelinker-backend
         env_file:
             - ./.env
         volumes:
