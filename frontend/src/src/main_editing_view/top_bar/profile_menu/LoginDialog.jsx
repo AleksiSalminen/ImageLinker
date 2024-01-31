@@ -13,8 +13,8 @@ import TextField from "@mui/material/TextField"
 function LoginDialog(props) {
     const { t } = useTranslation()
 
-    const [userName, setUserName] = useState(null)
-    const [password, setPassword] = useState(null)
+    const [userName, setUserName] = useState("")
+    const [password, setPassword] = useState("")
 
     const updateUserName = (event) => {
         setUserName(event.target.value)
@@ -30,12 +30,12 @@ function LoginDialog(props) {
             password: password,
         }
 
-        props.fetchUserLogin(user).then((error) => {
+        /* props.fetchUserLogin(user).then((error) => {
             if (error) {
                 const alertMsg = t("TopBar.LoginFailed")
                 alert(alertMsg)
             }
-        })
+        }) */
     }
 
     return (
@@ -71,7 +71,7 @@ function LoginDialog(props) {
                     <Button
                         onClick={props.closeDialog}
                         variant="contained"
-                        color="default"
+                        //color="default" // FIXME: This has stopped working?
                         style={{ marginRight: "2rem" }}
                     >
                         {t("TopBar.CancelButton")}

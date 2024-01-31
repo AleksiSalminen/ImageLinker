@@ -13,8 +13,8 @@ import TextField from "@mui/material/TextField"
 function RegisterDialog(props) {
     const { t } = useTranslation()
 
-    const [userName, setUserName] = useState(null)
-    const [password, setPassword] = useState(null)
+    const [userName, setUserName] = useState("")
+    const [password, setPassword] = useState("")
 
     const updateUserName = (event) => {
         setUserName(event.target.value)
@@ -30,12 +30,12 @@ function RegisterDialog(props) {
             password: password,
         }
 
-        props.fetchUserRegister(user).then((error) => {
+        /* props.fetchUserRegister(user).then((error) => {
             if (error) {
                 const alertMsg = t("TopBar.RegisterFailed")
                 alert(alertMsg)
             }
-        })
+        }) */
     }
 
     return (
@@ -73,7 +73,7 @@ function RegisterDialog(props) {
                     <Button
                         onClick={props.closeDialog}
                         variant="contained"
-                        color="default"
+                        //color="default" // FIXME: This has stopped working?
                         style={{ marginRight: "2rem" }}
                     >
                         {t("TopBar.CancelButton")}
