@@ -52,6 +52,5 @@ services:
             - ./database/init.sql:/data/application/init.sql
         environment:
             MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: ${MYSQL_DATABASE}
         ports:
             - "3306:3306"
