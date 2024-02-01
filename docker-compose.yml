@@ -46,14 +46,15 @@ services:
     db:
         container_name: database
         hostname: database
-        image: mysql:8.0
-        command: --init-file /data/application/init.sql
+        build: ./database
+        image: slidelinker-database
         env_file:
             - ./.env
         volumes:
             - ./db-data:/var/lib/mysql
-            - ./database/init.sql:/data/application/init.sql
         environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
         ports:
             - "3306:3306"
