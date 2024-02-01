@@ -50,8 +50,6 @@ services:
         image: slidelinker-database
         env_file:
             - ./.env
-        volumes:
-            - ./db-data:/var/lib/mysql
         environment:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
