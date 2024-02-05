@@ -16,5 +16,5 @@ RUN npm install
 # Copy the rest of the application
 COPY . .
 
-# Generate the Prisma models, generate Prisma client, start the app
+# Generate the Prisma models, generate the Prisma client, start the app
 CMD ["/bin/sh", "-c", "npx prisma db pull;npx prisma generate;npm run dev"]
