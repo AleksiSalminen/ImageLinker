@@ -11,9 +11,9 @@ USE slidelinker;
 -- Add user table
 CREATE TABLE user(
    id INT PRIMARY KEY AUTO_INCREMENT,
-   user_name VARCHAR(50),
+   user_name VARCHAR(50) UNIQUE,
    name VARCHAR(100),
-   email VARCHAR(255),
+   email VARCHAR(255) UNIQUE,
    password CHAR(60)
 );
 

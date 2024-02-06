@@ -9,8 +9,8 @@ datasource db {
 
 model user {
   id        Int     @id @default(autoincrement())
-  user_name String? @db.VarChar(50)
+  user_name String? @unique(map: "user_name") @db.VarChar(50)
   name      String? @db.VarChar(100)
-  email     String? @db.VarChar(255)
+  email     String? @unique(map: "email") @db.VarChar(255)
   password  String? @db.Char(60)
 }
