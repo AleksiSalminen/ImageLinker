@@ -6,6 +6,7 @@ const { checkDatabaseConnection } = require("./prisma/connection.js")
 const ip = "0.0.0.0"
 const port = 7777
 
+app.use(express.json())
 app.use(helmet())
 
 /* Set up routers */

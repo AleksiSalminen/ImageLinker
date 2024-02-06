@@ -4,8 +4,8 @@ const crypto = require("crypto")
 
 const User = require("../models/users.js")
 
-const secret = process.env.SECRET
-const saltRounds = parseInt(process.env.SALTROUNDS)
+const secret = "ioehgusigh" // TODO: Put to .env
+const saltRounds = 12 // TODO: Put to .env
 
 /**
  * Create a new JSON web token and return it
@@ -106,21 +106,9 @@ module.exports = {
                         throw error
                     }
 
-                    let id = null
-                    let idGenerated = false
-
-                    while (!idGenerated && !id) {
-                        id = crypto.randomBytes(10).toString("hex")
-                        user = await User.findUser({ id: id })
-                        if (!user) {
-                            idGenerated = true
-                        }
-                    }
-
                     let newUser = {
-                        id: id,
                         name: "",
-                        email: "",
+                        email: request.body.email,
                         userName: userName,
                         password: hash,
                     }
