@@ -30,12 +30,12 @@ function LoginDialog(props) {
             password: password,
         }
 
-        /* props.fetchUserLogin(user).then((error) => {
+        props.fetchUserLogin(user).then((error) => {
             if (error) {
                 const alertMsg = t("TopBar.LoginFailed")
                 alert(alertMsg)
             }
-        }) */
+        })
     }
 
     return (
@@ -43,28 +43,13 @@ function LoginDialog(props) {
             <Box style={{ padding: "1rem" }}>
                 <Typography variant="h4">{t("TopBar.LoginTitle")}</Typography>
 
-                <TextField
-                    label={t("TopBar.LoginUserName")}
-                    value={userName}
-                    type="text"
-                    onChange={updateUserName}
-                />
+                <TextField label={t("TopBar.LoginUserName")} value={userName} type="text" onChange={updateUserName} />
                 <br />
 
-                <TextField
-                    label={t("TopBar.LoginPassword")}
-                    value={password}
-                    type="password"
-                    onChange={updatePassword}
-                />
+                <TextField label={t("TopBar.LoginPassword")} value={password} type="password" onChange={updatePassword} />
 
                 <Box style={{ marginTop: "1rem" }}>
-                    <Button
-                        onClick={login}
-                        variant="contained"
-                        color="primary"
-                        style={{ marginRight: "2rem" }}
-                    >
+                    <Button onClick={login} variant="contained" color="primary" style={{ marginRight: "2rem" }}>
                         {t("TopBar.LoginButton")}
                     </Button>
 

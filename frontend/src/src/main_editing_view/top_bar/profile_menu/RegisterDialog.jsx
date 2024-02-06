@@ -5,6 +5,7 @@ import Dialog from "@mui/material/Dialog"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import TextField from "@mui/material/TextField"
+import { fetchUserRegister } from "../../../state/api/usersFetch"
 
 /**
  * Function that returns the option editing dialog
@@ -14,10 +15,15 @@ function RegisterDialog(props) {
     const { t } = useTranslation()
 
     const [userName, setUserName] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const updateUserName = (event) => {
         setUserName(event.target.value)
+    }
+
+    const updateEmail = (event) => {
+        setEmail(event.target.value)
     }
 
     const updatePassword = (event) => {
@@ -27,46 +33,27 @@ function RegisterDialog(props) {
     const register = () => {
         const user = {
             userName: userName,
+            email: email,
             password: password,
         }
 
-        /* props.fetchUserRegister(user).then((error) => {
-            if (error) {
-                const alertMsg = t("TopBar.RegisterFailed")
-                alert(alertMsg)
-            }
-        }) */
+        const thunk = fetchUserRegister(user)
+        thunk()
     }
 
     return (
         <Dialog open={props.open} style={{ padding: "0.5rem" }}>
             <Box style={{ padding: "1rem" }}>
-                <Typography variant="h4">
-                    {t("TopBar.RegisterTitle")}
-                </Typography>
+                <Typography variant="h4">{t("TopBar.RegisterTitle")}</Typography>
 
-                <TextField
-                    label={t("TopBar.RegisterUserName")}
-                    value={userName}
-                    type="text"
-                    onChange={updateUserName}
-                />
+                <TextField label={t("TopBar.RegisterUserName")} value={userName} type="text" onChange={updateUserName} />
                 <br />
-
-                <TextField
-                    label={t("TopBar.RegisterPassword")}
-                    value={password}
-                    type="password"
-                    onChange={updatePassword}
-                />
+                <TextField label={"Email"} value={email} type="email" onChange={updateEmail} />
+                <br />
+                <TextField label={t("TopBar.RegisterPassword")} value={password} type="password" onChange={updatePassword} />
 
                 <Box style={{ marginTop: "1rem" }}>
-                    <Button
-                        onClick={register}
-                        variant="contained"
-                        color="primary"
-                        style={{ marginRight: "2rem" }}
-                    >
+                    <Button onClick={register} variant="contained" color="primary" style={{ marginRight: "2rem" }}>
                         {t("TopBar.RegisterButton")}
                     </Button>
 
