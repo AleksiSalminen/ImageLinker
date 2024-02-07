@@ -54,11 +54,7 @@ function TopBar(props) {
                             padding: "0.5rem",
                         }}
                     >
-                        <NewProjectButton
-                            addProject={props.addProject}
-                            token={props.token}
-                            interfaceSettings={props.interfaceSettings}
-                        />
+                        <NewProjectButton addProject={props.addProject} token={props.token} interfaceSettings={props.interfaceSettings} />
 
                         <OpenProjectButton
                             token={props.token}
@@ -69,10 +65,7 @@ function TopBar(props) {
                             updateSlides={props.updateSlides}
                         />
 
-                        <PlayProjectButton
-                            selectedProject={props.selectedProject}
-                            activeViewSettings={props.activeViewSettings}
-                        />
+                        <PlayProjectButton selectedProject={props.selectedProject} activeViewSettings={props.activeViewSettings} />
 
                         <ProfileMenu
                             fetchUserLogin={props.fetchUserLogin}
@@ -85,9 +78,7 @@ function TopBar(props) {
                             updateOwnInfo={props.updateOwnInfo}
                         />
 
-                        <SettingsMenu
-                            interfaceSettings={props.interfaceSettings}
-                        />
+                        <SettingsMenu interfaceSettings={props.interfaceSettings} />
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -137,9 +128,7 @@ function TopBar(props) {
                             updateOwnInfo={props.updateOwnInfo}
                         />
 
-                        <SettingsMenu
-                            interfaceSettings={props.interfaceSettings}
-                        />
+                        <SettingsMenu interfaceSettings={props.interfaceSettings} />
                     </Box>
                 </Toolbar>
             </AppBar>

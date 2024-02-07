@@ -1,7 +1,5 @@
 import React from "react"
-import MainEditingView from "../main_editing_view/MainEditingView"
-import WelcomeView from "../main_editing_view/welcome_view/WelcomeView"
-import SlidesTable from "../main_editing_view/slides_table/SlidesTable"
+import TopBar from "../../components/top_bar/TopBar"
 
 export default {
     title: "Components/Top Bar",
@@ -32,23 +30,8 @@ export default {
     },
 }
 
-export const Main = (props) => <MainEditingView {...props} />
-Main.args = {
-    selectedProjectInfo: {
-        selected: {
-            name: "Hippity-hoppity",
-        },
-        isFetching: false,
-        receivedAt: new Date(),
-        error: undefined,
-    },
-
-    activeViewSettings: {
-        setActiveView: () => {},
-        MAIN_EDITING_VIEW: "MAIN_EDITING_VIEW",
-        SLIDE_EDITING_VIEW: "SLIDE_EDITING_VIEW",
-        PRESENTATION_VIEW: "PRESENTATION_VIEW",
-    },
+export const Logged_out = (props) => <TopBar {...props} />
+Logged_out.args = {
     selectedProjectInfo: {
         selected: {},
         isFetching: false,
@@ -63,7 +46,7 @@ Main.args = {
                 palette: {
                     mode: "light",
                     primary: {
-                        main: "blue",
+                        main: "red",
                     },
                     secondary: {
                         main: "green",
@@ -80,9 +63,4 @@ Main.args = {
             colors: {},
         },
     ],
-    slides: [],
-    selectSlide: () => {},
 }
-
-export const Welcome_View = (props) => <WelcomeView {...props} />
-export const Slides_Table = (props) => <SlidesTable {...props} />
