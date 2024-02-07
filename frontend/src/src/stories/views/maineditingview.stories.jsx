@@ -1,10 +1,10 @@
 import React from "react"
-import MainEditingView from "../main_editing_view/MainEditingView"
-import WelcomeView from "../main_editing_view/welcome_view/WelcomeView"
-import SlidesTable from "../main_editing_view/slides_table/SlidesTable"
+import MainEditingView from "../../main_editing_view/MainEditingView"
+import WelcomeView from "../../main_editing_view/welcome_view/WelcomeView"
+import SlidesTable from "../../main_editing_view/slides_table/SlidesTable"
 
 export default {
-    title: "Main Editing View",
+    title: "Views/Main Editing View",
     decorators: [(Story) => <Story />],
     argTypes: {
         activeViewSettings: {

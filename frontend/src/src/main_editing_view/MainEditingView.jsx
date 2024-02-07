@@ -1,6 +1,6 @@
 import React from "react"
 
-import TopBar from "./top_bar/TopBar"
+import TopBar from "../components/top_bar/TopBar"
 import WelcomeView from "./welcome_view/WelcomeView"
 import SlidesTable from "./slides_table/SlidesTable"
 
