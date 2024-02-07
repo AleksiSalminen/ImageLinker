@@ -1,3 +1,5 @@
+import { createTheme } from "@mui/material"
+import { ThemeProvider } from "@mui/material/"
 import { Suspense, useEffect } from "react"
 import CssBaseline from "@mui/material/CssBaseline"
 import { I18nextProvider } from "react-i18next"
@@ -10,12 +12,31 @@ const preview = {
         controls: {
             matchers: {
                 color: /(background|color)$/i,
-                date: /Date$/
-            }
+                date: /Date$/,
+            },
         },
-        layout: "fullscreen"
-    }
+        layout: "fullscreen",
+    },
 }
+
+const theme = createTheme({
+    palette: {
+        mode: "light",
+        primary: {
+            main: "#977F55",
+        },
+        secondary: {
+            main: "#D1AF74",
+        },
+        background: {
+            default: "white",
+        },
+    },
+    typography: {
+        fontFamily: "Gabriola",
+        fontSize: parseInt("20"),
+    },
+})
 
 /*
  * Global variable called locale in StoryBook
@@ -29,11 +50,11 @@ export const globalTypes = {
             icon: "globe",
             items: [
                 { value: "fi", title: "Suomi" },
-                { value: "en", title: "English" }
+                { value: "en", title: "English" },
             ],
-            showName: true
-        }
-    }
+            showName: true,
+        },
+    },
 }
 
 export const decorators = [
@@ -47,13 +68,15 @@ export const decorators = [
 
         return (
             <Suspense fallback={"Loading.."}>
-                <I18nextProvider i18n={i18n}>
-                    <CssBaseline />
-                    <Story />
-                </I18nextProvider>
+                <ThemeProvider theme={theme}>
+                    <I18nextProvider i18n={i18n}>
+                        <CssBaseline />
+                        <Story />
+                    </I18nextProvider>
+                </ThemeProvider>
             </Suspense>
         )
-    }
+    },
 ]
 
 export default preview
