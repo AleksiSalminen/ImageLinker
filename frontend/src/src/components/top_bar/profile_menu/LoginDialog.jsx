@@ -30,12 +30,7 @@ function LoginDialog(props) {
             password: password,
         }
 
-        props.fetchUserLogin(user).then((error) => {
-            if (error) {
-                const alertMsg = t("TopBar.LoginFailed")
-                alert(alertMsg)
-            }
-        })
+        props.fetchUserLogin(user)
     }
 
     return (

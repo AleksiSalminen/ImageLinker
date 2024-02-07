@@ -5,7 +5,6 @@ import Dialog from "@mui/material/Dialog"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 import TextField from "@mui/material/TextField"
-import { fetchUserRegister } from "../../../state/api/usersFetch"
 
 /**
  * Function that returns the option editing dialog
@@ -37,8 +36,7 @@ function RegisterDialog(props) {
             password: password,
         }
 
-        const thunk = fetchUserRegister(user)
-        thunk()
+        props.fetchUserRegister(user)
     }
 
     return (
