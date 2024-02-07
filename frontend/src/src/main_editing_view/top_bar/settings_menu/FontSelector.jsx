@@ -1,21 +1,20 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import React from "react"
+import { useTranslation } from "react-i18next"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import TextField from "@mui/material/TextField"
+import Autocomplete from "@mui/material/Autocomplete"
 
-import fonts from './fonts';
-
+import fonts from "./fonts"
 
 /**
  * Function that returns the font selector
  * @param {Object} props received parameters
  */
 function FontSelector(props) {
-    const { t } = useTranslation();
+    const { t } = useTranslation()
 
-    const font = props.settings.font;
+    /* const font = props.settings.font;
     const setFont = props.settings.setFont;
 
     return (
@@ -35,7 +34,7 @@ function FontSelector(props) {
                 renderInput={(params) => <TextField {...params} variant="outlined" />}
             />
         </Box>
-    );
+    ); */
 }
 
-export default FontSelector;
+export default FontSelector

@@ -1,17 +1,16 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-
+import React from "react"
+import { useTranslation } from "react-i18next"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
 
 /**
  * Function that returns the font size selector
  * @param {Object} props received parameters
  */
 function FontSizeSelector(props) {
-    const { t } = useTranslation();
+    const { t } = useTranslation()
 
-    const fontSize = props.settings.fontSize;
+    /* const fontSize = props.settings.fontSize;
     const setFontSize = props.settings.setFontSize;
 
     return (
@@ -28,7 +27,7 @@ function FontSizeSelector(props) {
                 onChange={(event) => {setFontSize(event.target.value)}}
             />
         </Box>
-    );
+    ); */
 }
 
-export default FontSizeSelector;
+export default FontSizeSelector
