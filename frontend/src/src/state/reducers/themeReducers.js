@@ -57,7 +57,7 @@ export function theme(state = initialThemeState, action) {
 
 const initialThemeState = {
     palette: {
-        mode: palletType,
+        mode: "light",
         primary: {
             main: "#977F55",
         },

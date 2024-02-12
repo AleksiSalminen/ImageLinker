@@ -1,9 +1,9 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
 import Box from "@mui/material/Box"
 import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
-import Button from "@mui/material/Button"
 
 import ProjectTitleArea from "./ProjectTitleArea.jsx"
 import NewProjectButton from "./NewProjectButton.jsx"
@@ -17,10 +17,11 @@ import SettingsMenu from "./settings_menu/SettingsMenu.jsx"
  * @param {Object} props received parameters
  */
 function TopBar(props) {
+    const token = useSelector((state) => state.authentication.token)
     const { t } = useTranslation()
     const darkState = props.interfaceSettings[0].theme.darkState
 
-    if (props.token) {
+    if (token) {
         return (
             <AppBar position="sticky" color="default">
                 <Toolbar>

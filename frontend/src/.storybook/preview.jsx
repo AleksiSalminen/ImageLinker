@@ -1,3 +1,6 @@
+import React from "react"
+import { Provider } from "react-redux"
+import store from "../src/state/reducers/mainReducers"
 import { createTheme } from "@mui/material"
 import { ThemeProvider } from "@mui/material/"
 import { Suspense, useEffect } from "react"
@@ -71,7 +74,9 @@ export const decorators = [
                 <ThemeProvider theme={theme}>
                     <I18nextProvider i18n={i18n}>
                         <CssBaseline />
-                        <Story />
+                        <Provider store={store}>
+                            <Story />
+                        </Provider>
                     </I18nextProvider>
                 </ThemeProvider>
             </Suspense>
