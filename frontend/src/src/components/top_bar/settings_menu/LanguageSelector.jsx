@@ -11,40 +11,39 @@ import Button from "@mui/material/Button"
 function LanguageSelector(props) {
     const { t, i18n } = useTranslation()
 
-    /* const english = props.settings.english;
-    const finnish = props.settings.finnish;
-    const language = props.settings.language;
-    const setLanguage = props.settings.setLanguage;
+    const english = props.settings.english
+    const finnish = props.settings.finnish
+    const language = props.settings.language
+    const setLanguage = props.settings.setLanguage
 
     const changeLanguage = (newLang) => {
-        i18n.changeLanguage(newLang);
-        setLanguage(newLang);
-    } */
+        i18n.changeLanguage(newLang)
+        setLanguage(newLang)
+    }
 
-    /* return (
-        <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"ridge hidden hidden hidden"}}>
-            <Typography>
-                {t("TopBar.Settings.Language")}:
-            </Typography>
+    return (
+        <Box style={{ margin: "1.0rem", padding: "0.5rem", borderStyle: "ridge hidden hidden hidden" }}>
+            <Typography>{t("TopBar.Settings.Language")}:</Typography>
             &nbsp;&nbsp;
-
-            <Button 
-                onClick={() => {changeLanguage(english)}} 
+            <Button
+                onClick={() => {
+                    changeLanguage(english)
+                }}
                 variant="contained"
             >
                 English
             </Button>
-
             &nbsp;&nbsp;
-
-            <Button 
-                onClick={() => {changeLanguage(finnish)}} 
+            <Button
+                onClick={() => {
+                    changeLanguage(finnish)
+                }}
                 variant="contained"
             >
                 Suomi
             </Button>
         </Box>
-    ); */
+    )
 }
 
 export default LanguageSelector

@@ -10,24 +10,25 @@ import Typography from "@mui/material/Typography"
 function FontSizeSelector(props) {
     const { t } = useTranslation()
 
-    /* const fontSize = props.settings.fontSize;
-    const setFontSize = props.settings.setFontSize;
+    const fontSize = props.settings.fontSize
+    const setFontSize = props.settings.setFontSize
 
     return (
-        <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"ridge hidden hidden hidden"}}>
+        <Box style={{ margin: "1.0rem", padding: "0.5rem", borderStyle: "ridge hidden hidden hidden" }}>
             <Typography>{t("TopBar.Settings.FontSize.FontSize")}:</Typography>
             &nbsp;&nbsp;
-
-            <input 
+            <input
                 type="number"
                 value={fontSize}
-                style={{padding:"0.5rem", borderStyle:"solid", borderRadius:"0.3rem", borderWidth:"thin", borderColor:"grey"}}
+                style={{ padding: "0.5rem", borderStyle: "solid", borderRadius: "0.3rem", borderWidth: "thin", borderColor: "grey" }}
                 min={5}
                 max={30}
-                onChange={(event) => {setFontSize(event.target.value)}}
+                onChange={(event) => {
+                    setFontSize(event.target.value)
+                }}
             />
         </Box>
-    ); */
+    )
 }
 
 export default FontSizeSelector

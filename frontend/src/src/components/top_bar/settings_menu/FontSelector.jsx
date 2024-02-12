@@ -14,18 +14,19 @@ import fonts from "./fonts"
 function FontSelector(props) {
     const { t } = useTranslation()
 
-    /* const font = props.settings.font;
-    const setFont = props.settings.setFont;
+    const font = props.settings.font
+    const setFont = props.settings.setFont
 
     return (
-        <Box style={{margin:"1.0rem", padding:"0.5rem", borderStyle:"ridge hidden hidden hidden"}}>
+        <Box style={{ margin: "1.0rem", padding: "0.5rem", borderStyle: "ridge hidden hidden hidden" }}>
             <Typography>{t("TopBar.Settings.Font")}:</Typography>
-            
 
             <Autocomplete
                 id="font-select"
                 value={font}
-                onChange={(event, newFont) => {setFont(newFont)}}
+                onChange={(event, newFont) => {
+                    setFont(newFont)
+                }}
                 options={fonts}
                 size="small"
                 disableClearable={true}
@@ -34,7 +35,7 @@ function FontSelector(props) {
                 renderInput={(params) => <TextField {...params} variant="outlined" />}
             />
         </Box>
-    ); */
+    )
 }
 
 export default FontSelector
