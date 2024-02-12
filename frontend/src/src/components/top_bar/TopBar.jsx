@@ -1,5 +1,4 @@
 import React from "react"
-import { useSelector } from "react-redux"
 import { useTranslation } from "react-i18next"
 import Box from "@mui/material/Box"
 import AppBar from "@mui/material/AppBar"
@@ -17,11 +16,10 @@ import SettingsMenu from "./settings_menu/SettingsMenu.jsx"
  * @param {Object} props received parameters
  */
 function TopBar(props) {
-    const token = useSelector((state) => state.authentication.token)
     const { t } = useTranslation()
     const darkState = props.interfaceSettings[0].theme.darkState
 
-    if (token) {
+    if (props.token) {
         return (
             <AppBar position="sticky" color="default">
                 <Toolbar>
