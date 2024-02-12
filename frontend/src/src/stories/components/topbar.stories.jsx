@@ -7,31 +7,6 @@ import SettingsMenu from "../../components/top_bar/settings_menu/SettingsMenu"
 
 export default {
     title: "Components/Top Bar",
-    decorators: [(Story) => <Story />],
-    argTypes: {
-        activeViewSettings: {
-            setActiveView: { action: "() => {}" },
-            MAIN_EDITING_VIEW: { control: "text" },
-            SLIDE_EDITING_VIEW: { control: "text" },
-            PRESENTATION_VIEW: { control: "text" },
-        },
-        selectedProjectInfo: {
-            selected: { control: "object" },
-            isFetching: { control: "boolean" },
-            receivedAt: { control: "date" },
-            error: { control: "text" },
-        },
-        changeSelectedProject: { action: "() => {}" },
-        updateSlides: { action: "() => {}" },
-        interfaceSettings: {
-            theme: { control: "object" },
-            font: { control: "object" },
-            language: { control: "object" },
-            colors: { control: "object" },
-        },
-        slides: { control: "array" },
-        selectSlide: { action: "() => {}" },
-    },
 }
 
 export const Logged_out = (props) => <TopBar {...props} />
@@ -44,6 +19,12 @@ Logged_out.args = {
     },
     changeSelectedProject: () => {},
     updateSlides: () => {},
+    fetchUserLogin: (user) => {
+        console.log(`username: ${user.userName}, password: ${user.password}`)
+    },
+    fetchUserRegister: (user) => {
+        console.log(`username: ${user.userName}, email: ${user.email}, password: ${user.password}`)
+    },
     interfaceSettings: [
         {
             theme: {
@@ -60,10 +41,20 @@ Logged_out.args = {
                     fontFamily: "Arial",
                     fontSize: 15,
                 },
+                handleThemeChange: () => console.log("Change theme"),
             },
-            font: { fontSize: 15 },
-            fontSize: 15,
-            language: {},
+            font: {
+                font: "Arial",
+                setFont: (font) => console.log(`Change font: ${font}`),
+                fontSize: 15,
+                setFontSize: (fontSize) => console.log(`Change font size: ${fontSize}`),
+            },
+            language: {
+                english: "en",
+                finnish: "fi",
+                language: "en",
+                setLanguage: () => {},
+            },
             colors: {},
         },
     ],
@@ -78,8 +69,25 @@ Logged_in.args = {
         receivedAt: new Date(),
         error: undefined,
     },
+    addProject: () => {
+        console.log("Add project")
+        return new Promise((resolve, reject) => resolve())
+    },
     changeSelectedProject: () => {},
     updateSlides: () => {},
+    ownInfo: {
+        userName: "TestUser",
+        password: "test",
+    },
+    fetchOwnInfo: () => {
+        return new Promise((resolve, reject) => resolve())
+    },
+    updateOwnInfo: (user) => {
+        console.log(`Update info - username: ${user.userName}, password: ${user.password}`)
+        return new Promise((resolve, reject) => resolve())
+    },
+    unregister: () => console.log("Unregister"),
+    logout: () => console.log("Logout"),
     interfaceSettings: [
         {
             theme: {
@@ -96,10 +104,20 @@ Logged_in.args = {
                     fontFamily: "Arial",
                     fontSize: 15,
                 },
+                handleThemeChange: () => console.log("Change theme"),
             },
-            font: { fontSize: 15 },
-            fontSize: 15,
-            language: {},
+            font: {
+                font: "Arial",
+                setFont: (font) => console.log(`Change font: ${font}`),
+                fontSize: 15,
+                setFontSize: (fontSize) => console.log(`Change font size: ${fontSize}`),
+            },
+            language: {
+                english: "en",
+                finnish: "fi",
+                language: "en",
+                setLanguage: () => {},
+            },
             colors: {},
         },
     ],

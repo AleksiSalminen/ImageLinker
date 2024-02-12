@@ -14,10 +14,10 @@ function NewProjectButton(props) {
 
         const uiSettings = {
             darkTheme: settings[0].theme.darkState,
-            font: settings[1].font.font,
-            fontSize: settings[1].font.fontSize,
-            primaryColor: settings[3].colors.primaryColor,
-            secondaryColor: settings[3].colors.secondaryColor,
+            font: settings[0].font.font,
+            fontSize: settings[0].font.fontSize,
+            primaryColor: settings[0].colors.primaryColor,
+            secondaryColor: settings[0].colors.secondaryColor,
         }
 
         const project = {
@@ -32,13 +32,7 @@ function NewProjectButton(props) {
     }
 
     return (
-        <Button
-            onClick={addProject}
-            variant="contained"
-            component="label"
-            color="primary"
-            style={{ margin: "0.25rem" }}
-        >
+        <Button onClick={addProject} variant="contained" component="label" color="primary" style={{ margin: "0.25rem" }}>
             {t("TopBar.NewButton")}
         </Button>
     )
