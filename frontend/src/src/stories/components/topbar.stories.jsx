@@ -122,50 +122,23 @@ Register_button.args = {
 export const Profile_menu = (props) => <ProfileMenu {...props} />
 Profile_menu.args = {
     token: "ui3g3w8tywoth4wt84owyiw.w4yuwi8tyi8ty",
-    selectedProjectInfo: {
-        selected: {},
-        isFetching: false,
-        receivedAt: new Date(),
-        error: undefined,
+    ownInfo: {
+        userName: "TestUser",
+        password: "test",
     },
-    changeSelectedProject: () => {},
-    updateSlides: () => {},
-    interfaceSettings: [
-        {
-            theme: {
-                palette: {
-                    mode: "light",
-                    primary: {
-                        main: "red",
-                    },
-                    secondary: {
-                        main: "green",
-                    },
-                },
-                typography: {
-                    fontFamily: "Arial",
-                    fontSize: 15,
-                },
-            },
-            font: { fontSize: 15 },
-            fontSize: 15,
-            language: {},
-            colors: {},
-        },
-    ],
+    fetchOwnInfo: () => {
+        return new Promise((resolve, reject) => resolve())
+    },
+    updateOwnInfo: (user) => {
+        console.log(`Update info - username: ${user.userName}, password: ${user.password}`)
+        return new Promise((resolve, reject) => resolve())
+    },
+    unregister: () => console.log("Unregister"),
+    logout: () => console.log("Logout"),
 }
 
 export const Settings_menu = (props) => <SettingsMenu {...props} />
 Settings_menu.args = {
-    token: "ui3g3w8tywoth4wt84owyiw.w4yuwi8tyi8ty",
-    selectedProjectInfo: {
-        selected: {},
-        isFetching: false,
-        receivedAt: new Date(),
-        error: undefined,
-    },
-    changeSelectedProject: () => {},
-    updateSlides: () => {},
     interfaceSettings: [
         {
             theme: {
