@@ -23,19 +23,22 @@ function SettingsMenu(props) {
     let colorsSettings = null
 
     /** Set the settings objects for the interface parameters */
-    for (let i = 0; i < props.interfaceSettings.length; i++) {
-        const setting = props.interfaceSettings[i]
-        if (setting.theme) {
-            themeSettings = setting.theme
-        }
-        if (setting.font) {
-            fontSettings = setting.font
-        }
-        if (setting.language) {
-            languageSettings = setting.language
-        }
-        if (setting.colors) {
-            colorsSettings = setting.colors
+    /* console.log(props.interfaceSettings) */
+    if (props.interfaceSettings) {
+        for (let i = 0; i < props.interfaceSettings.length; i++) {
+            const setting = props.interfaceSettings[i]
+            if (setting.theme) {
+                themeSettings = setting.theme
+            }
+            if (setting.font) {
+                fontSettings = setting.font
+            }
+            if (setting.language) {
+                languageSettings = setting.language
+            }
+            if (setting.colors) {
+                colorsSettings = setting.colors
+            }
         }
     }
 

@@ -43,40 +43,6 @@ function SlideLinker(props) {
         setDarkState(!darkState)
     }
 
-    /** This is used to group all the interface settings into one object */
-    const interfaceSettings = [
-        {
-            theme: {
-                darkState: darkState,
-                handleThemeChange: handleThemeChange,
-            },
-        },
-        {
-            font: {
-                font: font,
-                setFont: setFont,
-                fontSize: fontSize,
-                setFontSize: setFontSize,
-            },
-        },
-        {
-            language: {
-                english: english,
-                finnish: finnish,
-                language: language,
-                setLanguage: setLanguage,
-            },
-        },
-        {
-            colors: {
-                primaryColor: primaryColor,
-                setPrimaryColor: setPrimaryColor,
-                secondaryColor: secondaryColor,
-                setSecondaryColor: setSecondaryColor,
-            },
-        },
-    ]
-
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -88,7 +54,14 @@ function SlideLinker(props) {
                 </Helmet>
             </HelmetProvider>
 
-            <Router />
+            <Router
+                selectedProjectInfo={props.selectedProjectInfo}
+                changeSelectedProject={props.changeSelectedProject}
+                slides={props.slides}
+                updateSlides={props.updateSlides}
+                selectSlide={props.selectSlide}
+                interfaceSettings={props.interfaceSettings}
+            />
         </ThemeProvider>
     )
 }

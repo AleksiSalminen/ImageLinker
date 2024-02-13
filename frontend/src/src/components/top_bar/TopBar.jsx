@@ -17,7 +17,6 @@ import SettingsMenu from "./settings_menu/SettingsMenu.jsx"
  */
 function TopBar(props) {
     const { t } = useTranslation()
-    const darkState = props.interfaceSettings[0].theme.darkState
 
     if (props.token) {
         return (
@@ -30,11 +29,7 @@ function TopBar(props) {
                             marginTop: "0.5rem",
                         }}
                     >
-                        <img
-                            src={darkState ? "LogoDark.png" : "LogoLight.png"}
-                            alt="Slide Linker logo"
-                            style={{ height: "4.0rem", width: "auto" }}
-                        />
+                        <img alt="Slide Linker logo" style={{ height: "4.0rem", width: "auto" }} />
                     </Box>
 
                     <Box style={{ marginLeft: "0%", padding: "0.5rem" }}>
@@ -93,11 +88,7 @@ function TopBar(props) {
                             marginTop: "0.5rem",
                         }}
                     >
-                        <img
-                            src={darkState ? "LogoDark.png" : "LogoLight.png"}
-                            alt="Slide Linker logo"
-                            style={{ height: "4.0rem", width: "auto" }}
-                        />
+                        <img alt="Slide Linker logo" style={{ height: "4.0rem", width: "auto" }} />
                     </Box>
 
                     <Box style={{ marginLeft: "0%", padding: "0.5rem" }}>
