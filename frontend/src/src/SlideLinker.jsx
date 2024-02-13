@@ -54,14 +54,7 @@ function SlideLinker(props) {
                 </Helmet>
             </HelmetProvider>
 
-            <Router
-                selectedProjectInfo={props.selectedProjectInfo}
-                changeSelectedProject={props.changeSelectedProject}
-                slides={props.slides}
-                updateSlides={props.updateSlides}
-                selectSlide={props.selectSlide}
-                interfaceSettings={props.interfaceSettings}
-            />
+            <Router {...props} />
         </ThemeProvider>
     )
 }
