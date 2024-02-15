@@ -16,6 +16,13 @@ console.log("State", store.getState())
 // Map Redux state to component props
 function mapStateToProps(state) {
     return {
+        // Projects states
+        projects: state.projects.projectList.projects,
+        //ownProjects: state.projects.ownProjects.projects,
+        selectedProjectInfo: state.projects.selectedProjectInfo,
+        slides: state.projects.slideList.slides,
+        selectedSlide: state.projects.selectedSlide.selected,
+
         // Users states
         token: state.users.authentication.token,
         ownInfo: state.users.ownInformation,
