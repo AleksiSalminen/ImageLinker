@@ -18,12 +18,14 @@ function MainEditingView(props) {
         return (
             <div>
                 <TopBar
+                    token={props.token}
                     activeViewSettings={props.activeViewSettings}
                     selectedProject={selectedProject}
                     changeSelectedProject={props.changeSelectedProject}
                     updateSlides={props.updateSlides}
                     projectName={selectedProject.name}
                     interfaceSettings={props.interfaceSettings}
+                    fetchUserLogin={props.fetchUserLogin}
                     fetchUserRegister={props.fetchUserRegister}
                 />
 
@@ -44,9 +46,11 @@ function MainEditingView(props) {
         return (
             <div>
                 <TopBar
+                    token={props.token}
                     changeSelectedProject={props.changeSelectedProject}
                     updateSlides={props.updateSlides}
                     interfaceSettings={props.interfaceSettings}
+                    fetchUserLogin={props.fetchUserLogin}
                     fetchUserRegister={props.fetchUserRegister}
                 />
 
