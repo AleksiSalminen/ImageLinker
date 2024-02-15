@@ -23,20 +23,11 @@ function LoginButton(props) {
 
     return (
         <>
-            <Button
-                variant="contained"
-                color="primary"
-                style={{ margin: "0.25rem" }}
-                onClick={openLoginDialog}
-            >
+            <Button variant="contained" color="primary" style={{ margin: "0.25rem" }} onClick={openLoginDialog}>
                 {t("TopBar.LoginButton")}
             </Button>
 
-            <LoginDialog
-                open={dialogOpen}
-                closeDialog={closeLoginDialog}
-                fetchUserLogin={props.fetchUserLogin}
-            />
+            <LoginDialog open={dialogOpen} closeDialog={closeLoginDialog} fetchUserLogin={props.fetchUserLogin} />
         </>
     )
 }

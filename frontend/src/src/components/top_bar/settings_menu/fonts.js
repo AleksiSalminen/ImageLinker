@@ -1,4 +1,3 @@
-
 const fonts = [
     "AR JULIAN",
     "Arial",
@@ -122,7 +121,7 @@ const fonts = [
     "Microsoft Yi Baiti",
     "MingLiU-ExtB",
     "MingLiU_HKSCS-ExtB",
-    "Minion Pro"
-];
+    "Minion Pro",
+]
 
-export default fonts;
+export default fonts

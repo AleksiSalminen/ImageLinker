@@ -1,97 +1,108 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import Dialog from '@mui/material/Dialog';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-
+import React, { useState } from "react"
+import { useTranslation } from "react-i18next"
+import Dialog from "@mui/material/Dialog"
+import Radio from "@mui/material/Radio"
+import RadioGroup from "@mui/material/RadioGroup"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import FormControl from "@mui/material/FormControl"
+import FormLabel from "@mui/material/FormLabel"
 
 /**
  * Function that returns the sorting dialog for the slides table
  * @param {Object} props received parameters
  */
 function SlidesTableSortDialog(props) {
-    const { t } = useTranslation();
+    const { t } = useTranslation()
 
-    const OLDEST_FIRST = "oldest";
-    const NEWEST_FIRST = "newest";
-    const ALPHABET_ASC = "alphabet asc";
-    const ALPHABET_DESC = "alphabet desc";
+    const OLDEST_FIRST = "oldest"
+    const NEWEST_FIRST = "newest"
+    const ALPHABET_ASC = "alphabet asc"
+    const ALPHABET_DESC = "alphabet desc"
 
-    const [sortValue, setSortValue] = useState(OLDEST_FIRST);
-
+    const [sortValue, setSortValue] = useState(OLDEST_FIRST)
 
     /** Function that sorts the slides from oldest to newest */
     const sortOldestFirst = (slides) => {
-        slides.sort((slide1, slide2) => parseFloat(slide1.id) - parseFloat(slide2.id));
-        const newSlides = JSON.parse(JSON.stringify(slides));
-        return newSlides;
+        slides.sort((slide1, slide2) => parseFloat(slide1.id) - parseFloat(slide2.id))
+        const newSlides = JSON.parse(JSON.stringify(slides))
+        return newSlides
     }
 
     /** Function that sorts the slides from newest to oldest */
     const sortNewestFirst = (slides) => {
-        slides.sort((slide1, slide2) => parseFloat(slide2.id) - parseFloat(slide1.id));
-        const newSlides = JSON.parse(JSON.stringify(slides));
-        return newSlides;
+        slides.sort((slide1, slide2) => parseFloat(slide2.id) - parseFloat(slide1.id))
+        const newSlides = JSON.parse(JSON.stringify(slides))
+        return newSlides
     }
 
     /** Function that sorts the slides to ascending alphabetical order */
     const sortAlphabetAsc = (slides) => {
-        slides.sort((slide1, slide2) => (slide1.heading > slide2.heading ? 1 : -1));
-        const newSlides = JSON.parse(JSON.stringify(slides));
-        return newSlides;
+        slides.sort((slide1, slide2) => (slide1.heading > slide2.heading ? 1 : -1))
+        const newSlides = JSON.parse(JSON.stringify(slides))
+        return newSlides
     }
 
     /** Function that sorts the slides to descending alphabetical order */
     const sortAlphabetDesc = (slides) => {
-        slides.sort((slide1, slide2) => (slide1.heading < slide2.heading ? 1 : -1));
-        const newSlides = JSON.parse(JSON.stringify(slides));
-        return newSlides;
+        slides.sort((slide1, slide2) => (slide1.heading < slide2.heading ? 1 : -1))
+        const newSlides = JSON.parse(JSON.stringify(slides))
+        return newSlides
     }
 
     /** Function that sorts the slides according to the chosen sorting value */
     const sortSlides = (slides, newSortValue) => {
-        let sortedSlides = [];
+        let sortedSlides = []
 
-        if(newSortValue === OLDEST_FIRST) {
-            sortedSlides = sortOldestFirst(slides);
-        }
-        else if(newSortValue === NEWEST_FIRST) {
-            sortedSlides = sortNewestFirst(slides);
-        }
-        else if(newSortValue === ALPHABET_ASC) {
-            sortedSlides = sortAlphabetAsc(slides);
-        }
-        else if(newSortValue === ALPHABET_DESC) {
-            sortedSlides = sortAlphabetDesc(slides);
+        if (newSortValue === OLDEST_FIRST) {
+            sortedSlides = sortOldestFirst(slides)
+        } else if (newSortValue === NEWEST_FIRST) {
+            sortedSlides = sortNewestFirst(slides)
+        } else if (newSortValue === ALPHABET_ASC) {
+            sortedSlides = sortAlphabetAsc(slides)
+        } else if (newSortValue === ALPHABET_DESC) {
+            sortedSlides = sortAlphabetDesc(slides)
         }
 
-        return sortedSlides;
+        return sortedSlides
     }
 
     /** Function that changes the chosen sorting value, sorts and updates the slides */
     const changeSorting = (event) => {
-        const newSortValue = event.target.value;
-        setSortValue(newSortValue);
-        const newSlides = sortSlides(props.slides, newSortValue);
-        props.updateSlides(newSlides);
-    } 
+        const newSortValue = event.target.value
+        setSortValue(newSortValue)
+        const newSlides = sortSlides(props.slides, newSortValue)
+        props.updateSlides(newSlides)
+    }
 
     return (
         <Dialog open={props.open} onClose={props.closeDialog}>
-            <FormControl component="fieldset" style={{margin:"1.0rem"}}>
+            <FormControl component="fieldset" style={{ margin: "1.0rem" }}>
                 <FormLabel component="legend">{t("SlidesTable.Sorting.SortDialogHeader")}</FormLabel>
                 <RadioGroup aria-label="sorting" value={sortValue} onChange={changeSorting}>
-                    <FormControlLabel value={OLDEST_FIRST} control={<Radio color="primary"/>} label={t("SlidesTable.Sorting.OldestFirstOption")}/>
-                    <FormControlLabel value={NEWEST_FIRST} control={<Radio color="primary"/>} label={t("SlidesTable.Sorting.NewestFirstOption")}/>
-                    <FormControlLabel value={ALPHABET_ASC} control={<Radio color="primary"/>} label={t("SlidesTable.Sorting.AlphabetAscOption")}/>
-                    <FormControlLabel value={ALPHABET_DESC} control={<Radio color="primary"/>} label={t("SlidesTable.Sorting.AlphabetDescOption")}/>
+                    <FormControlLabel
+                        value={OLDEST_FIRST}
+                        control={<Radio color="primary" />}
+                        label={t("SlidesTable.Sorting.OldestFirstOption")}
+                    />
+                    <FormControlLabel
+                        value={NEWEST_FIRST}
+                        control={<Radio color="primary" />}
+                        label={t("SlidesTable.Sorting.NewestFirstOption")}
+                    />
+                    <FormControlLabel
+                        value={ALPHABET_ASC}
+                        control={<Radio color="primary" />}
+                        label={t("SlidesTable.Sorting.AlphabetAscOption")}
+                    />
+                    <FormControlLabel
+                        value={ALPHABET_DESC}
+                        control={<Radio color="primary" />}
+                        label={t("SlidesTable.Sorting.AlphabetDescOption")}
+                    />
                 </RadioGroup>
             </FormControl>
         </Dialog>
-    );
+    )
 }
 
-export default SlidesTableSortDialog;
+export default SlidesTableSortDialog

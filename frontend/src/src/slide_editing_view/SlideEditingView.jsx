@@ -1,46 +1,45 @@
-import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
+import React, { useState } from "react"
+import Box from "@mui/material/Box"
+import Grid from "@mui/material/Grid"
 
-import TopBar from './top_bar/TopBar';
-import ImageEditArea from './image_edit_area/ImageEditArea';
-import InfoArea from './info_area/InfoArea';
-import OptionsArea from './options_area/OptionsArea';
-import BottomArea from './bottom_area/BottomArea';
-
+import TopBar from "./top_bar/TopBar"
+import ImageEditArea from "./image_edit_area/ImageEditArea"
+import InfoArea from "./info_area/InfoArea"
+import OptionsArea from "./options_area/OptionsArea"
+import BottomArea from "./bottom_area/BottomArea"
 
 /**
  * Function that returns the slide editing view
  * @param {Object} props received parameters
  */
 function SlideEditingView(props) {
-    const slide = props.selectedSlide;
-    const project = props.selectedProjectInfo.selected;
-    let options = slide.options;
-    
+    const slide = props.selectedSlide
+    const project = props.selectedProjectInfo.selected
+    let options = slide.options
+
     /** Operations history, undo, redo settings */
-    const [undoStack, setUndoStack] = useState([]);
-    const [redoStack, setRedoStack] = useState([]);
-    const [lastOperation, setLastOperation] = useState(null);
-    const [historyLength, setHistoryLength] = useState(50);
+    const [undoStack, setUndoStack] = useState([])
+    const [redoStack, setRedoStack] = useState([])
+    const [lastOperation, setLastOperation] = useState(null)
+    const [historyLength, setHistoryLength] = useState(50)
 
     /** Function that adds an operation to the history stack */
     const addOperation = async (operation, newValue, oldValue) => {
-        setLastOperation({operation: operation, value: newValue});
-        setRedoStack([]);
+        setLastOperation({ operation: operation, value: newValue })
+        setRedoStack([])
 
-        undoStack.push({operation: operation, value: oldValue});
-        while(undoStack.length > historyLength) {
-            undoStack.shift();
+        undoStack.push({ operation: operation, value: oldValue })
+        while (undoStack.length > historyLength) {
+            undoStack.shift()
         }
-        setUndoStack(undoStack);
+        setUndoStack(undoStack)
     }
-    
+
     /** Function that empties the operations history */
     const emptyHistory = async () => {
-        setUndoStack([]);
-        setRedoStack([]);
-        setLastOperation(null);
+        setUndoStack([])
+        setRedoStack([])
+        setLastOperation(null)
     }
 
     /** Operations history settings combined to one object */
@@ -50,9 +49,9 @@ function SlideEditingView(props) {
         redoStack: redoStack,
         setRedoStack: setRedoStack,
         lastOperation: lastOperation,
-        setLastOperation: setLastOperation
+        setLastOperation: setLastOperation,
     }
-    
+
     return (
         <div>
             <TopBar
@@ -63,41 +62,27 @@ function SlideEditingView(props) {
                 interfaceSettings={props.interfaceSettings}
             />
 
-            <Box style={{ margin:"auto", width:"90%" }}>
-                <Grid container spacing={4} style={{ marginTop:"0.5rem" }}>
-                    <Grid item style={{width:"29rem", borderStyle:"hidden ridge hidden hidden", height:"35rem"}}>
-                        <ImageEditArea
-                            info={slide.image}
-                            addOperation={addOperation}
-                        />
+            <Box style={{ margin: "auto", width: "90%" }}>
+                <Grid container spacing={4} style={{ marginTop: "0.5rem" }}>
+                    <Grid item style={{ width: "29rem", borderStyle: "hidden ridge hidden hidden", height: "35rem" }}>
+                        <ImageEditArea info={slide.image} addOperation={addOperation} />
                     </Grid>
 
-                    <Grid item style={{ width:"29rem", borderStyle:"hidden ridge hidden hidden" }}>
-                        <InfoArea
-                            slide={slide}
-                            addOperation={addOperation}
-                        />
+                    <Grid item style={{ width: "29rem", borderStyle: "hidden ridge hidden hidden" }}>
+                        <InfoArea slide={slide} addOperation={addOperation} />
                     </Grid>
 
-                    <Grid item style={{ width:"28rem", height:"32rem", marginLeft:"1rem" }}>
-                        <OptionsArea
-                            addOperation={addOperation}
-                            options={options}
-                            slides={props.slides}
-                        />
+                    <Grid item style={{ width: "28rem", height: "32rem", marginLeft: "1rem" }}>
+                        <OptionsArea addOperation={addOperation} options={options} slides={props.slides} />
                     </Grid>
                 </Grid>
 
-                <Box style={{ marginTop:"1.5rem", borderStyle:"ridge hidden hidden hidden", padding:"0.5rem" }}>
-                    <BottomArea
-                        selectSlide={props.selectSlide}
-                        activeViewSettings={props.activeViewSettings}
-                        emptyHistory={emptyHistory}
-                    />
+                <Box style={{ marginTop: "1.5rem", borderStyle: "ridge hidden hidden hidden", padding: "0.5rem" }}>
+                    <BottomArea selectSlide={props.selectSlide} activeViewSettings={props.activeViewSettings} emptyHistory={emptyHistory} />
                 </Box>
             </Box>
         </div>
-    );
+    )
 }
 
-export default SlideEditingView;
+export default SlideEditingView

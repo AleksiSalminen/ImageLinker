@@ -1,23 +1,21 @@
 {
-	"id": "20200607105943",
-	"name": "Hello project",
-	"start_slide_id": "1",
-	"slides": [
-		{
-			"id": "1",
-			"heading": "Hello",
-			"reverting": "false",
-			"description": "We salute you",
-			"image": {
-				"loc": "./save_files/images/20200607105943/1.jpg",
-				"horiz_pos": "0",
-				"vert_pos": "0",
-				"size": "100",
-				"angle": "0"
-			},
-			"options": [
-				
-			]
-		}
-	]
+    "id": "20200607105943",
+    "name": "Hello project",
+    "start_slide_id": "1",
+    "slides": [
+        {
+            "id": "1",
+            "heading": "Hello",
+            "reverting": "false",
+            "description": "We salute you",
+            "image": {
+                "loc": "./save_files/images/20200607105943/1.jpg",
+                "horiz_pos": "0",
+                "vert_pos": "0",
+                "size": "100",
+                "angle": "0"
+            },
+            "options": []
+        }
+    ]
 }

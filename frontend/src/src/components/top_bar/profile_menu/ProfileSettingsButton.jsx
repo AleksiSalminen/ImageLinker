@@ -27,12 +27,7 @@ function ProfileSettingsButton(props) {
 
     return (
         <>
-            <Button
-                variant="contained"
-                color="primary"
-                style={{ margin: "0.25rem" }}
-                onClick={openProfileSettingsDialog}
-            >
+            <Button variant="contained" color="primary" style={{ margin: "0.25rem" }} onClick={openProfileSettingsDialog}>
                 {t("TopBar.ProfileButton")}
             </Button>
 
