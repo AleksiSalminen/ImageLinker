@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import { useTranslation } from 'react-i18next';
+import React, { useState } from "react"
+import Button from "@mui/material/Button"
+import { useTranslation } from "react-i18next"
 
-import SlidesTableFilterDialog from './SlidesTableFilterDialog';
-
+import SlidesTableFilterDialog from "./SlidesTableFilterDialog"
 
 /**
  * Function that returns the filter button for the slides table
  * @param {Object} props received parameters
  */
 function SlidesTableFilterButton(props) {
-    const { t } = useTranslation();
-    const [dialogOpen, setDialogOpen] = useState(false);
+    const { t } = useTranslation()
+    const [dialogOpen, setDialogOpen] = useState(false)
 
     const openDialog = () => {
-        setDialogOpen(true);
+        setDialogOpen(true)
     }
 
     const closeDialog = () => {
-        setDialogOpen(false);
+        setDialogOpen(false)
     }
 
     return (
@@ -36,7 +35,7 @@ function SlidesTableFilterButton(props) {
                 setFilterDescription={props.setFilterDescription}
             />
         </>
-    );
+    )
 }
 
-export default SlidesTableFilterButton;
+export default SlidesTableFilterButton

@@ -25,7 +25,7 @@ function ProfileSettingsDialog(props) {
     }
 
     const updateInfo = () => {
-        setUserName(props.ownInfo.userName)
+        setUserName(props.ownInfo?.userName)
         setPassword("")
     }
 
@@ -41,11 +41,7 @@ function ProfileSettingsDialog(props) {
     }
 
     return (
-        <Dialog
-            open={props.open}
-            onEnter={updateInfo}
-            style={{ padding: "0.5rem" }}
-        >
+        <Dialog open={props.open} TransitionProps={{ onEntered: () => updateInfo() }} style={{ padding: "0.5rem" }}>
             <Box style={{ padding: "1rem" }}>
                 <Button
                     onClick={() => props.unregister(props.token)}
@@ -57,52 +53,29 @@ function ProfileSettingsDialog(props) {
                     {t("TopBar.ProfileDialog.DialogUnregisterButton")}
                 </Button>
 
-                <Button
-                    onClick={props.logout}
-                    size="small"
-                    variant="outlined"
-                    color="primary"
-                    style={{ marginRight: "2rem" }}
-                >
+                <Button onClick={props.logout} size="small" variant="outlined" color="primary" style={{ marginRight: "2rem" }}>
                     {t("TopBar.ProfileDialog.DialogLogoutButton")}
                 </Button>
 
                 <br />
                 <br />
 
-                <Typography variant="h4">
-                    {t("TopBar.ProfileDialog.DialogTitle")}
-                </Typography>
+                <Typography variant="h4">{t("TopBar.ProfileDialog.DialogTitle")}</Typography>
 
-                <TextField
-                    label={t("TopBar.ProfileDialog.DialogUserName")}
-                    value={userName}
-                    type="text"
-                    onChange={updateUserName}
-                />
+                <TextField label={t("TopBar.ProfileDialog.DialogUserName")} value={userName} type="text" onChange={updateUserName} />
                 <br />
 
-                <TextField
-                    label={t("TopBar.ProfileDialog.DialogPassword")}
-                    value={password}
-                    type="password"
-                    onChange={updatePassword}
-                />
+                <TextField label={t("TopBar.ProfileDialog.DialogPassword")} value={password} type="password" onChange={updatePassword} />
 
                 <Box style={{ marginTop: "1rem" }}>
-                    <Button
-                        onClick={save}
-                        variant="contained"
-                        color="primary"
-                        style={{ marginRight: "2rem" }}
-                    >
+                    <Button onClick={save} variant="contained" color="primary" style={{ marginRight: "2rem" }}>
                         {t("TopBar.ProfileDialog.DialogSaveButton")}
                     </Button>
 
                     <Button
                         onClick={props.closeDialog}
                         variant="contained"
-                        color="default"
+                        //color="default"
                         style={{ marginRight: "2rem" }}
                     >
                         {t("TopBar.ProfileDialog.DialogCancelButton")}

@@ -10,47 +10,49 @@ import TextField from "@mui/material/TextField"
  * Function that returns the option editing dialog
  * @param {Object} props received parameters
  */
-function LoginDialog(props) {
+function RegisterDialog(props) {
     const { t } = useTranslation()
 
     const [userName, setUserName] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const updateUserName = (event) => {
         setUserName(event.target.value)
     }
 
+    const updateEmail = (event) => {
+        setEmail(event.target.value)
+    }
+
     const updatePassword = (event) => {
         setPassword(event.target.value)
     }
 
-    const login = () => {
+    const register = () => {
         const user = {
             userName: userName,
+            email: email,
             password: password,
         }
 
-        props.fetchUserLogin(user).then((error) => {
-            if (error) {
-                const alertMsg = t("TopBar.LoginFailed")
-                alert(alertMsg)
-            }
-        })
+        props.fetchUserRegister(user)
     }
 
     return (
         <Dialog open={props.open} style={{ padding: "0.5rem" }}>
             <Box style={{ padding: "1rem" }}>
-                <Typography variant="h4">{t("TopBar.LoginTitle")}</Typography>
+                <Typography variant="h4">{t("TopBar.RegisterTitle")}</Typography>
 
-                <TextField label={t("TopBar.LoginUserName")} value={userName} type="text" onChange={updateUserName} />
+                <TextField label={t("TopBar.RegisterUserName")} value={userName} type="text" onChange={updateUserName} />
                 <br />
-
-                <TextField label={t("TopBar.LoginPassword")} value={password} type="password" onChange={updatePassword} />
+                <TextField label={"Email"} value={email} type="email" onChange={updateEmail} />
+                <br />
+                <TextField label={t("TopBar.RegisterPassword")} value={password} type="password" onChange={updatePassword} />
 
                 <Box style={{ marginTop: "1rem" }}>
-                    <Button onClick={login} variant="contained" color="primary" style={{ marginRight: "2rem" }}>
-                        {t("TopBar.LoginButton")}
+                    <Button onClick={register} variant="contained" color="primary" style={{ marginRight: "2rem" }}>
+                        {t("TopBar.RegisterButton")}
                     </Button>
 
                     <Button
@@ -67,4 +69,4 @@ function LoginDialog(props) {
     )
 }
 
-export default LoginDialog
+export default RegisterDialog

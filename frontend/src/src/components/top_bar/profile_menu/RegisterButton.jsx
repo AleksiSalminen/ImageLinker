@@ -23,20 +23,11 @@ function RegisterButton(props) {
 
     return (
         <>
-            <Button
-                variant="contained"
-                color="primary"
-                style={{ margin: "0.25rem" }}
-                onClick={openRegisterDialog}
-            >
+            <Button variant="contained" color="primary" style={{ margin: "0.25rem" }} onClick={openRegisterDialog}>
                 {t("TopBar.RegisterButton")}
             </Button>
 
-            <RegisterDialog
-                open={dialogOpen}
-                closeDialog={closeRegisterDialog}
-                fetchUserRegister={props.fetchUserRegister}
-            />
+            <RegisterDialog open={dialogOpen} closeDialog={closeRegisterDialog} fetchUserRegister={props.fetchUserRegister} />
         </>
     )
 }

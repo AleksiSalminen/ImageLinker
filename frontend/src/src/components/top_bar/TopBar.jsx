@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next"
 import Box from "@mui/material/Box"
 import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
-import Button from "@mui/material/Button"
 
 import ProjectTitleArea from "./ProjectTitleArea.jsx"
 import NewProjectButton from "./NewProjectButton.jsx"
@@ -18,7 +17,6 @@ import SettingsMenu from "./settings_menu/SettingsMenu.jsx"
  */
 function TopBar(props) {
     const { t } = useTranslation()
-    const darkState = props.interfaceSettings[0].theme.darkState
 
     if (props.token) {
         return (
@@ -31,11 +29,7 @@ function TopBar(props) {
                             marginTop: "0.5rem",
                         }}
                     >
-                        <img
-                            src={darkState ? "LogoDark.png" : "LogoLight.png"}
-                            alt="Slide Linker logo"
-                            style={{ height: "4.0rem", width: "auto" }}
-                        />
+                        <img alt="Slide Linker logo" style={{ height: "4.0rem", width: "auto" }} />
                     </Box>
 
                     <Box style={{ marginLeft: "0%", padding: "0.5rem" }}>
@@ -54,11 +48,7 @@ function TopBar(props) {
                             padding: "0.5rem",
                         }}
                     >
-                        <NewProjectButton
-                            addProject={props.addProject}
-                            token={props.token}
-                            interfaceSettings={props.interfaceSettings}
-                        />
+                        <NewProjectButton addProject={props.addProject} token={props.token} interfaceSettings={props.interfaceSettings} />
 
                         <OpenProjectButton
                             token={props.token}
@@ -69,10 +59,7 @@ function TopBar(props) {
                             updateSlides={props.updateSlides}
                         />
 
-                        <PlayProjectButton
-                            selectedProject={props.selectedProject}
-                            activeViewSettings={props.activeViewSettings}
-                        />
+                        <PlayProjectButton selectedProject={props.selectedProject} activeViewSettings={props.activeViewSettings} />
 
                         <ProfileMenu
                             fetchUserLogin={props.fetchUserLogin}
@@ -85,9 +72,7 @@ function TopBar(props) {
                             updateOwnInfo={props.updateOwnInfo}
                         />
 
-                        <SettingsMenu
-                            interfaceSettings={props.interfaceSettings}
-                        />
+                        <SettingsMenu interfaceSettings={props.interfaceSettings} />
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -103,11 +88,7 @@ function TopBar(props) {
                             marginTop: "0.5rem",
                         }}
                     >
-                        <img
-                            src={darkState ? "LogoDark.png" : "LogoLight.png"}
-                            alt="Slide Linker logo"
-                            style={{ height: "4.0rem", width: "auto" }}
-                        />
+                        <img alt="Slide Linker logo" style={{ height: "4.0rem", width: "auto" }} />
                     </Box>
 
                     <Box style={{ marginLeft: "0%", padding: "0.5rem" }}>
@@ -137,9 +118,7 @@ function TopBar(props) {
                             updateOwnInfo={props.updateOwnInfo}
                         />
 
-                        <SettingsMenu
-                            interfaceSettings={props.interfaceSettings}
-                        />
+                        <SettingsMenu interfaceSettings={props.interfaceSettings} />
                     </Box>
                 </Toolbar>
             </AppBar>
