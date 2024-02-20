@@ -25,7 +25,7 @@ function ProfileSettingsDialog(props) {
     }
 
     const updateInfo = () => {
-        setUserName(props.ownInfo.userName)
+        setUserName(props.ownInfo?.userName)
         setPassword("")
     }
 

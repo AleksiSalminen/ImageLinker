@@ -26,6 +26,8 @@ function MainEditingView(props) {
                     interfaceSettings={props.interfaceSettings}
                     fetchUserLogin={props.fetchUserLogin}
                     fetchUserRegister={props.fetchUserRegister}
+                    fetchOwnInfo={props.fetchOwnInfo}
+                    logout={props.logout}
                 />
 
                 <br />
@@ -51,6 +53,8 @@ function MainEditingView(props) {
                     interfaceSettings={props.interfaceSettings}
                     fetchUserLogin={props.fetchUserLogin}
                     fetchUserRegister={props.fetchUserRegister}
+                    fetchOwnInfo={props.fetchOwnInfo}
+                    logout={props.logout}
                 />
 
                 <br />
