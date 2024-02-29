@@ -17,6 +17,56 @@ CREATE TABLE user(
    password CHAR(60)
 );
 
+-- Add project table
+CREATE TABLE project (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    start_id INT NOT NULL
+);
+
+-- Add interface table
+CREATE TABLE interface (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    project_id INT NOT NULL,
+    dark_theme BOOLEAN DEFAULT FALSE,
+    font VARCHAR(255),
+    font_size INT,
+    primary_color VARCHAR(255),
+    secondary_color VARCHAR(255),
+    FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE
+);
+
+-- Add slide table
+CREATE TABLE slide (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    project_id INT NOT NULL,
+    heading VARCHAR(255),
+    reverting BOOLEAN DEFAULT FALSE,
+    description TEXT,
+    FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE
+);
+
+-- Add image table
+CREATE TABLE image (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    slide_id INT NOT NULL,
+    loc VARCHAR(255),
+    horiz_pos INT,
+    vert_pos INT,
+    size INT,
+    angle INT,
+    FOREIGN KEY (slide_id) REFERENCES slide(id) ON DELETE CASCADE
+);
+
+-- Add choice table
+CREATE TABLE choice (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    slide_id INT NOT NULL,
+    title VARCHAR(255),
+    endpoint_id INT,
+    FOREIGN KEY (slide_id) REFERENCES slide(id) ON DELETE CASCADE
+);
+
 -- ------------------------ --
 -- ------ TEST DATA ------- --
 -- ------------------------ --
