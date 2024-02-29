@@ -1,12 +1,42 @@
 # Slide Linker
 
-(README to be updated)
-
 Program to create presentations of slides linked to other slides.
 
-Also used this project for one of my programming course's project work.
+## TODO
 
-UPDATE: Now uses Vite instead of Create-React-App. Updated dependencies and code. Some features missing.
+-   Documentation for all parts of the app
+-   Frontend code refactor
+    -   Simply better / more efficient / cleaner code
+    -   Multiple translation files for translations
+    -   Responsive UI
+    -   TypeScript integration
+    -   Better stories / StoryBook config / StoryBook integration
+    -   Creating production builds
+    -   Fully utilizes React Router
+    -   Improved state management (currently a lot of prop drilling)
+    -   Where to store the server address?
+    -   Better Vite config
+    -   Improved scripts
+    -   And so on...
+-   Frontend restart on code update
+-   Backend code refactor
+    -   Simply better / more efficient / cleaner code
+    -   TypeScript integration
+    -   Creating production builds
+    -   How to save the images?
+    -   Improved scripts
+    -   And so on...
+-   Backend server restart on code update
+-   Better Docker config
+-   Better Nginx config?
+-   Implement the missing features
+-   Update README
+-   Better MySQL config
+-   Test data for all database tables
+-   Better linting tools config?
+
+! THE BELOW PART IS OLD DOCUMENTATION, MOSTLY DESCRIBING THE OLD FRONTEND PART !
+! README TO BE UPDATED !
 
 ## Used Tools
 
@@ -34,60 +64,60 @@ content where flexible decision-focused approach is required.
 
 The application has the following main functionality:
 
-- Operations to do to the manipulated data:
+-   Operations to do to the manipulated data:
 
-  o Updating textual and numerical information, for example, changing the heading of the slide
+    o Updating textual and numerical information, for example, changing the heading of the slide
 
-  o Modify the position, size and rotation angle of the slide image
+    o Modify the position, size and rotation angle of the slide image
 
-  o Modify slides’ options
+    o Modify slides’ options
 
-  o Modify individual slides in the project
+    o Modify individual slides in the project
 
-  o Sort and filter the project’s slides in the main editing view
+    o Sort and filter the project’s slides in the main editing view
 
-- Undo and redo:
+-   Undo and redo:
 
-  o Available in the slide editing view
+    o Available in the slide editing view
 
-- Settings, where the interface parameters can be adjusted:
+-   Settings, where the interface parameters can be adjusted:
 
-  o Light/dark mode
+    o Light/dark mode
 
-  o Changing the language (Finnish/English)
+    o Changing the language (Finnish/English)
 
-  o Changing the primary and secondary colors of the interface
+    o Changing the primary and secondary colors of the interface
 
-  o Changing the font used in the application
+    o Changing the font used in the application
 
-  o Changing the font size used in the application
+    o Changing the font size used in the application
 
-- Keyboard shortcuts, keyboard navigation:
+-   Keyboard shortcuts, keyboard navigation:
 
-  o TAB-key to switch active element in the interface
+    o TAB-key to switch active element in the interface
 
-  o ENTER-key to activate the active element (if possible)
+    o ENTER-key to activate the active element (if possible)
 
-  o In the slide editing view:
-  Ctrl+Z to undo, Ctrl+Y to redo, Ctrl+S to save, Ctrl+D to delete, Ctrl+C to cancel
+    o In the slide editing view:
+    Ctrl+Z to undo, Ctrl+Y to redo, Ctrl+S to save, Ctrl+D to delete, Ctrl+C to cancel
 
-- A structural component:
+-   A structural component:
 
-  o Slides table in the main editing view, showcasing the project slides
+    o Slides table in the main editing view, showcasing the project slides
 
 In addition, it has the following features:
 
-- Loading a file:
+-   Loading a file:
 
-  o The user can load project files and image files
+    o The user can load project files and image files
 
-- Internationalization:
+-   Internationalization:
 
-  o Two languages (Finnish/English) to choose for the interface
+    o Two languages (Finnish/English) to choose for the interface
 
-- Drag and drop:
+-   Drag and drop:
 
-  o The user can drag-n-drop an image to the image field in the slide editing view
+    o The user can drag-n-drop an image to the image field in the slide editing view
 
 Unfortunately, due to the limitations of client-side JavaScript, creating, saving and deleting files has not been implemented.
 
@@ -98,11 +128,11 @@ Awkwardly, this is why some of the buttons in the interface don’t do anything.
 
 The user interface consists of four views:
 
-- The welcome view is the view shown to the user when the user first enters the application site.
-- The main editing view is where an overview of the open project can be examined.
-- The slide editing view consists of all the settings available for an individual slide. To get here, a slide has to be chosen in the main editing view.
+-   The welcome view is the view shown to the user when the user first enters the application site.
+-   The main editing view is where an overview of the open project can be examined.
+-   The slide editing view consists of all the settings available for an individual slide. To get here, a slide has to be chosen in the main editing view.
 
-- The presentation view offers the presentation of the project. This view is where the actual project can be used and tested.
+-   The presentation view offers the presentation of the project. This view is where the actual project can be used and tested.
 
 ## Software Structure
 
@@ -124,10 +154,10 @@ Redux store’s state and actions are mapped to interface components in the file
 
 Redux store implementation is found in folder /src/state
 
-- The action type definitions are found in file /src/state/action_types/projectsTypes.js
-- The action definitions are found in file /src/state/actions/projectsActions.js
-- The project reducers are found in file /src/state/reducers/projectsReducers.js
-- The store’s root reducer is found in file /src/state/reducers/mainReducers.js
+-   The action type definitions are found in file /src/state/action_types/projectsTypes.js
+-   The action definitions are found in file /src/state/actions/projectsActions.js
+-   The project reducers are found in file /src/state/reducers/projectsReducers.js
+-   The store’s root reducer is found in file /src/state/reducers/mainReducers.js
 
 State (reducers’) structure:
 
